@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.sinc.ssgfun.fun.lotto.service.LottoService;
 import com.sinc.ssgfun.user.service.UserService;
 import com.sinc.ssgfun.vo.AttendVO;
+import com.sinc.ssgfun.vo.LottoVO;
 import com.sinc.ssgfun.vo.UserVO;
 
 @Controller
@@ -39,7 +40,10 @@ public class LottoCtrl {
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 		AttendVO attInfo = userService.attInfo(loginUser);
+		List<LottoVO> myLotto = lottoService.getMyLotto(loginUser);
+		
 		model.addAttribute("attInfo", attInfo);
+		model.addAttribute("myLotto", myLotto);
 		
 		return "fun/lotto";
 	}
@@ -63,21 +67,32 @@ public class LottoCtrl {
 
 	@RequestMapping("/buyLotto.fun")
 	@ResponseBody
-	public String buyLotto(String lottoNum) {
+	public List<LottoVO> buyLotto(HttpSession session, String lottoNum, String gno) {
 		logger.info("LottoCtrl buyLotto");
+
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 		
 		String[] nums = lottoNum.split(" ");
 		
+		LottoVO lotto = new LottoVO();
+		lotto.setUlnum1(Integer.parseInt(nums[0]));
+		lotto.setUlnum2(Integer.parseInt(nums[1]));
+		lotto.setUlnum3(Integer.parseInt(nums[2]));
+		lotto.setUlnum4(Integer.parseInt(nums[3]));
+		lotto.setUlnum5(Integer.parseInt(nums[4]));
+		lotto.setUlnum6(Integer.parseInt(nums[5]));
+
+		lotto.setUlname(gno + "È¸Â÷");
+		lotto.setUno(loginUser.getUno());
 		
-		for(String num : nums) {
-			
+		int result = lottoService.buyLotto(lotto);
+		
+		List<LottoVO> myLotto = new ArrayList<LottoVO>();
+		if(result == 1) {
+			myLotto = lottoService.getMyLotto(loginUser);
 		}
-		int result = 1;
-//		int result = lottoService.buyLotto();
 		
-		System.out.println("NUM >>>>>>>>>>>>>>>>>> " + lottoNum);
-		
-		return result + "";
+		return myLotto;
 	}
 	
 }

@@ -12,6 +12,7 @@ public class LottoVO {
 	private String regdate;
 	private String moddate;
 	private String uno;
+	
 	public LottoVO() {
 		super();
 		// TODO Auto-generated constructor stub

@@ -19,10 +19,12 @@
  	</select>
  	
  	<update id="attCheck" parameterType="com.sinc.ssgfun.vo.UserVO" >
-	 	UPDATE	T_EVENT_ATT
-		SET		EACNT = EACNT + 1
+		UPDATE	T_EVENT_ATT
+		SET		EACNT = EACNT + 1,
+				REGDATE = DEFAULT,
+				EAATTCNT = EAATTCNT + 1
 		WHERE	UNO = #{uno}
-		AND		TO_CHAR(REGDATE, 'DD') != TO_CHAR(SYSDATE, 'DD')
+		AND		TO_CHAR(REGDATE, 'MM/DD') != TO_CHAR(SYSDATE, 'MM/DD')
  	</update>
  	
 </mapper>  
