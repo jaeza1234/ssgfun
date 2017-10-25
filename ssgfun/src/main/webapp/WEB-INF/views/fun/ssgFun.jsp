@@ -11,7 +11,7 @@
 
 <a href="#" >쓱겜</a>
 <a href="" >로또</a>
-<a href="#" >오늘의 운</a>
+<a href="/luck/main.fun" >오늘의 운세</a>
 
 </body>
 </html>

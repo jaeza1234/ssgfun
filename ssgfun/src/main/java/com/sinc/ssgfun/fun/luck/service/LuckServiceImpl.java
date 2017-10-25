@@ -25,15 +25,19 @@ public class LuckServiceImpl implements LuckService {
 		System.out.println("LuckServiceImpl luckCheck");
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
+		///그 동물에 대한 운세를 맴에 심는다.
 		resultMap.put("msg", luckDao.luckCheckRow(animal));
 		
+		//운세 총조회수 1 올리고 이 사용자가 당첨 됐느지 확인
 		int result = luckDao.freeResult();
-		//
+		
+		//당첨되면 열매 추가
 		if (result==0) {
-			
+			System.out.println("당첨 됐어요!!");
+			luckDao.plusChance(loginUser);
 		}
 		//결과에 따라 열매 변경해야 됨.
-		resultMap.put("result", luckDao.freeResult());
+		resultMap.put("result", result);
 		
 		return resultMap;
 	}
