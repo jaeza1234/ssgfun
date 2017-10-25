@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.sinc.ssgfun.user.sql.UserDao;
+import com.sinc.ssgfun.vo.UserVO;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -15,4 +16,11 @@ public class UserServiceImpl implements UserService {
 	
 	@Resource(name="userDao")
 	private UserDao userDao;
+
+	@Override
+	public int attCheck(UserVO loginUser) {
+		logger.info("UserServiceImpl attCheck");
+		
+		return userDao.attCheck(loginUser);
+	}
 }

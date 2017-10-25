@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sinc.ssgfun.fun.luck.sql.LuckDao;
 
 @Service("luckService")
-public class LuckServiceImpl {
+public class LuckServiceImpl implements LuckService {
 
 	private static final Logger logger = LoggerFactory.getLogger(LuckServiceImpl.class);
 

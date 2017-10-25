@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.sinc.ssgfun.vo.UserVO;
+
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
 	
@@ -15,4 +17,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Resource(name="sqlSession")
 	private SqlSession session;
+
+	@Override
+	public int attCheck(UserVO loginUser) {
+		logger.info("UserDaoImpl attCheck");
+	
+		return session.insert(USERPREFIX + "attCheck", loginUser);
+	}
 }
