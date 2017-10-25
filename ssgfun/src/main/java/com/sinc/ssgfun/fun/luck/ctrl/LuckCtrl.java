@@ -9,9 +9,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sinc.ssgfun.fun.luck.service.LuckService;
+import com.sinc.ssgfun.user.service.UserService;
+import com.sinc.ssgfun.vo.AttendVO;
 import com.sinc.ssgfun.vo.UserVO;
 
 @Controller
@@ -22,24 +25,46 @@ public class LuckCtrl {
 	
 	@Resource(name="luckService")
 	private LuckService luckService;
+	@Resource(name="userService")
+	private UserService userService;
+	Map<String, Object> resultMap = new HashMap<String, Object>();
 	
 	@RequestMapping("/main.fun")
-	public String main(HttpSession session, String animal) {
+	public String main(HttpSession session, Model model, String animal) {
 		logger.info("LuckCtrl main");
+		System.out.println("세션 뭐냐");
+		System.out.println(session.getAttribute("msg"));
+		if (session.getAttribute("msg")==null) {
+			session.setAttribute("msg", "확인하려는 띠의 동물을 선택하세요.");
+			
+		}
+		resultMap.put("result", 1);
+		model.addAttribute("resultMap", resultMap);
+		
+		return "fun/luck";
+	}
+	
+	@RequestMapping("/check.fun")
+	public String check(HttpSession session, Model model, String animal) {
+		logger.info("LuckCtrl check");
 		System.out.println(animal);
 		
-		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		String msg = null;
+		
 		if (animal!=null) {
 			System.out.println("애니멀 널 아니래");
 			resultMap = luckService.luckCheck(loginUser, animal);
+			session.setAttribute("msg", resultMap.get("msg"));
 		}
 		
-		System.out.println(resultMap.get("msg"));
+		AttendVO attInfo = userService.attInfo(loginUser);
+		model.addAttribute("attInfo", attInfo);
+		model.addAttribute("resultMap", resultMap);
 		
 		
-		return "luck";
+		
+		return "fun/luck";
 	}
 	
 	

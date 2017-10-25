@@ -6,5 +6,6 @@ public interface LuckDao {
 	
 	public String luckCheckRow(String animal);
 	public int	freeResult();
+	public int plusChance(UserVO loginUser);
 
 }

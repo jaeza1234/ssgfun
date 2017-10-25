@@ -7,15 +7,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script type=”text/javascript” src=”/path/to/jquery.js”></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
-	 $( document ).ready(function() {
-		 alert('${msg}');
-	     /* if ( ${msg}!=null ) {
-	    		 $("#txt").value=$("msg");
-	         } */
+ 	  $(document).ready(function() {
+ 		  
+ 		  /*결과 가져와서 뿌려야 함. resultMap.result==0 이면 축하 안내창 띄워야 함  */
+		 
+		 var msg = ${resultMap.result}; 
+		 if (msg==0) {
+			alert('축 당첨 열매 1개 지급!!');
+		}
+	    /* if ( msg!=null ) {
+	    	 alert(msg);
+	    	 $("#txt").val(${resultMap.msg});
+         }  */
+         
+         //
+         //
 	         
-	}); 
+	});   
 
 	var mouse = '인정받으려 아는 체 했다가 이용당할 수도 있습니다. 때로는 침묵이 편안함을 줍니다. 만약 다른 사람들에게 미팅이나 회의를 주선한다면 자기 일처럼 성심성의 것 진행시켜 주는 것이 유리하다. 당신도 조만간 당사자가 될 수있기 때문이다. 외부 거래처의 상대방 말에 따라 세심한 표정관리를 해야 하는 경우도 있겠다.'
 		+'\n36년생다른 날에 비해서 컨디션이 안 좋을 수도 있다. 간단한 운동으로 회복하는 것이 좋다.\n'
@@ -40,7 +50,7 @@
 	var dog = '';
 	var pig = '';
 	
-	var txtArea = document.getElementById("txt");
+
 	
 	function aa(animal){
 		alert('전송');
@@ -76,9 +86,10 @@
 	}
 </script>
 </head>
-<form action="/luck/main.fun" method="post" id="animalForm">
+<form action="/luck/check.fun" method="post" id="animalForm">
 	<input type="hidden" name="animal" id='animal'>
 </form>
+열매 ${attInfo.eacnt}개~~~!!!
 <body>
 <input type="button" value="쥐" onclick="aa('mouse')">
 <input type="button" value="소" onclick="aa('caw')">
@@ -94,7 +105,7 @@
 <input type="button" value="돼지" onclick="aa('pig')">
 <p>
 
-<textarea readonly="readonly" id='txt' cols="100" rows="10" lang="20">띠를 선택하세요.</textarea>
+<textarea readonly="readonly" id='txt' cols="100" rows="10" lang="20"> ${msg}</textarea>
 
 </body>
 </html>

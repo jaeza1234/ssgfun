@@ -19,5 +19,11 @@
  		WHERE NAME = 'cnt'
  	</select>
  	
+ 	 <update id="plusChance" parameterType="com.sinc.ssgfun.vo.UserVO" >
+	 	UPDATE	T_EVENT_ATT
+		SET		EACNT = EACNT + 1
+		WHERE	UNO = #{uno}
+ 	</update>
+ 	
 </mapper>  
 
