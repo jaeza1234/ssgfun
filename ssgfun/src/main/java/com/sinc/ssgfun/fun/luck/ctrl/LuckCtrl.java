@@ -32,8 +32,11 @@ public class LuckCtrl {
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		String msg = null;
 		if (animal!=null) {
+			System.out.println("애니멀 널 아니래");
 			resultMap = luckService.luckCheck(loginUser, animal);
 		}
+		
+		System.out.println(resultMap.get("msg"));
 		
 		
 		return "luck";

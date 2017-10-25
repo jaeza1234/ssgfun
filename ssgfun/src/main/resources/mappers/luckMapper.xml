@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.sinc.ssgfun.mapper.luck">
+ 	<select id="luckCheck" parameterType="String" resultType="String">
+ 		SELECT MSG FROM T_LUCK 
+ 		WHERE NAME = #{animal}
+ 	</select>
+ 	
+ 	<update id="cntPlus">
+ 		UPDATE T_LUCK SET CNT = CNT+1 
+ 		WHERE NAME = 'cnt'
+ 	</update>
+ 	
+ 	<select id="getCnt" resultType="int">
+ 		SELECT CNT FROM T_LUCK
+ 		WHERE NAME = 'cnt'
+ 	</select>
+ 	
+</mapper>  
+

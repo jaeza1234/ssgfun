@@ -1,5 +1,6 @@
 package com.sinc.ssgfun.fun.luck.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -22,6 +23,18 @@ public class LuckServiceImpl implements LuckService {
 	@Override
 	public Map<String, Object> luckCheck(UserVO loginUser, String animal) {
 		System.out.println("LuckServiceImpl luckCheck");
-		return null;
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		resultMap.put("msg", luckDao.luckCheckRow(animal));
+		
+		int result = luckDao.freeResult();
+		//
+		if (result==0) {
+			
+		}
+		//결과에 따라 열매 변경해야 됨.
+		resultMap.put("result", luckDao.freeResult());
+		
+		return resultMap;
 	}
 }
