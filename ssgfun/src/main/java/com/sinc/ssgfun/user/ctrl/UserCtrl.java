@@ -34,6 +34,7 @@ public class UserCtrl {
 		logger.info("UserCtrl attCheck");
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		System.out.println("loginUser >>>>>>>>>>>>>>>>> " + loginUser.toString());
 		int result = userService.attCheck(loginUser);
 		
 		return result + "";

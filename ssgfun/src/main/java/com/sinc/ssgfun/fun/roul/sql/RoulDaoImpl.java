@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 public class RoulDaoImpl implements RoulDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(RoulDaoImpl.class);
-	private static final String ROULPREFIX = "com.sinc.careerup.mapper.roul.";
+	private static final String ROULPREFIX = "com.sinc.ssgfun.mapper.roul.";
 	
 	@Resource(name="sqlSession")
 	private SqlSession session;

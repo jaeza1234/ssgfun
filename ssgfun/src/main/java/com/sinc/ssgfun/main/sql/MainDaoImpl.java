@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class MainDaoImpl implements MainDao {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MainDaoImpl.class);
-	private static final String MAINPREFIX = "com.sinc.careerup.mapper.main.";
+	private static final String MAINPREFIX = "com.sinc.ssgfun.mapper.main.";
 
 	@Resource(name="sqlSession")
 	private SqlSession session;

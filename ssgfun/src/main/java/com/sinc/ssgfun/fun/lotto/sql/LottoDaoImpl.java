@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class LottoDaoImpl implements LottoDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(LottoDaoImpl.class);
-	private static final String LOTTOPREFIX = "com.sinc.careerup.mapper.lotto.";
+	private static final String LOTTOPREFIX = "com.sinc.ssgfun.mapper.lotto.";
 	
 	@Resource(name="sqlSession")
 	private SqlSession session;

@@ -8,5 +8,7 @@
 </head>
 <body>
 	메인입니다.
+	
+	<a href="/user/att.fun" >출석체크</a>
 </body>
 </html>

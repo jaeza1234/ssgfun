@@ -13,7 +13,7 @@ import com.sinc.ssgfun.vo.UserVO;
 public class UserDaoImpl implements UserDao {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
-	private static final String USERPREFIX = "com.sinc.careerup.mapper.user.";
+	private static final String ATTPREFIX = "com.sinc.ssgfun.mapper.att.";
 
 	@Resource(name="sqlSession")
 	private SqlSession session;
@@ -22,6 +22,6 @@ public class UserDaoImpl implements UserDao {
 	public int attCheck(UserVO loginUser) {
 		logger.info("UserDaoImpl attCheck");
 	
-		return session.insert(USERPREFIX + "attCheck", loginUser);
+		return session.update(ATTPREFIX + "attCheck", loginUser);
 	}
 }
