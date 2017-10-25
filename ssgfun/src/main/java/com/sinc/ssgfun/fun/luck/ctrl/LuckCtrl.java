@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.ssgfun.fun.luck.service.LuckService;
 import com.sinc.ssgfun.user.service.UserService;
@@ -45,7 +47,8 @@ public class LuckCtrl {
 	}
 	
 	@RequestMapping("/check.fun")
-	public String check(HttpSession session, Model model, String animal) {
+	@ResponseBody
+	public Map<String, Object> check(HttpSession session, Model model,String animal) {
 		logger.info("LuckCtrl check");
 		System.out.println(animal);
 		
@@ -58,13 +61,13 @@ public class LuckCtrl {
 			session.setAttribute("msg", resultMap.get("msg"));
 		}
 		
-		AttendVO attInfo = userService.attInfo(loginUser);
-		model.addAttribute("attInfo", attInfo);
-		model.addAttribute("resultMap", resultMap);
+		//AttendVO attInfo = userService.attInfo(loginUser);
+		//model.addAttribute("attInfo", attInfo);
+		//model.addAttribute("resultMap", resultMap);
 		
 		
 		
-		return "fun/luck";
+		return resultMap;
 	}
 	
 	
