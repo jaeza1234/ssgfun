@@ -8,7 +8,9 @@
 </head>
 <body>
 	메인입니다.
+	<br><br>
+	<a href="/user/att.fun" >출석체크</a> <br><br>
+	<a href="ssgFun.fun" >FUNFUN한 재미</a>
 	
-	<a href="/user/att.fun" >출석체크</a>
 </body>
 </html>
