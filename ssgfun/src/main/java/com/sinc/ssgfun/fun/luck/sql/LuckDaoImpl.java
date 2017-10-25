@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 public class LuckDaoImpl implements LuckDao {
 
 	private static final Logger logger = LoggerFactory.getLogger(LuckDaoImpl.class);
-	private static final String LUCKPREFIX = "com.sinc.careerup.mapper.luck.";
+	private static final String LUCKPREFIX = "com.sinc.ssgfun.mapper.luck.";
 	
 	@Resource(name="sqlSession")
 	private SqlSession session;
