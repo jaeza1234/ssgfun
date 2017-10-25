@@ -6,10 +6,24 @@
 <mapper namespace="com.sinc.ssgfun.mapper.att">
  	<!-- SQL -->
  	
- 	<update id="attCheck" parameterType="com.sinc.ssgfun.vo.UserVO">
+ 	<select id="attInfo" parameterType="com.sinc.ssgfun.vo.UserVO" resultType="com.sinc.ssgfun.vo.AttendVO">
+ 		SELECT	EANO,
+ 				EACNT,
+ 				EAATTCNT,
+ 				EAHISTDATE,
+ 				REGDATE,
+ 				MODDATE,
+ 				UNO
+ 		FROM	T_EVENT_ATT
+ 		WHERE	UNO = #{uno}
+ 	</select>
+ 	
+ 	<update id="attCheck" parameterType="com.sinc.ssgfun.vo.UserVO" >
 	 	UPDATE	T_EVENT_ATT
 		SET		EACNT = EACNT + 1
 		WHERE	UNO = #{uno}
+		AND		TO_CHAR(REGDATE, 'DD') != TO_CHAR(SYSDATE, 'DD')
  	</update>
+ 	
 </mapper>  
 

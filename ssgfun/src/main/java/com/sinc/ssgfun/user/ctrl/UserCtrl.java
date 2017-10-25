@@ -6,10 +6,12 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.ssgfun.user.service.UserService;
+import com.sinc.ssgfun.vo.AttendVO;
 import com.sinc.ssgfun.vo.UserVO;
 
 @Controller
@@ -22,8 +24,12 @@ public class UserCtrl {
 	private UserService userService;
 	
 	@RequestMapping("/att.fun")
-	public String att(HttpSession session) {
+	public String att(HttpSession session, Model model) {
 		logger.info("UserCtrl att");
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		AttendVO attInfo = userService.attInfo(loginUser);
+		model.addAttribute("attInfo", attInfo);
 		
 		return "att/attend";
 	}

@@ -40,4 +40,11 @@ public class MainCtrl {
 		return "main";
 	}
 	
+	@RequestMapping("/ssgFun.fun")
+	public String ssgFun() {
+		logger.info("MainCtrl ssgFun");
+		
+		return "fun/ssgFun";
+	}
+	
 }

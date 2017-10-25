@@ -27,7 +27,7 @@ $(document).ready(function() {
 </head>
 <body>
 	출석출석
-	<a href="attCheck.fun" >이거 누르면 출석 인정!!</a>
+	열매 ${attInfo.eacnt }개~~~!!!
 	<input type="button" id="attCheck" value="이거 누르면 출석 인정!!" />
 </body>
 </html>
