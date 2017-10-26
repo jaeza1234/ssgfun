@@ -54,9 +54,10 @@
 	}
 </script>
 </head>
-<form action="/luck/check.fun" method="post" id="animalForm">
+<!-- <form action="/luck/check.fun" method="post" id="animalForm">
 	<input type="hidden" name="animal" id='animal'>
-</form>
+</form> -->
+<a href="/ssgFun.fun" >뒤로</a><br><br><br>
 열매 ${attInfo.eacnt}개~~~!!!
 <body>
 <input type="button" value="쥐" onclick="aa('mouse')">

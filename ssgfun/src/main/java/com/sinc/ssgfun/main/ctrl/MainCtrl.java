@@ -29,7 +29,7 @@ public class MainCtrl {
 		
 		loginUser.setUno("p908uz");
 		loginUser.setUpwd("ssg2017");
-		loginUser.setUname("±¹º´µµ");
+		loginUser.setUname("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		loginUser.setUemail("p908uz@shinsegae.com");
 		loginUser.setUphone(01011112222);
 		loginUser.setUaccount("111-1111-1111");
@@ -45,6 +45,20 @@ public class MainCtrl {
 		logger.info("MainCtrl ssgFun");
 		
 		return "fun/ssgFun";
+	}
+	
+	@RequestMapping("/event.fun")
+	public String event() {
+		logger.info("MainCtrl event");
+		
+		return "event/event";
+	}
+	
+	@RequestMapping("/eventDetail.fun")
+	public String eventDetail() {
+		logger.info("MainCtrl event");
+		
+		return "event/eventDetail";
 	}
 	
 }

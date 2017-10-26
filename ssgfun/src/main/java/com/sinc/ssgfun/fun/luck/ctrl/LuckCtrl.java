@@ -43,15 +43,15 @@ public class LuckCtrl {
 		resultMap.put("result", 1);
 		model.addAttribute("resultMap", resultMap);
 		
+		
 		return "fun/luck";
 	}
 	
 	@RequestMapping("/check.fun")
 	@ResponseBody
-	public Map<String, Object> check(HttpSession session, Model model,String animal) {
+	public Map<String, Object> check(HttpSession session, Model model,String animal)  {
 		logger.info("LuckCtrl check");
 		System.out.println(animal);
-		
 		
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
 		
@@ -67,9 +67,45 @@ public class LuckCtrl {
 		
 		
 		
+		
+		
 		return resultMap;
 	}
 	
-	
+	/*오늘의 운세 api 사용
+	 * 
+	 * String url = "https://api.un7.kr/api/v1/day";
+
+	String queryString = "targetYear={TARGET_YEAR}&targetMonth={TARGET_MONTH}&targetDay={TARGET_DAY}"
+	                    + "&birthYear={BIRTH_YEAR}&birthMonth={BIRTH_MONTH}&birthDay={BIRTH_DAY}&birthHour={BIRTH_HOUR}"
+	                    + "&isLunar={IS_LUNAR}"
+	                    + "&api-key={API_KEY}";
+	queryString = queryString.replace("{API_KEY}", "943156c8f56a4c88fad1ba1379e3bf00"); //API KEY
+	queryString = queryString.replace("{TARGET_YEAR}", "2016");          //운세를 보고자 하는 날의 년
+	queryString = queryString.replace("{TARGET_MONTH}", "9");			 //운세를 보고자 하는 날의 월
+	queryString = queryString.replace("{TARGET_DAY}", "15");			 //운세를 보고자 하는 날의 일
+	queryString = queryString.replace("{BIRTH_YEAR}", "1980");			 //생년
+	queryString = queryString.replace("{BIRTH_MONTH}", "6");			 //생월
+	queryString = queryString.replace("{BIRTH_DAY}", "30");				 //생일
+	queryString = queryString.replace("{BIRTH_HOUR}", "12");			 //생시
+	queryString = queryString.replace("{IS_LUNAR}", "false");			 //음력 여부, 양력이면 false로 주세요.
+
+	URL obj = new URL(url + "?" + queryString);
+	HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+	con.setRequestMethod("GET");
+	con.setConnectTimeout(5000);
+	con.setReadTimeout(5000);
+
+	BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+
+	String inputLine;
+	StringBuffer response = new StringBuffer();
+
+	while ((inputLine = in.readLine()) != null) {
+	    response.append(inputLine);
+	}
+	in.close();
+
+	System.out.println(response.toString());*/
 	
 }

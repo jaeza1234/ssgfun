@@ -93,6 +93,7 @@ $(document).ready(function() {
 
 </head>
 <body>
+<a href="/ssgFun.fun" >뒤로</a><br><br><br>
 	<h2>로또!!!</h2>
 	열매 ${attInfo.eacnt }개~~~!!!
 	

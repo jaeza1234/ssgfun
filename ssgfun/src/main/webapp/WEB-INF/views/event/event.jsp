@@ -7,12 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	메인입니다.
-	<br><br>
-	<a href="/user/att.fun" >출석체크</a> <br><br>
-	<a href="ssgFun.fun" >FUNFUN한 재미</a><br><br>
-	<a href="event.fun" >이벤트</a>
-	
-	
+<a href="ssgFun.fun" >뒤로</a><br><br><br>
+이벤트 목록
+	<br><br><a href="eventDetail.fun" >게임 이벤트 소개</a>
 </body>
 </html>
