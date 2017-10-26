@@ -32,4 +32,11 @@ public class UserDaoImpl implements UserDao {
 	
 		return session.update(ATTPREFIX + "attCheck", loginUser);
 	}
+
+	@Override
+	public int play(UserVO loginUser) {
+		logger.info("UserDaoImpl play");
+		
+		return session.update(ATTPREFIX + "play", loginUser);
+	}
 }

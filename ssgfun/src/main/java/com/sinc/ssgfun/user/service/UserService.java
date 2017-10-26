@@ -9,4 +9,6 @@ public interface UserService {
 
 	int attCheck(UserVO loginUser);
 
+	int play(UserVO loginUser);
+
 }

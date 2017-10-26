@@ -26,6 +26,12 @@
 		WHERE	UNO = #{uno}
 		AND		TO_CHAR(REGDATE, 'MM/DD') != TO_CHAR(SYSDATE, 'MM/DD')
  	</update>
+
+ 	<update id="play" parameterType="com.sinc.ssgfun.vo.AttendVO" >
+		UPDATE	T_EVENT_ATT
+		SET		EACNT = EACNT - 1
+		WHERE	UNO = #{uno}
+ 	</update>
  	
 </mapper>  
 

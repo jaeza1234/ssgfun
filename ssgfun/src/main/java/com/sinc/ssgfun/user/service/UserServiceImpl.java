@@ -32,4 +32,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.attCheck(loginUser);
 	}
 
+	@Override
+	public int play(UserVO loginUser) {
+		logger.info("UserServiceImpl play");
+
+		return userDao.play(loginUser);
+	}
+
 }

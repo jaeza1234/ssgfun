@@ -6,9 +6,13 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sinc.ssgfun.main.service.MainService;
+import com.sinc.ssgfun.user.service.UserService;
+import com.sinc.ssgfun.vo.AttendVO;
 import com.sinc.ssgfun.vo.UserVO;
 
 
@@ -20,6 +24,9 @@ public class MainCtrl {
 	
 	@Resource(name="mainService")
 	private MainService mainService;
+	
+	@Resource(name="userService")
+	private UserService userService;
 	
 	@RequestMapping("/main.fun")
 	public String main(HttpSession session) {
@@ -59,6 +66,22 @@ public class MainCtrl {
 		logger.info("MainCtrl event");
 		
 		return "event/eventDetail";
+	}
+
+	@RequestMapping("/play.fun")
+	@ResponseBody
+	public String play(HttpSession session, Model model) {
+		logger.info("MainCtrl play");
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		int result = userService.play(loginUser);
+		
+		AttendVO attInfo = new AttendVO();
+		if(result == 1) {
+			attInfo = userService.attInfo(loginUser);
+		}
+		
+		return attInfo.getEacnt() + "";
 	}
 	
 }
