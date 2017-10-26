@@ -42,7 +42,9 @@ public class LuckCtrl {
 		}
 		resultMap.put("result", 1);
 		model.addAttribute("resultMap", resultMap);
-		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		AttendVO attInfo = userService.attInfo(loginUser);
+		model.addAttribute("attInfo", attInfo);
 		
 		return "fun/luck";
 	}
