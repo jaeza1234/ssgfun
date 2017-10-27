@@ -14,6 +14,7 @@ $(document).ready(function() {
 	var gno = '';
 	var gdate = '';
 	var nums = '';
+	var eacnt = ${attInfo.eacnt};
 	
 	$.ajax({
 		url: 'http://lotto.kaisyu.com/api?method=get',
@@ -39,51 +40,68 @@ $(document).ready(function() {
 	
 	$('#random').click(function() {
 		
-		$.ajax({
-			url: 'randomLotto.fun',
-			type: 'post',
-			dataType: 'json',
-			success: function(data) {
-				
-				var txt = '';
-				$.each(data, function(idx, num) {
-					txt += num + ' ';
-				});
+   		$.ajax({
+   			url: 'randomLotto.fun',
+   			type: 'post',
+   			dataType: 'json',
+   			success: function(data) {
+   				
+   				var txt = '';
+   				$.each(data, function(idx, num) {
+   					txt += num + ' ';
+   				});
 
-				$('#lottoNum').html(txt);
-			}
-		});
+   				$('#lottoNum').html(txt);
+   			}
+   		});
+
 	});
 	
 	$('#buy').click(function() {
 		
 // 		alert('구입' + $('#lottoNum').text());
 		var param = $('#lottoNum').text();
+		
+		if(eacnt > 0) {
+    		$.ajax({
+    			url: '/play.fun',
+    			type: 'post',
+    			dataType: 'json',
+    			success: function(data) {
+    				eacnt = data;
+    				$('#fcnt').html(data);
+    			}
+    		});
+    		
+			$.ajax({
+				url: 'buyLotto.fun',
+				type: 'post',
+				dataType: 'json',
+				data: {'lottoNum': param,
+						'gno': gno},
+				success: function(data) {
+					var txt = '';
+					$.each(data, function(idx, obj) {
+						txt += '<tr>';
+						txt += '<td>' + (idx+1) + '</td>';
+						txt += '<td>' + obj.ulnum1 + '</td>';
+						txt += '<td>' + obj.ulnum2 + '</td>';
+						txt += '<td>' + obj.ulnum3 + '</td>';
+						txt += '<td>' + obj.ulnum4 + '</td>';
+						txt += '<td>' + obj.ulnum5 + '</td>';
+						txt += '<td>' + obj.ulnum6 + '</td>';
+						txt += '<td><input type="button" value="수령" /></td>';
+						txt += '</tr>';
+					});
+					
+					$('#myLotto').html(txt);
+				}
+			});
+			
+    	} else {
+    		alert('열매부족하다');
+    	}
 
-		$.ajax({
-			url: 'buyLotto.fun',
-			type: 'post',
-			dataType: 'json',
-			data: {'lottoNum': param,
-					'gno': gno},
-			success: function(data) {
-				var txt = '';
-				$.each(data, function(idx, obj) {
-					txt += '<tr>';
-					txt += '<td>' + (idx+1) + '</td>';
-					txt += '<td>' + obj.ulnum1 + '</td>';
-					txt += '<td>' + obj.ulnum2 + '</td>';
-					txt += '<td>' + obj.ulnum3 + '</td>';
-					txt += '<td>' + obj.ulnum4 + '</td>';
-					txt += '<td>' + obj.ulnum5 + '</td>';
-					txt += '<td>' + obj.ulnum6 + '</td>';
-					txt += '<td><input type="button" value="수령" /></td>';
-					txt += '</tr>';
-				});
-				
-				$('#myLotto').html(txt);
-			}
-		});
 
 	});
 	
@@ -95,7 +113,7 @@ $(document).ready(function() {
 <body>
 <a href="/ssgFun.fun" >뒤로</a><br><br><br>
 	<h2>로또!!!</h2>
-	열매 ${attInfo.eacnt }개~~~!!!
+		열매 <span id="fcnt">${attInfo.eacnt }</span>개~~~!!!
 	
 	<div id="lottoAPI"></div>
 	

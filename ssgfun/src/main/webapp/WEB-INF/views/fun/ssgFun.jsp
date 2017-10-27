@@ -59,9 +59,9 @@ body {
 <body>
 <h2>SSG FUN</h2>
 
-<a href="/roul/roul.fun" >쓱겜</a><br><br>
-<a href="/lotto/myLotto.fun" >로또</a><br><br>
-<a href="/luck/main.fun" >오늘의 운세</a>
+<!-- <a href="/roul/roul.fun" >쓱겜</a><br><br> -->
+<!-- <a href="/lotto/myLotto.fun" >로또</a><br><br> -->
+<!-- <a href="/luck/main.fun" >오늘의 운세</a> -->
 
 </body>
 </html>
