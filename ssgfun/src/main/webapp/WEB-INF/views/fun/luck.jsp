@@ -7,11 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
-<!-- <form action="/luck/check.fun" method="post" id="animalForm">
-	<input type="hidden" name="animal" id='animal'>
-</form> -->
 <a href="/ssgFun.fun" >뒤로</a><br><br><br>
 열매 ${attInfo.eacnt}개~~~!!!
 <body>
@@ -30,6 +27,8 @@
 <p>
 
 <textarea readonly="readonly" id='txt' cols="100" rows="10" lang="20"> ${msg}</textarea>
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
  	  $(document).ready(function() {
  		  

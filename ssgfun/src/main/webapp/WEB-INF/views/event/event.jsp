@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="ssgFun.fun" >뒤로</a><br><br><br>
+<a href="main.fun" >뒤로</a><br><br><br>
 이벤트 목록
 	<br><br><a href="eventDetail.fun" >게임 이벤트 소개</a>
 </body>

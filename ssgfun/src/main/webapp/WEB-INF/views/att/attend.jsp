@@ -323,8 +323,8 @@ background-color: #da2128;
 			<div class="main-content">
 				<div class="container">
 				
-					<!-- <button  id="attCheck"><img class="water" src="/resources/assets/img/water.png"></button> -->
-					<input type="image" src="/resources/assets/img/water.png" class="water" id="attCheck">
+					<button  id="attCheck" type="button" onfocus="this.blur()"><img class="water" src="/resources/assets/img/water01.png" id="waterImg"></button>
+					<!-- <input type="image" src="/resources/assets/img/water.png" class="water" id="attCheck"> -->
 				  <!-- Plant pot -->
 				  <div class="pot pot-bot">
 				    <div class="shadow"></div>
@@ -370,11 +370,12 @@ background-color: #da2128;
 	<script type="text/javascript">
 		$(document).ready(function() {
 			//initialize the javascript
-			App.init();
+			//App.init();
 			
 			
 			$('#attCheck').click(function() {
 //		 		alert('클릭');
+				$('#waterImg').prop("src","/resources/assets/img/water02.png");
 				
 				$.ajax({
 					url: 'attCheck.fun',
@@ -382,6 +383,7 @@ background-color: #da2128;
 					dataType: 'json',
 					success: function(data) {
 						alert('성공' + data);
+						$('#waterImg').prop("src","/resources/assets/img/water01.png");
 					}
 				});
 			});
