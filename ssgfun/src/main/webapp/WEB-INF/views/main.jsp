@@ -36,8 +36,10 @@
 }
 .funDiv {
 	position: relative;
-	bottom: 70px;
-	left: 200px;
+	bottom: 200px;
+	left: 180px;
+	width: 80px;
+	height: 80px;
 }
 .content {
 	
@@ -47,8 +49,10 @@
 }
 .checkDiv {
 	position: absolute;
-	top: 80px;
-	left: 175px;
+	top: 65px;
+	left: 185px;
+	width: 60px;
+	height: 20px;
 }
 </style>
 </head>
@@ -310,19 +314,17 @@
 		</nav>
 		<div class="am-left-sidebar">
 			<div class="content">
-			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar.jpg">
-			<div class="funDiv">
+			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar02.jpg">
+			
 				<a href="/ssgFun.fun">
-					<i class="fa fa-gamepad fa-2x fun" aria-hidden="true"></i>
-					<br><br>FUN
+					<div class="funDiv">
+					</div>
 				</a>
-			</div>
-			<div class="checkDiv">
+
 				<a href="/user/att.fun">
-					<i class="fa fa-check-circle fa-2x check" aria-hidden="true"></i>
-					&nbsp;출석체크
+					<div class="checkDiv">
+					</div>
 				</a>
-			</div>
 				<!-- <ul class="sidebar-elements">
 					<li class="parent"><a href="#"><i class="icon s7-monitor"></i><span>Home</span></a>
 						<ul class="sub-menu">
