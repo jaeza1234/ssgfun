@@ -11,6 +11,8 @@ public class UserVO {
 	private String regdate;	
 	private String moddate;
 	
+	private String ucname;
+	
 	public UserVO() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -18,8 +20,7 @@ public class UserVO {
 
 	public UserVO(String uno, String upwd, String uname, String uemail,
 			int uphone, String uaccount, int umoney, String regdate,
-			String moddate) {
-		super();
+			String moddate, String ucname) {
 		this.uno = uno;
 		this.upwd = upwd;
 		this.uname = uname;
@@ -29,6 +30,7 @@ public class UserVO {
 		this.umoney = umoney;
 		this.regdate = regdate;
 		this.moddate = moddate;
+		this.ucname = ucname;
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class UserVO {
 		return "UserVO [uno=" + uno + ", upwd=" + upwd + ", uname=" + uname
 				+ ", uemail=" + uemail + ", uphone=" + uphone + ", uaccount="
 				+ uaccount + ", umoney=" + umoney + ", regdate=" + regdate
-				+ ", moddate=" + moddate + "]";
+				+ ", moddate=" + moddate + ", ucname=" + ucname + "]";
 	}
 
 	public String getUno() {
@@ -109,6 +111,14 @@ public class UserVO {
 
 	public void setModdate(String moddate) {
 		this.moddate = moddate;
+	}
+
+	public String getUcname() {
+		return ucname;
+	}
+
+	public void setUcname(String ucname) {
+		this.ucname = ucname;
 	}
 	
 }

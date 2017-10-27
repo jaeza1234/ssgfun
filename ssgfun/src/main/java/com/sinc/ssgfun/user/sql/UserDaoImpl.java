@@ -15,6 +15,7 @@ public class UserDaoImpl implements UserDao {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserDaoImpl.class);
 	private static final String ATTPREFIX = "com.sinc.ssgfun.mapper.att.";
+	private static final String USERREFIX = "com.sinc.ssgfun.mapper.user.";
 
 	@Resource(name="sqlSession")
 	private SqlSession session;
@@ -38,5 +39,19 @@ public class UserDaoImpl implements UserDao {
 		logger.info("UserDaoImpl play");
 		
 		return session.update(ATTPREFIX + "play", loginUser);
+	}
+
+	@Override
+	public int obtainMoney(UserVO loginUser) {
+		logger.info("UserDaoImpl obtainMoney");
+
+		return session.update(USERREFIX + "obtainMoney", loginUser);
+	}
+
+	@Override
+	public int obtainCoupon(UserVO loginUser) {
+		logger.info("UserDaoImpl obtainCoupon");
+
+		return session.insert(USERREFIX + "obtainCoupon", loginUser);
 	}
 }

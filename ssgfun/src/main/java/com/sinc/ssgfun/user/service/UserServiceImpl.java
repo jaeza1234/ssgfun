@@ -39,4 +39,18 @@ public class UserServiceImpl implements UserService {
 		return userDao.play(loginUser);
 	}
 
+	@Override
+	public int obtainMoney(UserVO loginUser) {
+		logger.info("UserServiceImpl obtainMoney");
+
+		return userDao.obtainMoney(loginUser);
+	}
+
+	@Override
+	public int obtainCoupon(UserVO loginUser) {
+		logger.info("UserServiceImpl obtainCoupon");
+
+		return userDao.obtainCoupon(loginUser);
+	}
+
 }

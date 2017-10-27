@@ -11,4 +11,8 @@ public interface UserDao {
 
 	int play(UserVO loginUser);
 
+	int obtainMoney(UserVO loginUser);
+
+	int obtainCoupon(UserVO loginUser);
+
 }
