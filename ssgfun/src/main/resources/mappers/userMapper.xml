@@ -15,7 +15,14 @@
 
  	<update id="obtainCoupon" parameterType="com.sinc.ssgfun.vo.UserVO" >
 		INSERT INTO T_USER_COUPON(UCNO, UCNAME, UCBUYCATE, UCMARKETCATE, REGDATE, MODDATE, UNO)			
-		VALUES(SEQ_USER_COUPON.NEXTVAL, #{ucname}, NULL, NULL, DEFAULT, NULL, #{uno});
+		VALUES(SEQ_USER_COUPON.NEXTVAL, #{ucname}, NULL, NULL, DEFAULT, NULL, #{uno})
+ 	</update>
+ 	
+ 	 	<update id="obtainAtt" parameterType="com.sinc.ssgfun.vo.UserVO" >
+		UPDATE	T_EVENT_ATT
+		SET		EACNT = EACNT + 1,
+				MODDATE = SYSDATE
+		WHERE	UNO = #{uno}
  	</update>
  	
 </mapper>  

@@ -15,4 +15,6 @@ public interface UserService {
 	
 	int obtainCoupon(UserVO loginUser);
 
+	int obtainAtt(UserVO loginUser);
+
 }

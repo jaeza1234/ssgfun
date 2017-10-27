@@ -15,4 +15,6 @@ public interface UserDao {
 
 	int obtainCoupon(UserVO loginUser);
 
+	int obtainAtt(UserVO loginUser);
+
 }

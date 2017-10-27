@@ -53,4 +53,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.obtainCoupon(loginUser);
 	}
 
+	@Override
+	public int obtainAtt(UserVO loginUser) {
+		logger.info("UserServiceImpl obtainAtt");
+
+		return userDao.obtainAtt(loginUser);
+	}
+
 }
