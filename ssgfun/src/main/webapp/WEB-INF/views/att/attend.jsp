@@ -323,8 +323,8 @@ background-color: #da2128;
 			<div class="main-content">
 				<div class="container">
 				
-					<button  id="attCheck" type="button" onfocus="this.blur()"><img class="water" src="/resources/assets/img/water01.png" id="waterImg"></button>
-					<!-- <input type="image" src="/resources/assets/img/water.png" class="water" id="attCheck"> -->
+					<button  id="attCheck" type="button" onfocus="this.onblur()"><img class="water" src="/resources/assets/img/water01.png" id="waterImg"></button>
+					
 				  <!-- Plant pot -->
 				  <div class="pot pot-bot">
 				    <div class="shadow"></div>
@@ -382,7 +382,12 @@ background-color: #da2128;
 					type: 'post',
 					dataType: 'json',
 					success: function(data) {
-						alert('성공' + data);
+						if (data==1) {
+							alert('오늘 출석 성공!!');
+						}else if(data==0){
+							alert('하루 1번만 출석체크!!');
+						};
+						
 						$('#waterImg').prop("src","/resources/assets/img/water01.png");
 					}
 				});

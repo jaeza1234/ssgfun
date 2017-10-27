@@ -32,12 +32,6 @@
 <script type="text/javascript">
  	  $(document).ready(function() {
  		  
- 		  /*결과 가져와서 뿌려야 함. resultMap.result==0 이면 축하 안내창 띄워야 함  */
-	/* 	 
-		 var msg = ${resultMap.result}; 
-		 if (msg==0) {
-			alert('축 당첨 열매 1개 지급!!');
-		} */
 
 	         
 	});   
@@ -51,26 +45,17 @@
 			data: {'animal': animal},
 			dataType: 'json',
 			success: function(data) {
-				//alert(data.result);
+
 				 if(data.result==0){
 					alert('축하합니다. 열매1개 획득!');
 				}
 				
 				$('#txt').val(data.msg);
-				//$('#txt').prop("value",${msg});
-				//change();
-				/* 
-				$('#txt').val(msg); */
-				 /* if (data==0) {
-					alert('축 당첨 열매 1개 지급!!');
-				}  */
-				//
+			
 			}
 		});
 		
-		/* alert('전송');
-		document.getElementById("animal").value=animal;
-		document.getElementById("animalForm").submit(); */
+		
 		
 	}
 </script>

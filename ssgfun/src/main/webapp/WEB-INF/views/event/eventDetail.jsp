@@ -5,9 +5,61 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
+<style type="text/css">
+.am-wrapper>.bgimg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.backpage {
+	position: absolute;
+	top: 120px;
+	left: 10px;
+	width: 150px;
+	height: 150px;
+}
+.goAtt{
+	position: absolute;
+	top: 1750px;
+	left: 100px;
+	width: 80%;
+	height: 120px;
+}
+.goFun{
+	position: absolute;
+	top: 1900px;
+	left: 100px;
+	width: 80%;
+	height: 120px;
+}
+
+</style>
 </head>
 <body>
-<a href="/event.fun" >뒤로</a><br><br><br>
-우리 게임은 어쩌고 저쩌고...
+<div class="am-wrapper">
+		<img class="bgimg" src="/resources/assets/img/bgimg/evDeBg.jpg">
+
+		
+		<a href="/event.fun">
+			<div class="backpage">
+			</div>
+		</a>
+		
+		<a href="/user/att.fun">
+			<div class="goAtt">
+			</div>
+		</a>
+		
+		<a href="/ssgFun.fun">
+			<div class="goFun">
+			</div>
+		</a>
+
+	</div>
+
 </body>
 </html>

@@ -5,10 +5,44 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
+<style type="text/css">
+.am-wrapper>.bgimg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.event {
+	position: absolute;
+	top: 500px;
+	width: 100%;
+	height: 400px;
+}
+.backpage {
+	position: absolute;
+	top: 150px;
+	left: 10px;
+	width: 150px;
+	height: 150px;
+}
+
+</style>
 </head>
 <body>
-<a href="main.fun" >뒤로</a><br><br><br>
-이벤트 목록
-	<br><br><a href="eventDetail.fun" >게임 이벤트 소개</a>
+	<div class="am-wrapper">
+		<img class="bgimg" src="/resources/assets/img/bgimg/eventBg.png">
+		<a href="eventDetail.fun">
+			<div class="event">
+			</div>
+		</a>
+		
+		<a href="main.fun">
+			<div class="backpage">
+			</div>
+		</a>
+
+	</div>
 </body>
 </html>
