@@ -7,6 +7,11 @@ VALUES('p908v2', 'ssg2017', '����ȯ', 'p908v2@shinsegae.com', 0102222333
 INSERT INTO T_USER(UNO, UPWD, UNAME, UEMAIL, UPHONE, UACCOUNT, UMONEY, REGDATE, MODDATE)
 VALUES('p908v3', 'ssg2017', '������', 'p908v3@shinsegae.com', 01044445555, '444-5555-5555', DEFAULT, DEFAULT, NULL);
 
+UPDATE	T_USER
+SET		UMONEY = UMONEY + 100,
+		MODDATE = SYSDATE
+WHERE	UNO = 'p908uz'
+
 SELECT * FROM T_USER;
 
 -- T_EVENT_ATT ---------------------------------------------------------------------------------------------------------------------
@@ -18,8 +23,13 @@ INSERT INTO T_EVENT_ATT(EANO, EACNT, EAATTCNT, EAHISTDATE, REGDATE, MODDATE, UNO
 VALUES(SEQ_EVENT_ATT.NEXTVAL, DEFAULT, DEFAULT, DEFAULT, DEFAULT, NULL, 'p908v3');
 
 UPDATE	T_EVENT_ATT
-SET		EACNT = 8
+SET		EACNT = 20
 WHERE	UNO = 'p908uz'
+
+		UPDATE	T_EVENT_ATT
+		SET		EACNT = EACNT + 1,
+				MODDATE = SYSDATE
+		WHERE	UNO = 'p908uz'
 
 SELECT * FROM T_EVENT_ATT;
 
@@ -32,6 +42,8 @@ SELECT * FROM T_USER_LOTTO;
 -- T_USER_COUPON ---------------------------------------------------------------------------------------------------------------------
 INSERT INTO T_USER_COUPON(UCNO, UCNAME, UCBUYCATE, UCMARKETCATE, REGDATE, MODDATE, UNO)			
 VALUES(SEQ_USER_COUPON.NEXTVAL, '1000������', NULL, NULL, DEFAULT, NULL, 'p908uz');
+
+
 
 SELECT * FROM T_USER_COUPON;
 

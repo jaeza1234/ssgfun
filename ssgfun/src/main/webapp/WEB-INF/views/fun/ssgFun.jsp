@@ -84,7 +84,7 @@ body {
 			</div>
 			<div class="main-content">
 				<div class="game">
-					<a href="game.jsp">쓱- 겜</a>
+					<a href="/roul/roul.fun">쓱- 겜</a>
 				</div>
 				<div class="lotto">
 					<a href="/lotto/myLotto.fun">로또</a>

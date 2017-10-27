@@ -22,14 +22,24 @@
 <img src="../resources/img/niddle.png" id="n_id">
 <br />
 <!-- <input type='button' value='시작' id='start_btn'></input> -->
-<!-- <div id="result_id"></div> -->
-<!-- <div id="result_id2"></div> -->
+<div id="result_id"></div>
+<div id="result_id2"></div>
 <div id="result_id3"></div>
 <script>
 /* serpiko.tistory.com */
 window.onload = function(){
      
-    var pArr = ["0","1","2","3","4:꽝","5","6","7","8","9"];
+//     var pArr = ["0","1","2","3","4:꽝","5","6","7","8","9"];
+    var pArr = ["1",
+                "2",
+                "한번더",
+                "1000원쿠폰",
+                "꽝",
+                "꽝",
+                "1000원쿠폰",
+                "5",
+                "한번더",
+                "꽝"];
  
    	var eacnt = ${attInfo.eacnt};
    	
@@ -68,23 +78,41 @@ window.onload = function(){
  
     function endAnimate($n){
         var n = $n;
-//         $('#result_id').html("<p>움직인각도:" + n + "</p>");
+        $('#result_id').html("<p>움직인각도:" + n + "</p>");
         var real_angle = n%360 +18;
         var part = Math.floor(real_angle/36);
      
-//         $('#result_id2').html("<p>상품범위:" + part + "</p>");
+        $('#result_id2').html("<p>상품범위:" + part + "</p>");
  
         if(part < 1){
-            $('#result_id3').html("<p>당첨내역:" + pArr[0] + "</p>");
+//             $('#result_id3').html("<p>당첨내역:" + pArr[0] + "</p>");
+            $('#result_id3').html("<p>" + pArr[0] + "</p>");
             return;
         }
  
         if(part >= 10){
-            $('#result_id3').html("<p>당첨내역:" + pArr[pArr.length-1] + "</p>");
+//             $('#result_id3').html("<p>당첨내역:" + pArr[pArr.length-1] + "</p>");
+            $('#result_id3').html("<p>" + pArr[pArr.length-1] + "</p>");
             return;
         }
  
-        $('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
+//         $('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
+        $('#result_id3').html("<p>" + pArr[part] + "</p>");
+        
+//         alert($('#result_id3').text());
+        $.ajax({
+			url: '/user/obtain.fun',
+			type: 'post',
+			dataType: 'json',
+			data: {'obtain': $('#result_id3').text()},
+			success: function(data) {
+				console.log(data.eano);
+				if(data.eano != 0) {
+					$('#fcnt').html(data.eacnt);
+				}							
+			}
+		});
+        
     }
  
     function randomize($min, $max){
