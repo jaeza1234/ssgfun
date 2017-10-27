@@ -22,7 +22,7 @@
 }
 .backpage {
 	position: absolute;
-	top: 150px;
+	top: 70px;
 	left: 10px;
 	width: 150px;
 	height: 150px;
@@ -32,7 +32,7 @@
 </head>
 <body>
 	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/bgimg/eventBg.png">
+		<img class="bgimg" src="/resources/assets/img/bgimg/eventBg02.png">
 		<a href="eventDetail.fun">
 			<div class="event">
 			</div>

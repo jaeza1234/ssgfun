@@ -17,7 +17,7 @@
 
 .backpage {
 	position: absolute;
-	top: 120px;
+	top: 40px;
 	left: 10px;
 	width: 150px;
 	height: 150px;
@@ -31,7 +31,7 @@
 }
 .goFun{
 	position: absolute;
-	top: 1900px;
+	top: 1910px;
 	left: 100px;
 	width: 80%;
 	height: 120px;
@@ -41,7 +41,7 @@
 </head>
 <body>
 <div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/bgimg/evDeBg.jpg">
+		<img class="bgimg" src="/resources/assets/img/bgimg/evDeBg02.jpg">
 
 		
 		<a href="/event.fun">
