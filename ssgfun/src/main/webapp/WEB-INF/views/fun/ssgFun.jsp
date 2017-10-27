@@ -38,9 +38,10 @@ body {
 
 .game, .lotto, .luck {
 	width: 100%;
-	height: 200px;
+	height: 140px;
 }
 
+/* 
 .game {
 	background-color: lightcoral;
 }
@@ -50,6 +51,7 @@ body {
 .luck {
 	background-color: gainsboro;;
 }
+*/
 
 .page-head {
 	text-align: center;
@@ -57,8 +59,6 @@ body {
 </style>
 </head>
 <body>
-<h2>SSG FUN</h2>
-
 <!-- <a href="/roul/roul.fun" >쓱겜</a><br><br> -->
 <!-- <a href="/lotto/myLotto.fun" >로또</a><br><br> -->
 <!-- <a href="/luck/main.fun" >오늘의 운세</a> -->
@@ -71,7 +71,7 @@ body {
 				<div class="navbar-header">
 					<a href="index.jsp" class="prev"><i class="fa-2x icon-bar fa fa-arrow-left" aria-hidden="true"></i></a>
 					<div class="page-title">
-						<span>SSG FUN</span>
+						<span><h2><b>SSG FUN</b></h2></span>
 					</div>
 				</div>
 				
@@ -80,17 +80,17 @@ body {
 		
 		<div class="am-content">
 			<div class="page-head">
-				간단한 게임과 함께 즐거운 하루 되세요
+				<b>간단한 게임과 함께 즐거운 하루 되세요</b>
 			</div>
 			<div class="main-content">
 				<div class="game">
-					<a href="/roul/roul.fun">쓱- 겜</a>
+					<a href="/roul/roul.fun"><img alt="" src="/resources/img/funlist_1.png" width="330px" height="130" ></a>
 				</div>
 				<div class="lotto">
-					<a href="/lotto/myLotto.fun">로또</a>
+					<a href="/lotto/myLotto.fun"><img alt="" src="/resources/img/funlist_2.png" width="330px" height="130" ></a>
 				</div>
 				<div class="luck">
-					<a href="/luck/main.fun">오늘의 운세</a>
+					<a href="/luck/main.fun"><img alt="" src="/resources/img/funlist_3.png" width="330px" height="130" ></a>
 				</div>
 			</div>
 		</div>
