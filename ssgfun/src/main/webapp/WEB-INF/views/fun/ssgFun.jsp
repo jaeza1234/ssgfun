@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
@@ -63,8 +63,6 @@ body {
 <!-- <a href="/lotto/myLotto.fun" >로또</a><br><br> -->
 <!-- <a href="/luck/main.fun" >오늘의 운세</a> -->
 
-</body>
-</html>
 	<div class="am-wrapper">
 		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
 			<div class="container-fluid">
@@ -108,4 +106,5 @@ body {
 			//initialize the javascript
 		});
 	</script>
-</body>
+	</body>
+</html>
