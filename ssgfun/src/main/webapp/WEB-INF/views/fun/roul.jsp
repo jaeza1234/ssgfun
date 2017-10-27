@@ -112,7 +112,6 @@ window.onload = function(){
 				}							
 			}
 		});
-        
     }
  
     function randomize($min, $max){
@@ -122,4 +121,3 @@ window.onload = function(){
 </script>
 </body>
 </html>
-
