@@ -107,14 +107,14 @@ window.onload = function(){
 #image{
     margin:50px 50px; 
 	position:absolute;
- 	top: 250px;
+ 	top: 295px;
  	left: 149px;
 	width: 63%;
 }
 
 #n_id{
 	position:absolute;
-	top:250px;
+	top:295px;
 	left:470px;
 	width: 7%;
 }
@@ -126,12 +126,19 @@ window.onload = function(){
 	width: 100%;
 	height: 100%;
 }
+.am-wrapper>.bgheader {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
 .fruit {
 	position: absolute;
-    top: 155px;
+    top: 205px;
     left: 490px;
     width: 100px;
     height: 400px;
+    font-size: 45px;
     z-index: 10000;
 }
 .roulEvent {
@@ -142,25 +149,11 @@ window.onload = function(){
 }
 .roulette_bg {
 	position: absolute;
-	top: 260px;
+	top: 290px;
 	left: 21px;
 }
 #roulette_bg {
 	width: 150%;
-}
-#start_btn {
-	position: absolute;
-	top: 930px;
-	left: 100px;
-}
-#start_btn_img {
-	width: 150%;
-}
-.luckEvent {
-	position: absolute;
-	top: 1162px;
-	width: 100%;
-	height: 25%;
 }
 .backpage {
 	position: absolute;
@@ -191,8 +184,10 @@ window.onload = function(){
 </head>
 <body>
 	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/roul/ssg_game.png">
+		<img class="bgimg" src="/resources/assets/img/roul/ssg_game_long.png">
 
+		<img class="bgheader" src="/resources/assets/img/roul/ssg_header.png">
+	
 		<a href="main.fun">
 			<div class="backpage"></div>
 		</a>
