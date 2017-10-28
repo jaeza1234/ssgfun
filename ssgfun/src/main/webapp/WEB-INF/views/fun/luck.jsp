@@ -7,6 +7,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="/resources/assets/lib/stroke-7/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/assets/lib/jquery.nanoscroller/css/nanoscroller.css" />
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<link rel="stylesheet" href="/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
 .am-wrapper>.bgimg {
@@ -25,7 +34,7 @@
 }
 .fruit {
 	position: absolute;
-    top: 200px;
+    top: 202px;
     left: 480px;
     width: 100px;
     height: 400px;
@@ -146,72 +155,56 @@
 		</a>
 		
 		<div class="fruit">
-			 <h1>${attInfo.eacnt}</h1>
+			<span id="fcnt">${attInfo.eacnt }</span>
 		</div>
 		
-		<div class="mouse" >
-			<img alt="" src="" id="mouse" onclick="unse('mouse')" class="checked">
+		<div class="mouse" onclick="unse('mouse')">
+			<img alt="" src="" id="mouse" class="checked">
 		</div>
-		<div class="caw" >
-			<img alt="" src="" id="caw" onclick="unse('caw')" class="checked">
+		<div class="caw" onclick="unse('caw')">
+			<img alt="" src="" id="caw"  class="checked">
 		</div>
-		<div class="tiger" >
-			<img alt="" src="" id="tiger" onclick="unse('tiger')" class="checked">
+		<div class="tiger" onclick="unse('tiger')">
+			<img alt="" src="" id="tiger"  class="checked">
 		</div>
-		<div class="rabbit" >
-			<img alt="" src="" id="rabbit" onclick="unse('rabbit')" class="checked">
-		</div>
-		
-		<div class="dragon" >
-			<img alt="" src="" id="dragon" onclick="unse('dragon')" class="checked">
-		</div>
-		<div class="snake" >
-			<img alt="" src="" id="snake" onclick="unse('snake')" class="checked">
-		</div>
-		<div class="horse" >
-			<img alt="" src="" id="horse" onclick="unse('horse')" class="checked">
-		</div>
-		<div class="sheep" >
-			<img alt="" src="" id="sheep" onclick="unse('sheep')" class="checked">
+		<div class="rabbit"  onclick="unse('rabbit')" >
+			<img alt="" src="" id="rabbit" class="checked">
 		</div>
 		
-		<div class="monkey" >
-			<img alt="" src="" id="monkey" onclick="unse('monkey')" class="checked">
+		<div class="dragon" onclick="unse('dragon')">
+			<img alt="" src="" id="dragon"  class="checked">
 		</div>
-		<div class="chicken" >
-			<img alt="" src="" id="chicken" onclick="unse('chicken')" class="checked">
+		<div class="snake" onclick="unse('snake')">
+			<img alt="" src="" id="snake"  class="checked">
 		</div>
-		<div class="dog" >
-			<img alt="" src="" id="dog" onclick="unse('dog')" class="checked">
+		<div class="horse" onclick="unse('horse')" >
+			<img alt="" src="" id="horse" class="checked">
 		</div>
-		<div class="pig" >
-			<img alt="" src="" id="pig" onclick="unse('pig')" class="checked">
+		<div class="sheep" onclick="unse('sheep')" >
+			<img alt="" src="" id="sheep" class="checked">
+		</div>
+		
+		<div class="monkey" onclick="unse('monkey')" >
+			<img alt="" src="" id="monkey" class="checked">
+		</div>
+		<div class="chicken" onclick="unse('chicken')">
+			<img alt="" src="" id="chicken"  class="checked">
+		</div>
+		<div class="dog" onclick="unse('dog')">
+			<img alt="" src="" id="dog"  class="checked">
+		</div>
+		<div class="pig" onclick="unse('pig')">
+			<img alt="" src="" id="pig"  class="checked">
 		</div>
 		
 		<div class="textArea">
-			<textarea readonly="readonly" id='txt' cols="55" rows="20"> ${msg}</textarea>
+			<span id="txt">조회하실 띠의 동물을 선택하세요!!!</span>
+		
+			<!-- <textarea readonly="readonly" id='txt' cols="55" rows="20"> 조회하실 띠의 동물을 선택하세요!!!</textarea> -->
 		
 		</div>
 
 	</div>
-
-
-
-
-<input type="button" value="쥐" onclick="unse('mouse')">
-<input type="button" value="소" onclick="unse('caw')">
-<input type="button" value="호랑이" onclick="unse('tiger')">
-<input type="button" value="토끼" onclick="unse('rabbit')">
-<input type="button" value="용" onclick="unse('dragon')">
-<input type="button" value="뱀" onclick="unse('snake')">
-<input type="button" value="말" onclick="unse('horse')">
-<input type="button" value="양" onclick="unse('sheep')">
-<input type="button" value="원숭이" onclick="unse('monkey')">
-<input type="button" value="닭" onclick="unse('chicken')">
-<input type="button" value="개" onclick="unse('dog')">
-<input type="button" value="돼지" onclick="unse('pig')">
-<p>
-
 
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -223,7 +216,6 @@
 	});   
 
 	function unse(animal){
-		alert(animal)
 		/* $('#'+animal+'').prop('src',''); */
 		var anis = [ 'mouse', 'caw', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'chicken', 'dog' , 'pig'];
 		
@@ -237,7 +229,6 @@
 		
 
 		
-		alert("ajax 실행");
 		$.ajax({
 			url: 'check.fun',
 			type: 'post',
@@ -247,9 +238,10 @@
 
 				 if(data.result==0){
 					alert('축하합니다. 열매1개 획득!');
+					$('#fcnt').html(data.eacnt);
 				}
-				 
-				$('#txt').val(data.msg);
+				document.getElementById('txt').innerHTML= data.msg;
+				$('#txt').prop('html',data.msg);
 			
 			}
 		});

@@ -55,3 +55,5 @@ VALUES();
 SELECT * FROM T_BUYINFO;
 
 
+select * from T_EVENT_ATT;
+

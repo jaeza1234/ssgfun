@@ -1,5 +1,8 @@
 package com.sinc.ssgfun.user.ctrl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
@@ -36,14 +39,20 @@ public class UserCtrl {
 	
 	@RequestMapping("/attCheck.fun")
 	@ResponseBody
-	public String attCheck(HttpSession session) {
+	public Map<String, Object> attCheck(HttpSession session) {
 		logger.info("UserCtrl attCheck");
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 		System.out.println("loginUser >>>>>>>>>>>>>>>>> " + loginUser.toString());
-		int result = userService.attCheck(loginUser);
 		
-		return result + "";
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		int result = userService.attCheck(loginUser);
+		resultMap.put("result", result);
+		
+		AttendVO attInfo = userService.attInfo(loginUser);
+		resultMap.put("eacnt", attInfo.getEacnt());
+		return resultMap;
 	}
 
 	@RequestMapping("/obtain.fun")
@@ -59,10 +68,10 @@ public class UserCtrl {
 				|| obtain.equals("7") || obtain.equals("8") || obtain.equals("9")) {
 			loginUser.setUmoney(Integer.parseInt(obtain));
 			attInfo.setEacnt(userService.obtainMoney(loginUser));
-		} else if(obtain.equals("1000¿øÄíÆù")) {
+		} else if(obtain.equals("1000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
 			loginUser.setUcname(obtain);
 			attInfo.setEacnt(userService.obtainCoupon(loginUser));
-		} else if(obtain.equals("ÇÑ¹ø´õ")) {
+		} else if(obtain.equals("ï¿½Ñ¹ï¿½ï¿½ï¿½")) {
 			attInfo.setEacnt(userService.obtainAtt(loginUser));
 			if(attInfo.getEacnt() == 1) {
 				attInfo = userService.attInfo(loginUser);
