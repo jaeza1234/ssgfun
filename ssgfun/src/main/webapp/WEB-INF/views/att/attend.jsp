@@ -45,7 +45,8 @@ body {
 .container {
   width: 140px;
   margin: 280px auto 40px auto;
-  position: relative;
+  position: absolute;
+  left: 140px;
 }
 
 .pot {
@@ -57,7 +58,7 @@ body {
   position: absolute;
 }
 
-.pot-bot {
+/* .pot-bot {
   width: 100px;
   height: 100px;
 }
@@ -76,9 +77,9 @@ body {
   border-left: 0px solid transparent;
 	border-right: 15px solid transparent;	
 	border-top: 100px solid #ee7d15;
-}
+} */
 
-.pot-top {
+/* .pot-top {
   width: 140px;
   height: 25px;
   top: -25px;
@@ -111,7 +112,7 @@ body {
   top: 0;
   margin-left: -62.5px;
 }
-
+ */
 
 .shadow {
   background: rgba(220, 84,0,0.1);
@@ -126,13 +127,14 @@ body {
 
 .plant {
   height: 280px;
-  background: #00c975;
-  width: 8px;
+  background: transparent;
+  width: 6px;
   z-index: -1;
-  bottom: 0;
+  bottom: -30px;
   left: 50%;
   margin-left: -8px;
   border-radius: 16px 16px 0 0;
+  border-color: #C5E2FF;
 }
 
 .plant > div {
@@ -144,7 +146,7 @@ body {
   width: 4px;
   right: 0;
   bottom: 0;
-  background: rgba(60,188,131,0.5);
+  background: transparent;
   border-radius: 0 30px 0 0;
 }
 
@@ -154,18 +156,19 @@ body {
   width: 0px;
   height: 0px;
   border-radius: 100px 0px 100px 0px;
-  background:#3cbc83;
+  background:transparent;
+  border-color: #C5E2FF;
   transform: rotate(-20deg);
 }
 
 .head {
-  width: 50px;
-  height: 50px;
-  left: 50%;
-  top: -15px;
-  margin-left: -25px;
-  border-radius: 50px;
-  background:  #fda342
+width: 20px;
+height: 20px;
+left: 50%;
+top: -55px;
+margin-left: -8px;
+border-radius: 50px;
+background: transparent;
 }
 
 .face {
@@ -190,51 +193,51 @@ li {
 }
 
 li:nth-child(1) {
-top: -26px;
-left: 44px;
-transform: rotate(-6deg);
+top: -19px;
+left: 28px;
+transform: rotate(2deg);
 background-color: #da2128;
 }
 
 li:nth-child(2) {
-top: 17px;
-right: 54px;
-transform: rotate(11deg);
+top: -10px;
+right: 22px;
+transform: rotate(47deg);
 background-color: #da2128;
 }
 
 li:nth-child(3) {
-top: 54px;
-right: 33px;
-transform: rotate(-20deg);
+top: 27px;
+right: 12px;
+transform: rotate(-8deg);
 background-color: #da2128;
 }
 
 li:nth-child(4) {
-top: 21px;
-left: 53px;
-transform: rotate(-138deg);
+top: 18px;
+left: 28px;
+transform: rotate(-126deg);
 background-color: #da2128;
 }
 
 li:nth-child(5) {
-top: 60px;
-left: 22px;
-transform: rotate(-91deg);
+top: 39px;
+left: -2px;
+transform: rotate(-73deg);
 background-color: #da2128;
 }
 
 li:nth-child(6) {
-bottom: 67px;
-left: 1px;
-transform: rotate(-63deg);
+bottom: 33px;
+left: 5px;
+transform: rotate(-34deg);
 background-color: #da2128;
 }
 
 li:nth-child(7) {
-bottom: 49px;
-right: 44px;
-transform: rotate(-116deg);
+bottom: 30px;
+right: 1px;
+transform: rotate(-87deg);
 background-color: #da2128;
 }
 
@@ -259,8 +262,8 @@ background-color: #da2128;
 }
 
 @keyframes grow {
-  from { height : 50px; }
-  to { height : 280px ; }
+  from { height : 175px; }
+  to { height : 175px ; }
 }
 
 @keyframes flower {
@@ -287,25 +290,96 @@ background-color: #da2128;
 	width: 200px;
 	max-width: 100%;
 	text-align: center;
+	z-index: 2000;
+	top: 92px;
+	position: absolute;
+	left: 110px;
 }
 
-.water {
-	width: 150px;
-	height: 150px;
+.sprinkler {
+	width: 100px;
+	height: 100px;
 	position: absolute;
-	left: -92px;
-	top: -342px;
+	left: 15px;
 }
 
 .fruittxt {
 	margin: 0 auto;
 }
 
+.am-wrapper {
+}
+
+.bgimg {
+	z-index: -1;
+	width: 100%;
+	position: absolute;
+	top: 130px;
+}
+
+.bgheader {
+	z-index: 1;
+	width: 100%;
+	position: absolute;
+}
+
+.main-contents {
+	height: 100%;
+	overflow: auto;
+	-webkit-overflow-scrolling: touch;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 185px;
+}
+
+.attrCheck {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	left: 118px;
+	top: -313px;
+}
+
+.waterImg {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	left: -15px;
+	top: 64px;
+	display: none;
+}
+
+.note {
+width: 340px;
+height: auto;
+}
+.noteDiv {
+	position: absolute;	
+	top: 510px;
+	left: 37px;
+}
+.noteTxt {
+	position: absolute;
+	top: 29px;
+	left: 85px;
+	text-align: center;
+}
+
+.strong {
+	color: #da2128;
+}
+.go {
+	position: absolute;
+	width: 340px;
+	padding-top: 20px;
+}
+
 </style>
 </head>
 <body>
 	<div class="am-wrapper">
-		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
+		<!-- <nav class="navbar navbar-default navbar-fixed-top am-top-header">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<a href="javascript:history.back();" class="prev"><i class="fa-2x icon-bar fa fa-arrow-left" aria-hidden="true"></i></a>
@@ -315,15 +389,29 @@ background-color: #da2128;
 				</div>
 				
 			</div>
-		</nav>
-		
-		<div class="am-content">
-			<div class="page-head">
-			</div>
-			<div class="main-content">
+		</nav> -->
+	<div class="back">
+		<a href=""></a>
+	</div>	
+	<div class="am-content">
+	<img class="bgimg" src="../resources/assets/img/attend/attendance_bg.png">
+	<img class="bgheader" src="../resources/assets/img/attend/check_header.png">
+	<div class="textarea">
+		<div class="fruittxt">
+			${attInfo.eacnt }
+		</div>
+		<!-- <br><br>
+		<a href="/ssgFun.fun">열매 사용하러 가기 GO</a> -->
+	</div>
+			<!-- <div class="page-head">
+			</div> -->
+			<div class="main-contents">
 				<div class="container">
 				
-					<button  id="attCheck" type="button" onfocus="this.onblur()"><img class="water" src="/resources/assets/img/water01.png" id="waterImg"></button>
+					<div class="attrCheck" id="attCheck" onfocus="this.onblur()">
+					<img class="sprinkler" src="../resources/assets/img/attend/sprinkler_img.png" id="waterImg">
+					<img class="waterImg" src="../resources/assets/img/attend/water_img.png">
+					</div>
 					
 				  <!-- Plant pot -->
 				  <div class="pot pot-bot">
@@ -349,16 +437,20 @@ background-color: #da2128;
 				    
 				  </div>
 				</div>
-				<div class="textarea">
-					<div class="fruittxt">
-						열매 <img class="fruit" src="/resources/assets/img/Cherry.png"> &nbsp;&nbsp;&nbsp;&nbsp; <span id="fcnt">${attInfo.eacnt }</span>&nbsp;개
-					</div>
-					<br><br>
-					<a href="/ssgFun.fun">열매 사용하러 가기 GO</a>
-				</div>
+				<div class="noteDiv">
+					<img class="note" src="../resources/assets/img/attend/noteArea.png">
+					<span class="noteTxt">
+						하루에 한 번 꽃에 물을 주어<br>
+						열매를 얻을 수 있습니다.<br>
+						<strong class="strong">7개 달성 시 열매 추가 지급!</strong>
+					</span>
+					<a href="/ssgFun.fun">
+						<img class="go" src="../resources/assets/img/attend/go.png">
+					</a>				
+				
 			</div>
 		</div>
-		
+		</div>
 	</div>
 	<script src="/resources/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
 	<script
@@ -373,9 +465,9 @@ background-color: #da2128;
 			//App.init();
 			
 			
-			$('#attCheck').click(function() {
+			$('#attCheck').on("click",function() {
 //		 		alert('클릭');
-				$('#waterImg').prop("src","/resources/assets/img/water02.png");
+				$('.waterImg').css("display","block");
 				
 				$.ajax({
 					url: 'attCheck.fun',
@@ -389,7 +481,7 @@ background-color: #da2128;
 							alert('하루 1번만 출석체크!!');
 						};
 						
-						$('#waterImg').prop("src","/resources/assets/img/water01.png");
+						/* $('.waterImg').css("display", "none"); */
 					}
 				});
 			});
