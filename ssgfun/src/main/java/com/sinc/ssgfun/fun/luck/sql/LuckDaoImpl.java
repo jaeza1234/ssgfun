@@ -32,7 +32,7 @@ public class LuckDaoImpl implements LuckDao {
 		session.update(LUCKPREFIX + "cntPlus");
 		//조회 25명 마다 열매 지급
 		int cnt = session.selectOne(LUCKPREFIX + "getCnt");
-		int result = cnt % 25;
+		int result = cnt % 5;
 		System.out.println("나머지는" + result);
 		
 		return result;

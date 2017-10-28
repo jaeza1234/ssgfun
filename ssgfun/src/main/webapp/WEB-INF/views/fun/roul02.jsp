@@ -3,12 +3,29 @@
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> prototype about roulette </title>
-<link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
+<meta charset="utf-8">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="../resources/js/jQueryRotate.js"></script>
-<script type="text/javascript">
+<style>
+#image{
+  margin:50px 50px;z-index:10;
+}
+#n_id{position:absolute;left:286px;top:75px;z-index:20;}
+</style>
+</head>
+<body>
+
+	열매 <span id="fcnt">${attInfo.eacnt }</span>개~~~!!!
+
+<div id='start_btn'><img src="../resources/img/roulette.png" id="image"></div>
+<img src="../resources/img/niddle.png" id="n_id">
+<br />
+<!-- <input type='button' value='시작' id='start_btn'></input> -->
+<div id="result_id"></div>
+<div id="result_id2"></div>
+<div id="result_id3"></div>
+<script>
 /* serpiko.tistory.com */
 window.onload = function(){
      
@@ -26,7 +43,7 @@ window.onload = function(){
  
    	var eacnt = ${attInfo.eacnt};
    	
-    $('#image').click(function(){
+    $('#start_btn').click(function(){
     	
     	if(eacnt > 0) {
     		$.ajax({
@@ -35,7 +52,7 @@ window.onload = function(){
     			dataType: 'json',
     			success: function(data) {
     				eacnt = data;
-    				$('.fruit').html(data);
+    				$('#fcnt').html(data);
     			}
     		});
     		
@@ -91,7 +108,7 @@ window.onload = function(){
 			success: function(data) {
 				console.log(data.eano);
 				if(data.eano != 0) {
-					$('.fruit').html(data.eacnt);
+					$('#fcnt').html(data.eacnt);
 				}							
 			}
 		});
@@ -102,110 +119,5 @@ window.onload = function(){
     }
 };
 </script>
-
-<style type="text/css">
-#image{
-    margin:50px 50px; 
-	position:absolute;
- 	top: 295px;
- 	left: 149px;
-	width: 63%;
-}
-
-#n_id{
-	position:absolute;
-	top:295px;
-	left:470px;
-	width: 7%;
-}
-
-.am-wrapper>.bgimg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.am-wrapper>.bgheader {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-}
-.fruit {
-	position: absolute;
-    top: 205px;
-    left: 490px;
-    width: 100px;
-    height: 400px;
-    font-size: 45px;
-    z-index: 10000;
-}
-.roulEvent {
-	position: absolute;
- 	top: 344px; 
-	width: 100%;
-	height: 25%;
-}
-.roulette_bg {
-	position: absolute;
-	top: 290px;
-	left: 21px;
-}
-#roulette_bg {
-	width: 150%;
-}
-.backpage {
-	position: absolute;
-	top: 70px;
-	left: 10px;
-	width: 150px;
-	height: 150px;
-}
-#result_id {
-	position: absolute;
-	top: 1100px;
-	left: 180px;
-	font-size: 75px;
-}
-#result_id2 {
-	position: absolute;
-	top: 1200px;
-	left: 180px;
-	font-size: 75px;
-}
-#result_id3 {
-	position: absolute;
-	top: 1300px;
-	left: 180px;
-	font-size: 75px;
-}
-</style>
-</head>
-<body>
-	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/roul/ssg_game_long.png">
-
-		<img class="bgheader" src="/resources/assets/img/roul/ssg_header.png">
-	
-		<a href="javascript:history.back();">
-			<div class="backpage"></div>
-		</a>
-		
-		<div class="fruit">
-			 ${attInfo.eacnt}
-		</div>
-
-		<div class="roulette_bg">
-			<img src="/resources/assets/img/roul/roulette_bg.png" id="roulette_bg">
-		</div>
-		
-		<img src="/resources/assets/img/roul/roulette.png" id="image">
-		<img src="/resources/assets/img/roul/niddle.png" id="n_id">
-		
-		<div id="result_id"></div>
-		<div id="result_id2"></div>
-		<div id="result_id3"></div>
-	</div>
 </body>
 </html>

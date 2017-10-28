@@ -445,6 +445,12 @@ height: auto;
 					<a href="/ssgFun.fun">
 						<img class="go" src="../resources/assets/img/attend/go.png">
 					</a>				
+				<div class="textarea">
+					<div class="fruittxt">
+						열매 <img class="fruit" src="/resources/assets/img/Cherry.png"> &nbsp;&nbsp;&nbsp;&nbsp; <span id="fcnt">${attInfo.eacnt }</span>&nbsp;개
+					</div>
+					<br><br>
+					<a href="/ssgFun.fun">열매 사용하러 가기 GO</a>
 				</div>
 			</div>
 		</div>
@@ -472,9 +478,10 @@ height: auto;
 					type: 'post',
 					dataType: 'json',
 					success: function(data) {
-						if (data==1) {
+						if (data.result==1) {
 							alert('오늘 출석 성공!!');
-						}else if(data==0){
+							$('#fcnt').html(data.eacnt);
+						}else if(data.result==0){
 							alert('하루 1번만 출석체크!!');
 						};
 						

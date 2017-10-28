@@ -36,10 +36,7 @@ public class LuckCtrl {
 		logger.info("LuckCtrl main");
 		System.out.println("세션 뭐냐");
 		System.out.println(session.getAttribute("msg"));
-		if (session.getAttribute("msg")==null) {
-			session.setAttribute("msg", "확인하려는 띠의 동물을 선택하세요.");
-			
-		}
+
 		resultMap.put("result", 1);
 		model.addAttribute("resultMap", resultMap);
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
@@ -56,11 +53,11 @@ public class LuckCtrl {
 		System.out.println(animal);
 		
 		UserVO loginUser = (UserVO)session.getAttribute("loginUser");
-		
+		AttendVO attInfo = userService.attInfo(loginUser);
 		if (animal!=null) {
 			System.out.println("애니멀 널 아니래");
 			resultMap = luckService.luckCheck(loginUser, animal);
-			session.setAttribute("msg", resultMap.get("msg"));
+			resultMap.put("eacnt", attInfo.getEacnt());
 		}
 		
 		//AttendVO attInfo = userService.attInfo(loginUser);

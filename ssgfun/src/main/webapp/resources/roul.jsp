@@ -7,6 +7,16 @@
 <meta charset="utf-8">
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="../resources/js/jQueryRotate.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="/resources/assets/lib/stroke-7/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/assets/lib/jquery.nanoscroller/css/nanoscroller.css" />
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
+<link rel="stylesheet" href="/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 <style>
 #image{
   margin:50px 50px;z-index:10;
@@ -18,8 +28,8 @@
 
 	열매 <span id="fcnt">${attInfo.eacnt }</span>개~~~!!!
 
-<div id='start_btn'><img src="../resources/img/roulette.png" id="image"></div>
-<img src="../resources/img/niddle.png" id="n_id">
+<div id='start_btn'><img src="/resources/assets/img/roul/roulette.png" id="image"></div>
+<img src="/resources/assets/img/roul/niddle.png" id="n_id">
 <br />
 <!-- <input type='button' value='시작' id='start_btn'></input> -->
 <!-- <div id="result_id"></div> -->
