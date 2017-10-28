@@ -47,11 +47,6 @@
 		<img class="bgimg" src="/resources/assets/img/funlist/fun_noneBottom.png">
 		
 		
-		
-<!-- 		<div class="roulEvent"><a href="/roul/roul.fun"></a></div> -->
-<!-- 		<div class="lottoEvent"><a href="/lotto/myLotto.fun"></a></div> -->
-<!-- 		<div class="lottoEvent"><a href="/luck/main.fun"></a></div> -->
-		
 		<a href="/roul/roul.fun">
 			<div class="roulEvent"></div>
 		</a>
@@ -62,11 +57,10 @@
 
 		<a href="/luck/main.fun">
 			<div class="luckEvent"></div>
-<!-- 		</a> -->
+		</a>
 
 		<a href="main.fun">
-			<div class="backpage">
-			</div>
+			<div class="backpage"></div>
 		</a>
 		
 	</div>
