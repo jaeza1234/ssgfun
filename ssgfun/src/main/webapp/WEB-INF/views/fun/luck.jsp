@@ -209,7 +209,7 @@ body {
 			
 			<span id="date"></span>
 			<textarea readonly="readonly" id='txt' cols="28" rows="12">조회하실 동물을 클릭하세요!!</textarea>
-		
+		 
 		</div>
 
 	</div>
