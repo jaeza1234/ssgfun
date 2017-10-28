@@ -16,21 +16,21 @@
 }
 .roulEvent {
 	position: absolute;
-	top: 321px;
+ 	top: 344px; 
 	width: 100%;
-	height: 317px;
+	height: 25%;
 }
 .lottoEvent {
 	position: absolute;
-	top: 650px;
+	top: 752px;
 	width: 100%;
-	height: 317px;
+	height: 25%;
 }
 .luckEvent {
 	position: absolute;
-	top: 980px;
+	top: 1162px;
 	width: 100%;
-	height: 317px;
+	height: 25%;
 }
 .backpage {
 	position: absolute;
@@ -44,7 +44,7 @@
 </head>
 <body>
 	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/funlist/funlist.JPG">
+		<img class="bgimg" src="/resources/assets/img/funlist/fun_noneBottom.png">
 		
 		
 		
