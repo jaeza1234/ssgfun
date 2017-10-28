@@ -18,6 +18,9 @@
 <link rel="stylesheet" href="/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
+body {
+	font-size: 35px;
+}
 .am-wrapper>.bgimg {
 	position: absolute;
 	top: 0;
@@ -34,10 +37,11 @@
 }
 .fruit {
 	position: absolute;
-    top: 202px;
+    top: 205px;
     left: 480px;
     width: 100px;
     height: 400px;
+    font-size: 45px
 }
 .textArea {
 	position: absolute;
@@ -198,8 +202,19 @@
 		</div>
 		
 		<div class="textArea">
-			<span id="txt">조회하실 띠의 동물을 선택하세요!!!</span>
-		
+			<span id="txt">하고 싶은 일이라고 무엇이든 다 할 수는 없는 법. 차분하게 마음을 가다듬고 실속 있는 삶을 찾을 때이다.<br>
+
+36년생재물운이 자신도 모르는 사이에 증가하고 있으니, 이 기회를 놓치지 않는 것이 좋다. <br>
+
+48년생모든 관계의 공통 분모 중에 하나는 예의다. 예의없는 관계는 곧 무너지니 항시 조심 하라. <br>
+
+60년생큰 수익은 아니나 뜻밖의 재물이 들어온다. 횡재수를 위한 발걸음을 재촉하면 더욱 이롭다. <br>
+
+72년생새로운 마음으로 미래를 준비할 기회가 왔으니, 당당히 맞이하자. 기회가 온 것이다. <br>
+
+84년생인생에 노력 없이 대박이란 없다. 노력한 만큼 받는 것이다. 작은 소득에 아쉬워 말아라. <br></span>조회하실 띠의 동물을 선택하세요!!!
+			
+			
 			<!-- <textarea readonly="readonly" id='txt' cols="55" rows="20"> 조회하실 띠의 동물을 선택하세요!!!</textarea> -->
 		
 		</div>
