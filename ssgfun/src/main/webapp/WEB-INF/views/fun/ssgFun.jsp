@@ -1,110 +1,74 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Amaretti</title>
-<link rel="stylesheet" type="text/css"
-	href="/resources/assets/lib/stroke-7/style.css" />
-<link rel="stylesheet" type="text/css"
-	href="/resources/assets/lib/jquery.nanoscroller/css/nanoscroller.css" />
-<!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
-<link rel="stylesheet" href="/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 <style type="text/css">
-.page-title {
-	color: #222;
-}
-.navbar-header> .prev {
+.am-wrapper>.bgimg {
 	position: absolute;
-	left: 25px;
-	top: 20px;
-}
-body {
-	background-color: #fff;
-}
-
-.main-content {
-	text-align: center;
-}
-
-.game, .lotto, .luck {
+	top: 0;
+	left: 0;
 	width: 100%;
-	height: 140px;
+	height: 100%;
+}
+.roulEvent {
+	position: absolute;
+	top: 321px;
+	width: 100%;
+	height: 317px;
+}
+.lottoEvent {
+	position: absolute;
+	top: 650px;
+	width: 100%;
+	height: 317px;
+}
+.luckEvent {
+	position: absolute;
+	top: 980px;
+	width: 100%;
+	height: 317px;
+}
+.backpage {
+	position: absolute;
+	top: 70px;
+	left: 10px;
+	width: 150px;
+	height: 150px;
 }
 
-/* 
-.game {
-	background-color: lightcoral;
-}
-.lotto {
-	background-color: aliceblue;
-}
-.luck {
-	background-color: gainsboro;;
-}
-*/
-
-.page-head {
-	text-align: center;
-}
 </style>
 </head>
 <body>
-<!-- <a href="/roul/roul.fun" >쓱겜</a><br><br> -->
-<!-- <a href="/lotto/myLotto.fun" >로또</a><br><br> -->
-<!-- <a href="/luck/main.fun" >오늘의 운세</a> -->
-
 	<div class="am-wrapper">
-		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<a href="index.jsp" class="prev"><i class="fa-2x icon-bar fa fa-arrow-left" aria-hidden="true"></i></a>
-					<div class="page-title">
-						<span><h2><b>SSG FUN</b></h2></span>
-					</div>
-				</div>
-				
-			</div>
-		</nav>
+		<img class="bgimg" src="/resources/assets/img/funlist/funlist.JPG">
 		
-		<div class="am-content">
-			<div class="page-head">
-				<b>간단한 게임과 함께 즐거운 하루 되세요</b>
+		
+		
+<!-- 		<div class="roulEvent"><a href="/roul/roul.fun"></a></div> -->
+<!-- 		<div class="lottoEvent"><a href="/lotto/myLotto.fun"></a></div> -->
+<!-- 		<div class="lottoEvent"><a href="/luck/main.fun"></a></div> -->
+		
+		<a href="/roul/roul.fun">
+			<div class="roulEvent"></div>
+		</a>
+
+		<a href="/lotto/myLotto.fun">
+			<div class="lottoEvent"></div>
+		</a>
+
+		<a href="/luck/main.fun">
+			<div class="luckEvent"></div>
+<!-- 		</a> -->
+
+		<a href="main.fun">
+			<div class="backpage">
 			</div>
-			<div class="main-content">
-				<div class="game">
-					<a href="/roul/roul.fun"><img alt="" src="/resources/img/funlist_1.png" width="330px" height="130" ></a>
-				</div>
-				<div class="lotto">
-					<a href="/lotto/myLotto.fun"><img alt="" src="/resources/img/funlist_2.png" width="330px" height="130" ></a>
-				</div>
-				<div class="luck">
-					<a href="/luck/main.fun"><img alt="" src="/resources/img/funlist_3.png" width="330px" height="130" ></a>
-				</div>
-			</div>
-		</div>
+		</a>
 		
 	</div>
-	<script src="/resources/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
-	<script
-		src="/resources/assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js"	
-		type="text/javascript"></script>
-		<!-- <script src="/resources/assets/js/main.js" type="text/javascript"></script> -->
-	<script src="/resources/assets/lib/bootstrap/dist/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			//initialize the javascript
-		});
-	</script>
-	</body>
+</body>
 </html>

@@ -18,8 +18,8 @@
 
 	열매 <span id="fcnt">${attInfo.eacnt }</span>개~~~!!!
 
-<div id='start_btn'><img src="../resources/img/roulette.png" id="image"></div>
-<img src="../resources/img/niddle.png" id="n_id">
+<div id='start_btn'><img src="/resources/assets/img/roul/roulette.png" id="image"></div>
+<img src="/resources/assets/img/roul/niddle.png" id="n_id">
 <br />
 <!-- <input type='button' value='시작' id='start_btn'></input> -->
 <!-- <div id="result_id"></div> -->
