@@ -188,7 +188,7 @@ window.onload = function(){
 
 		<img class="bgheader" src="/resources/assets/img/roul/ssg_header.png">
 	
-		<a href="main.fun">
+		<a href="javascript:history.back();">
 			<div class="backpage"></div>
 		</a>
 		
