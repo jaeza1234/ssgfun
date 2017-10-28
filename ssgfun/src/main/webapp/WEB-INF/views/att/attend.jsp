@@ -308,7 +308,7 @@ background-color: #da2128;
 		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="/main.fun" class="prev"><i class="fa-2x icon-bar fa fa-arrow-left" aria-hidden="true"></i></a>
+					<a href="javascript:history.back();" class="prev"><i class="fa-2x icon-bar fa fa-arrow-left" aria-hidden="true"></i></a>
 					<div class="page-title">
 						<span>출석체크</span>
 					</div>

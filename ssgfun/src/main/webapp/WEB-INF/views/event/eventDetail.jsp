@@ -12,7 +12,7 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+
 }
 
 .backpage {
@@ -24,14 +24,14 @@
 }
 .goAtt{
 	position: absolute;
-	top: 1750px;
+	top: 1614px;
 	left: 100px;
 	width: 80%;
 	height: 120px;
 }
 .goFun{
 	position: absolute;
-	top: 1910px;
+	top: 1772px;
 	left: 100px;
 	width: 80%;
 	height: 120px;
@@ -44,7 +44,7 @@
 		<img class="bgimg" src="/resources/assets/img/bgimg/evDeBg02.jpg">
 
 		
-		<a href="/event.fun">
+		<a href="javascript:history.back();">
 			<div class="backpage">
 			</div>
 		</a>
