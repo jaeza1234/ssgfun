@@ -195,7 +195,7 @@ html,body {
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
-	height: 535px;
+	height: 532px;
 	background-image: url("/resources/assets/img/lotto/lotto_middle.png");
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -277,6 +277,15 @@ input[type="checkbox"]:checked {
 	border-radius:0; 
 	border:0;
 }
+.lotto_bg_bottm {
+	margin: auto;
+	padding: auto;
+	width: 100%;
+	height: 1006px;
+	background-image: url("/resources/assets/img/lotto/lotto_bg_bottom.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
 .backpage {
 	position: absolute;
 	top: 24px;
@@ -284,7 +293,18 @@ input[type="checkbox"]:checked {
 	width: 150px;
 	height: 150px;
 }
+.myLottoTable {
+	position: relative;
+	margin: 0 auto;
+	top: 150px;
+	font-size: 40px;
+}
+th, td, tr {
+	width: 100px;
+	height: 100px;
+	text-align: center;
 
+}
 </style>
 </head>
 <body>
@@ -325,45 +345,37 @@ input[type="checkbox"]:checked {
 			</div>
 		</form>
     </div>
-	
-	<br/>
-	<br/>
-	<input type="button" value="구입하기" />
-	<br/>
-	<br/>
-	<input type="button" id="random" value="랜덤" /> &nbsp;&nbsp;
-	<input type="button" value="취소" /> &nbsp;&nbsp;
-	
-	
-	<table border="1">
-		<tr>
-			<th>번호</th>
-			<th>1</th>
-			<th>2</th>
-			<th>3</th>
-			<th>4</th>
-			<th>5</th>
-			<th>6</th>
-			<th>수령</th>
-		</tr>
-		<tbody id="myLotto">
-			<c:forEach items="${myLotto }" var="lotto" varStatus="status">
+    
+    <div class="lotto_bg_bottm">
+			<table class="myLottoTable">
 				<tr>
-					<td>${status.index + 1 }</td>
-					<td>${lotto.ulnum1}</td>
-					<td>${lotto.ulnum2}</td>
-					<td>${lotto.ulnum3}</td>
-					<td>${lotto.ulnum4}</td>
-					<td>${lotto.ulnum5}</td>
-					<td>${lotto.ulnum6}</td>
-					<td><input type="button" value="수령" /></td>
+					<th>번호</th>
+					<th>등수</th>
+					<th>1</th>
+					<th>2</th>
+					<th>3</th>
+					<th>4</th>
+					<th>5</th>
+					<th>6</th>
+					<th>수령</th>
 				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-	
-
-
+				<tbody id="myLotto">
+					<c:forEach items="${myLotto }" var="lotto" varStatus="status">
+						<tr>
+							<td>${status.index + 1 }</td>
+							<td>${status.index + 1 }</td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum1}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum2}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum3}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum4}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum5}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum6}_on.png" class="apiLotto" ></td>
+							<td><input type="button" value="수령" /></td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+    </div>
 	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/resources/assets/js/bootstrap.min.js"></script>
