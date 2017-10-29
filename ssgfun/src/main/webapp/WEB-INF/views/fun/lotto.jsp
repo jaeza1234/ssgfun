@@ -14,7 +14,17 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
+function imgChange(obj){
+	
+	alert(obj);
+	obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_on.png)"  ;
+}
+
 $(document).ready(function() {
+	
+
+	
+	
 	
 	var bnum = '';
 	var gno = '';
@@ -229,7 +239,7 @@ input[type="checkbox"] {
 	height:80px; 
 	vertical-align:middle; 
 	appearance: none;
-	background:url('/resources/assets/img/lotto/number_3_off.png');
+	/* background:url('/resources/assets/img/lotto/number_3_off.png'); */
 	background-repeat: no-repeat;
 	background-size: contain; 
 	-moz-appearance: none; 
@@ -247,7 +257,7 @@ input[type="checkbox"]:checked {
 	height:80px; 
 	vertical-align:middle; 
 	appearance: none;
-	background:url('/resources/assets/img/lotto/number_3_on.png');
+	/* background:url('/resources/assets/img/lotto/number_3_on.png'); */
 	background-repeat: no-repeat;
 	background-size: contain; 
 	-moz-appearance: none; 
@@ -293,7 +303,7 @@ input[type="checkbox"]:checked {
 				<c:if test="${(status.index % 9) == 1 }" >
 					<br/>
 				</c:if>
-				<input type="checkbox" class="lotto" name="lotto" value="${status.index }" />
+				<input type="checkbox" class="lotto" name="lotto" value="${status.index }" onclick="imgChange(this)" style="background:url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
 			</c:forEach>
 			<div id="select_btn">
 				<span><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn" ></span>
