@@ -6,8 +6,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
+
+<!-- Bootstrap -->
+<link href="/resources/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="/resources/assets/css/kfonts2.css" rel="stylesheet">
+
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
+function imgChange(obj){
+	
+	alert(obj);
+	obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_on.png)";
+}
+
 $(document).ready(function() {
 	
 	var bnum = '';
@@ -28,13 +40,21 @@ $(document).ready(function() {
 			gdate = data.gdate;
 			nums =data.nums;
 				
-			var txt = '';
-			txt += ' 보너스 당첨번호 : ' + data.bnum;
-			txt += ' 로또 회차번호 : ' + data.gno;
-			txt += ' 추첨일 : ' + data.gdate;
-			txt += ' 당첨 번호 : ' + data.nums;
-
-			$('#lottoAPI').html(txt);
+			var gno = data.gno;
+			var gdate = data.gdate;
+			
+			var lottoNum = (data.nums).toString().split(',');
+			var lottoAPINum = '';
+			$.each(lottoNum, function(idx, num) {
+				lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ num +'_on.png" class="apiLotto" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			});
+			lottoAPINum += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			lottoAPINum += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+			lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ data.bnum +'_on.png" class="apiLotto" >';
+			
+			$('#lottoAPIgno').html(gno);
+			$('#lottoAPIgdate').html(gdate);
+			$('#lottoAPINum').html(lottoAPINum);
 		}
 	});
 	
@@ -69,7 +89,7 @@ $(document).ready(function() {
     			dataType: 'json',
     			success: function(data) {
     				eacnt = data;
-    				$('#fcnt').html(data);
+    				$('.fruit').html(data);
     			}
     		});
     		
@@ -95,6 +115,8 @@ $(document).ready(function() {
 					});
 					
 					$('#myLotto').html(txt);
+
+					
 				}
 			});
 			
@@ -109,23 +131,181 @@ $(document).ready(function() {
 
 </script>
 
+<style type="text/css">
+html,body {
+	width:100%;
+	height:100%; 
+	margin:0; 
+	padding:0;
+}
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.am-wrapper>.bgimg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+}
+.header {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 315px;
+	background-image: url("/resources/assets/img/lotto/lotto_header.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.fruit {
+	position: absolute;
+    top: 205px;
+    left: 490px;
+    width: 100px;
+    height: 400px;
+    font-size: 45px;
+}
+.lotto_bg_top {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 535px;
+	background-image: url("/resources/assets/img/lotto/lotto_middle.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.lottoG {
+	position: relative;
+	padding-top: 60px;
+	padding-left: 370px;
+	font-size: 40px;
+}
+#lottoAPIgno {
+	color: red;
+}
+#lottoAPIgdate {
+	color: #A0A0A0;
+}
+#lottoAPINum {
+	position: relative;
+	padding-top: 104px;
+	padding-left: 77px;
+}
+#buy_btn {
+	position: relative;
+	padding-top: 80px;
+	padding-left: 95px;
+	width: 900px;
+	height: 200px;
+}
+#demo {
+	margin: 0px;
+	padding: 0px;
+}
+.apiLotto {
+	display:inline-block; 
+	width:80px; 
+	height:80px;
+	size:landscape; 
+	vertical-align:middle; 
+	appearance: none; 
+	-moz-appearance: none; 
+	/* Firefox */
+	-webkit-appearance: none; 
+	/* Safari and Chrome */ 
+	border-radius:0; 
+	border:0;
+
+}
+input[type="checkbox"] { 
+	display:inline-block; 
+	margin-top: 32px;
+	margin-left: 23px;
+	width:80px; 
+	height:80px; 
+	vertical-align:middle; 
+	appearance: none;
+ 	background-repeat: no-repeat;
+ 	background-size: contain;
+	-moz-appearance: none; 
+	/* Firefox */
+	-webkit-appearance: none; 
+	/* Safari and Chrome */ 
+	border-radius:0; 
+	border:0;
+}
+input[type="checkbox"]:checked { 
+	display:inline-block; 
+	margin-top: 32px;
+	margin-left: 23px;
+	width:80px; 
+	height:80px; 
+	vertical-align:middle; 
+	appearance: none;
+	background-repeat: no-repeat;
+	background-size: contain; 
+	-moz-appearance: none; 
+	/* Firefox */
+	-webkit-appearance: none; 
+	/* Safari and Chrome */ 
+	border-radius:0; 
+	border:0;
+}
+.backpage {
+	position: absolute;
+	top: 24px;
+	left: 10px;
+	width: 150px;
+	height: 150px;
+}
+
+</style>
 </head>
 <body>
-<a href="/ssgFun.fun" >뒤로</a><br><br><br>
-	<h2>로또!!!</h2>
-		열매 <span id="fcnt">${attInfo.eacnt }</span>개~~~!!!
+		
+	<a href="javascript:history.back();">
+		<div class="backpage">
+		</div>
+	</a>
 	
-	<div id="lottoAPI"></div>
+	<div class="header">
+		<span class="fruit">${attInfo.eacnt }</span>
+	</div>
+
+	<div class="lotto_bg_top" >
+		<div class="lottoG">
+			<span id="lottoAPIgno"></span>회차 당첨번호 &nbsp;&nbsp;<span id="lottoAPIgdate"></span>
+		</div>
+		<div id="lottoAPINum"></div>
+		<div id="buy_btn" data-toggle="collapse" data-target="#demo"></div>
+	</div>
+
+
+	<div id="demo" class="collapse">
+		<div id="selectLotto" >
+			<c:forEach begin="1" end="45" varStatus="status">
+				<c:if test="${(status.index % 9) == 1 }" >
+					<br/>
+				</c:if>
+				<input type="checkbox" class="lotto" name="lotto" value="${status.index }" 
+						onclick="imgChange(this)" style="background-image: url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
+			</c:forEach>
+			<div id="select_btn">
+				<span><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn" ></span>
+				<span><img src="/resources/assets/img/lotto/cancel_btn.png" class="cancel_btn" ></span>
+				<span><img src="/resources/assets/img/lotto/buy_btn_small.png" class="buy_btn" ></span>
+			</div>
+		</div>
+    </div>
 	
 	<br/>
 	<br/>
 	<input type="button" value="구입하기" />
 	<br/>
 	<br/>
-	로또 번호 : <div id="lottoNum"></div>
 	<input type="button" id="random" value="랜덤" /> &nbsp;&nbsp;
 	<input type="button" value="취소" /> &nbsp;&nbsp;
-	<input type="button" id="buy" value="구입" />
 	
 	
 	<table border="1">
@@ -154,7 +334,11 @@ $(document).ready(function() {
 			</c:forEach>
 		</tbody>
 	</table>
+	
 
 
+	
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/resources/assets/js/bootstrap.min.js"></script>
 </body>
 </html>

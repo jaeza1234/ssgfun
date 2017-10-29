@@ -4,8 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.sinc.ssgfun.mapper.luck">
- 	<select id="luckCheck" parameterType="String" resultType="String">
- 		SELECT MSG FROM T_LUCK 
+
+ 	<select id="luckCheck" parameterType="String" resultType="com.sinc.ssgfun.vo.UnseVO">
+ 		SELECT NAME, TODAY, TOMORROW, THISWEEK, THISMONTH, THISYEAR FROM T_LUCK 
  		WHERE NAME = #{animal}
  	</select>
  	
