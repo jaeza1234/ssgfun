@@ -109,9 +109,27 @@ $(document).ready(function() {
 
 </script>
 
+<style type="text/css">
+
+
+input[type="checkbox"] { 
+display:inline-block; 
+width:50px; height:50px;
+vertical-align:middle;
+/*  background:url(/resources/assets/img/lotto/number_1_on.png) no-repeat 0 0;  */
+ appearance: none; 
+ -moz-appearance: none;
+ 
+  /* Firefox */
+   -webkit-appearance: none; 
+   /* Safari and Chrome */ 
+   border-radius:0; border:0; }
+
+
+</style>
 </head>
 <body>
-<a href="/ssgFun.fun" >뒤로</a><br><br><br>
+<a href="javascript:history.back();" >뒤로</a><br><br><br>
 	<h2>로또!!!</h2>
 		열매 <span id="fcnt">${attInfo.eacnt }</span>개~~~!!!
 	
@@ -156,7 +174,7 @@ $(document).ready(function() {
 	</table>
 
 	<c:forEach begin="1" end="45" varStatus="status">
-		<input type="checkbox" value="${status.index }" />
+		<input type="checkbox" name="lotto" value="${status.index }" style="background-image: url('/resources/assets/img/lotto/number_${status.index }_off.png');" />
 	</c:forEach>
 
 </body>
