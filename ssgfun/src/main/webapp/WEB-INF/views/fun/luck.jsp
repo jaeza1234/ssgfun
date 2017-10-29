@@ -30,7 +30,7 @@ body {
 
 .backpage {
 	position: absolute;
-	top: 60px;
+	top: 15px;
 	left: 10px;
 	width: 150px;
 	height: 150px;
@@ -40,13 +40,13 @@ body {
     top: 205px;
     left: 480px;
     width: 100px;
-    height: 400px;
+    height: 100px;
     font-size: 45px
 }
 .textArea {
 	position: absolute;
-    top: 1316px;
-    left: 100px;
+    top: 1280px;
+    left: 45px;
     width: 80%;
     height: 500px;
 }
@@ -144,7 +144,10 @@ body {
     width: 120px;
     height: 120px;
 }
-
+#txt{
+    overflow:scroll;
+	border: 0;
+}
 </style>
 </head>
 
@@ -153,7 +156,7 @@ body {
 		<img class="bgimg" src="/resources/assets/img/bgimg/unse.png">
 
 		
-		<a href="/ssgFun.fun">
+		<a href="javascript:history.back();">
 			<div class="backpage">
 			</div>
 		</a>
@@ -202,21 +205,11 @@ body {
 		</div>
 		
 		<div class="textArea">
-			<span id="txt">하고 싶은 일이라고 무엇이든 다 할 수는 없는 법. 차분하게 마음을 가다듬고 실속 있는 삶을 찾을 때이다.<br>
-
-36년생재물운이 자신도 모르는 사이에 증가하고 있으니, 이 기회를 놓치지 않는 것이 좋다. <br>
-
-48년생모든 관계의 공통 분모 중에 하나는 예의다. 예의없는 관계는 곧 무너지니 항시 조심 하라. <br>
-
-60년생큰 수익은 아니나 뜻밖의 재물이 들어온다. 횡재수를 위한 발걸음을 재촉하면 더욱 이롭다. <br>
-
-72년생새로운 마음으로 미래를 준비할 기회가 왔으니, 당당히 맞이하자. 기회가 온 것이다. <br>
-
-84년생인생에 노력 없이 대박이란 없다. 노력한 만큼 받는 것이다. 작은 소득에 아쉬워 말아라. <br></span>조회하실 띠의 동물을 선택하세요!!!
+			<!-- <span id="txt"></span>조회하실 띠의 동물을 선택하세요!!! --> 
 			
-			
-			<!-- <textarea readonly="readonly" id='txt' cols="55" rows="20"> 조회하실 띠의 동물을 선택하세요!!!</textarea> -->
-		
+			<span id="date"></span>
+			<textarea readonly="readonly" id='txt' cols="28" rows="12">조회하실 동물을 클릭하세요!!</textarea>
+		 
 		</div>
 
 	</div>
@@ -225,7 +218,11 @@ body {
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
  	  $(document).ready(function() {
- 		  
+ 		 var d = new Date(); 
+ 		var localeDate  =  d.toLocaleDateString(); 
+ 		var localeTime  =  d.toLocaleTimeString(); 
+
+ 		document.getElementById ( 'date' ).innerHTML = localeDate + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;오늘의 운세  : ';
 
 	         
 	});   
@@ -233,10 +230,17 @@ body {
 	function unse(animal){
 		/* $('#'+animal+'').prop('src',''); */
 		var anis = [ 'mouse', 'caw', 'tiger', 'rabbit', 'dragon', 'snake', 'horse', 'sheep', 'monkey', 'chicken', 'dog' , 'pig'];
+		var korea = [ '쥐', '소', '호랑이', '토끼', '용', '뱀', '말', '양', '원숭이', '닭', '개' , '돼지'];
 		
 		for (var int = 0; int < anis.length; int++) {
 			if (animal==anis[int]) {
 				$('#'+anis[int]).prop('src','/resources/assets/img/unse/over_icon.png');
+				 var d = new Date(); 
+			 		var localeDate  =  d.toLocaleDateString(); 
+			 		var localeTime  =  d.toLocaleTimeString(); 
+
+			 		document.getElementById ( 'date' ).innerHTML = localeDate + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;오늘의 운세  : '+korea[int] + "&nbsp;&nbsp;띠";
+
 			} else {
 				$('#'+anis[int]).prop('src','');
 			}

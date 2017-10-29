@@ -12,17 +12,16 @@
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
 }
 .event {
 	position: absolute;
-	top: 500px;
+	top: 370px;
 	width: 100%;
-	height: 400px;
+	height: 330px;
 }
 .backpage {
 	position: absolute;
-	top: 70px;
+	top: 24px;
 	left: 10px;
 	width: 150px;
 	height: 150px;
@@ -38,7 +37,7 @@
 			</div>
 		</a>
 		
-		<a href="main.fun">
+		<a href="javascript:history.back();">
 			<div class="backpage">
 			</div>
 		</a>
