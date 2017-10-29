@@ -375,6 +375,15 @@ height: auto;
 	padding-top: 20px;
 }
 
+.backpage {
+	position: absolute;
+	top: 15px;
+	left: 10px;
+	width: 100px;
+	height: 100px;
+	z-index: 4000;
+}
+
 </style>
 </head>
 <body>
@@ -390,9 +399,10 @@ height: auto;
 				
 			</div>
 		</nav> -->
-	<div class="back">
-		<a href=""></a>
-	</div>	
+	<a href="javascript:history.back();">
+		<div class="backpage">
+		</div>
+	</a>	
 	<div class="am-content">
 	<img class="bgimg" src="../resources/assets/img/attend/attendance_bg.png">
 	<img class="bgheader" src="../resources/assets/img/attend/check_header.png">
