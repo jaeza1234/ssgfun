@@ -277,6 +277,7 @@ input[type="checkbox"]:checked {
 th, td, tr {
 	width: 100px;
 	height: 100px;
+	text-align: center;
 
 }
 </style>
@@ -319,7 +320,7 @@ th, td, tr {
     </div>
     
     <div class="lotto_bg_bottm">
-			<table border="1" class="myLottoTable">
+			<table class="myLottoTable">
 				<tr>
 					<th>번호</th>
 					<th>등수</th>
@@ -335,12 +336,13 @@ th, td, tr {
 					<c:forEach items="${myLotto }" var="lotto" varStatus="status">
 						<tr>
 							<td>${status.index + 1 }</td>
-							<td>${lotto.ulnum1}</td>
-							<td>${lotto.ulnum2}</td>
-							<td>${lotto.ulnum3}</td>
-							<td>${lotto.ulnum4}</td>
-							<td>${lotto.ulnum5}</td>
-							<td>${lotto.ulnum6}</td>
+							<td>${status.index + 1 }</td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum1}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum2}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum3}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum4}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum5}_on.png" class="apiLotto" ></td>
+							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum6}_on.png" class="apiLotto" ></td>
 							<td><input type="button" value="수령" /></td>
 						</tr>
 					</c:forEach>
