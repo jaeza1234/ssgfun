@@ -17,14 +17,10 @@
 function imgChange(obj){
 	
 	alert(obj);
-	obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_on.png)"  ;
+	obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_on.png)";
 }
 
 $(document).ready(function() {
-	
-
-	
-	
 	
 	var bnum = '';
 	var gno = '';
@@ -207,15 +203,6 @@ html,body {
 	margin: 0px;
 	padding: 0px;
 }
-#selectLotto {
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	height: 700px;
-	background-image: url("/resources/assets/img/lotto/lotto_select_blank.png");
-	background-repeat: no-repeat;
-	background-size: contain;
-}
 .apiLotto {
 	display:inline-block; 
 	width:80px; 
@@ -239,9 +226,8 @@ input[type="checkbox"] {
 	height:80px; 
 	vertical-align:middle; 
 	appearance: none;
-	/* background:url('/resources/assets/img/lotto/number_3_off.png'); */
-	background-repeat: no-repeat;
-	background-size: contain; 
+ 	background-repeat: no-repeat;
+ 	background-size: contain;
 	-moz-appearance: none; 
 	/* Firefox */
 	-webkit-appearance: none; 
@@ -257,7 +243,6 @@ input[type="checkbox"]:checked {
 	height:80px; 
 	vertical-align:middle; 
 	appearance: none;
-	/* background:url('/resources/assets/img/lotto/number_3_on.png'); */
 	background-repeat: no-repeat;
 	background-size: contain; 
 	-moz-appearance: none; 
@@ -303,7 +288,8 @@ input[type="checkbox"]:checked {
 				<c:if test="${(status.index % 9) == 1 }" >
 					<br/>
 				</c:if>
-				<input type="checkbox" class="lotto" name="lotto" value="${status.index }" onclick="imgChange(this)" style="background:url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
+				<input type="checkbox" class="lotto" name="lotto" value="${status.index }" 
+						onclick="imgChange(this)" style="background-image: url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
 			</c:forEach>
 			<div id="select_btn">
 				<span><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn" ></span>
