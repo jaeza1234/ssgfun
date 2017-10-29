@@ -66,33 +66,35 @@ public class LottoCtrl {
 	}
 
 	@RequestMapping("/buyLotto.fun")
-	@ResponseBody
-	public List<LottoVO> buyLotto(HttpSession session, String lottoNum, String gno) {
+	public String buyLotto(HttpSession session, String lottoNum, String gno, String[] lotto, Model model) {
 		logger.info("LottoCtrl buyLotto");
+		System.out.println(lotto.length);
 
+		LottoVO lotto1 = new LottoVO();
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
-		
-		String[] nums = lottoNum.split(" ");
-		
-		LottoVO lotto = new LottoVO();
-		lotto.setUlnum1(Integer.parseInt(nums[0]));
-		lotto.setUlnum2(Integer.parseInt(nums[1]));
-		lotto.setUlnum3(Integer.parseInt(nums[2]));
-		lotto.setUlnum4(Integer.parseInt(nums[3]));
-		lotto.setUlnum5(Integer.parseInt(nums[4]));
-		lotto.setUlnum6(Integer.parseInt(nums[5]));
+		System.out.println(loginUser.toString());
+		lotto1.setUlnum1(Integer.parseInt(lotto[0]));
+		lotto1.setUlnum2(Integer.parseInt(lotto[1]));
+		lotto1.setUlnum3(Integer.parseInt(lotto[2]));
+		lotto1.setUlnum4(Integer.parseInt(lotto[3]));
+		lotto1.setUlnum5(Integer.parseInt(lotto[4]));
+		lotto1.setUlnum6(Integer.parseInt(lotto[5]));
 
-		lotto.setUlname(gno + "È¸Â÷");
-		lotto.setUno(loginUser.getUno());
+		lotto1.setUlname(gno + "íšŒì°¨");
+		lotto1.setUno(loginUser.getUno());
 		
-		int result = lottoService.buyLotto(lotto);
+		int result = lottoService.buyLotto(lotto1);
 		
 		List<LottoVO> myLotto = new ArrayList<LottoVO>();
 		if(result == 1) {
 			myLotto = lottoService.getMyLotto(loginUser);
 		}
+		AttendVO attInfo = userService.attInfo(loginUser);
+		List<LottoVO> myLotto2 = lottoService.getMyLotto(loginUser);
 		
-		return myLotto;
+		model.addAttribute("attInfo", attInfo);
+		model.addAttribute("myLotto", myLotto2);
+		return "fun/lotto";
 	}
 	
 }

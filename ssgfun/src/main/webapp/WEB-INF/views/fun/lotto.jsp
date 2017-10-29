@@ -14,10 +14,35 @@
 
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script type="text/javascript">
+function goBuy(){
+	
+	if(cnt == 6){
+		document.getElementById("lottoForm").submit();
+	}else{
+		alert("6개 눌러줘요");
+	}
+	
+}
+var cnt = 0;
 function imgChange(obj){
 	
-	alert(obj);
-	obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_on.png)";
+	if (!obj.checked) {
+			obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_off.png)";	
+			cnt-=1;
+	} else {
+		
+		if (cnt>=6) {
+			obj.checked=false;	
+		} else{
+			obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_on.png)";
+			cnt+=1;
+			
+		}
+		
+	}
+	
+	
+	 
 }
 
 $(document).ready(function() {
@@ -283,20 +308,22 @@ input[type="checkbox"]:checked {
 
 
 	<div id="demo" class="collapse">
-		<div id="selectLotto" >
-			<c:forEach begin="1" end="45" varStatus="status">
-				<c:if test="${(status.index % 9) == 1 }" >
-					<br/>
-				</c:if>
-				<input type="checkbox" class="lotto" name="lotto" value="${status.index }" 
-						onclick="imgChange(this)" style="background-image: url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
-			</c:forEach>
-			<div id="select_btn">
-				<span><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn" ></span>
-				<span><img src="/resources/assets/img/lotto/cancel_btn.png" class="cancel_btn" ></span>
-				<span><img src="/resources/assets/img/lotto/buy_btn_small.png" class="buy_btn" ></span>
+		<form id ="lottoForm" action="buyLotto.fun" method="get">
+			<div id="selectLotto" >
+				<c:forEach begin="1" end="45" varStatus="status">
+					<c:if test="${(status.index % 9) == 1 }" >
+						<br/>
+					</c:if>
+					<input type="checkbox" class="lotto" name="lotto" value="${status.index }" id="chb${status.index }"
+							onclick="imgChange(this)" style="background-image: url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
+				</c:forEach>
+				<div id="select_btn">
+					<span onclick="javascript:randomSelect();"><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn" ></span>
+					<span><img src="/resources/assets/img/lotto/cancel_btn.png" class="cancel_btn" ></span>
+					<span onclick="javascript:goBuy();" ><img src="/resources/assets/img/lotto/buy_btn_small.png" class="buy_btn" ></span>
+				</div>
 			</div>
-		</div>
+		</form>
     </div>
 	
 	<br/>
@@ -340,5 +367,22 @@ input[type="checkbox"]:checked {
 	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/resources/assets/js/bootstrap.min.js"></script>
+    
+    <script type="text/javascript">
+    function randomSelect(){
+    	for(var i = 0; i < 6; i++){
+    		var random = Math.floor(Math.random()*45)+1;
+    		if(document.getElementById("chb"+random).checked){
+    			i--;
+    			continue;
+    		}
+    		document.getElementById("chb"+random).checked = true;
+    		imgChange(document.getElementById("chb"+random));
+    		
+    	}
+    	
+    }
+    
+    </script>
 </body>
 </html>
