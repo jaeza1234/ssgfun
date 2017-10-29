@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -10,6 +11,17 @@
 <!-- Bootstrap -->
 <link href="/resources/assets/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/assets/css/kfonts2.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css"
+	href="/resources/assets/lib/stroke-7/style.css" />
+<link rel="stylesheet" type="text/css"
+	href="/resources/assets/lib/jquery.nanoscroller/css/nanoscroller.css" />
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+<link rel="stylesheet" href="/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/js/jQueryRotate.js"></script>
@@ -85,7 +97,18 @@ window.onload = function(){
         }
  
 //         $('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
-        $('#result_id3').html("<p>" + pArr[part] + "</p>");
+		/* if(part == 7) {
+			$('#result_id3').html("<p>" + pArr[part] + "</p>" + "<img src='/resources/assets/img/roul/niddle.png'>");
+		} */
+		
+		if(pArr[part] == "꽝") {
+			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
+			$('#result_id3').html("<img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p></p><p>" + pArr[part] + "</p>");
+		} else {
+			$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
+			$('#result_id3').html("<img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p></p><p>" + pArr[part] + "</p>");
+		}
+		
         
 //         alert($('#result_id3').text());
         $.ajax({
@@ -99,8 +122,7 @@ window.onload = function(){
 					$('.fruit').html(data.eacnt);
 				}
 				
-				 $('#myModal').modal('show')
-;
+				 $('#myModal').modal('show');
 			}
 		});
     }
@@ -112,6 +134,13 @@ window.onload = function(){
 </script>
 
 <style type="text/css">
+body {
+	font-size: 50px;
+}
+p {
+	padding: 10px;
+}
+
 #image{
     margin:50px 50px; 
 	position:absolute;
@@ -142,10 +171,9 @@ window.onload = function(){
 }
 .fruit {
 	position: absolute;
-    top: 205px;
-    left: 490px;
+    top: 203px;
+    left: 470px;
     width: 100px;
-    height: 400px;
     font-size: 45px;
 }
 .roulEvent {
@@ -201,24 +229,71 @@ window.onload = function(){
     }
 }
 .modal-dialog.modal-fullsize { 
-	width: 100%; 
-	height: 50%;
-	margin: 0;
+	width: 1000px; 
+	height: auto;
+	margin: 0 auto;
 	display: inline-block;
 	text-align: left;
 	vertical-align: middle; 
-	padding: 0; 
+	padding: 0;
+	position: absolute;
+	top: 450px;
+	left: 0px; 
 }
 .modal-content.modal-fullsize {
 	height: auto;
 	min-height: 100%;
-	border-radius: 0; 
+	border-radius: 20px; 
 }
 
 .modal-content {
 	background-image: url("/resources/assets/img/roul/popup_box2.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
+	text-align: center;
+}
+
+.btn-default {
+	border-color: transparent;
+}
+.modal-footer {
+	background-color: #ffffff;
+	border-top: transparent;
+	text-align: center;
+}
+.modal-title {
+	padding-top: 0px;
+	color: #fff;
+	font-size: 45px;
+}
+.bomb {
+	width: 300px;
+	height: 300px;
+}
+.luck {
+	width: 300px;
+	height: 300px;
+}
+
+.rTxt {
+	width: 740px;
+    position: absolute;
+    top: 1050px;
+    left: 132px;
+}
+.titleTxt {
+	font-size: 40px;
+}
+.conTxt {
+	font-size: 35px;
+	color: #747474;
+}
+.conTxtSpan {
+	border-bottom: groove;
+	padding-bottom: 15px;
+}
+.goImg {
+	width: 130px;
 }
 </style>
 </head>
@@ -242,6 +317,36 @@ window.onload = function(){
 		
 		<img src="/resources/assets/img/roul/roulette.png" id="image">
 		<img src="/resources/assets/img/roul/niddle.png" id="n_id">
+		<div class="rTxt">
+			<span class="titleTxt"><b>[게임방법 소개]</b></span><br>
+			<span class="conTxt">소유한 열매를 1개 사용하여 룰렛 게임 1회 참여 가능</span><br>
+			<span class="titleTxt"><b>[열매 획득하는 방법]</b></span><br>
+			<span class="conTxt">
+				<span class="conTxtSpan">
+					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;출석체크
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
+					<br>
+				</span>
+				<span class="conTxtSpan">
+					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;오늘의 운세
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
+					<br>
+				</span>
+				<span class="conTxtSpan">
+					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
+					<br>
+				</span>
+			</span>
+		</div>
 		
 <!-- 		<div id="result_id"></div> -->
 <!-- 		<div id="result_id2"></div> -->
@@ -258,21 +363,19 @@ window.onload = function(){
 	               aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="myModalLabel">
-	               This Modal title
+	               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
 	            </h4>
 	         </div>
 	         <div class="modal-body">
-	            	<div id="result_id"></div>
-					<div id="result_id2"></div>
-					<div id="result_id3"></div>
+	            	<!-- <div id="result_id"></div>
+					<div id="result_id2"></div> -->
+					<div id="result_id3">
+					</div>
 	         </div>
 	         <div class="modal-footer">
 	            <button type="button" class="btn btn-default" 
 	               data-dismiss="modal">
-	               Close
-	            </button>
-	            <button type="button" class="btn btn-primary">
-	               Submit changes
+	               <img src="/resources/assets/img/roul/ok_btn.png">
 	            </button>
 	         </div>
 	      </div><!-- /.modal-content -->
@@ -285,10 +388,6 @@ window.onload = function(){
     <script>
         $(function () { $('#myModal').modal('hide')});
     </script>
-    <script>
-       $(function () { $('#myModal').on('hide.bs.modal', function () {
-          alert('Hey, I heard you like modals...');})
-       });
-    </script>  
+
 </body>
 </html>
