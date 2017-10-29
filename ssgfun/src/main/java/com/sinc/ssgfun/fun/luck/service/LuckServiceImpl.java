@@ -26,7 +26,7 @@ public class LuckServiceImpl implements LuckService {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		
 		///그 동물에 대한 운세를 맴에 심는다.
-		resultMap.put("msg", luckDao.luckCheckRow(animal));
+		resultMap.put("unse", luckDao.luckCheckRow(animal));
 		
 		//운세 총조회수 1 올리고 이 사용자가 당첨 됐느지 확인
 		int result = luckDao.freeResult();

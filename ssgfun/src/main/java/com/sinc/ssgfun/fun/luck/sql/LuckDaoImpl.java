@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.sinc.ssgfun.vo.UnseVO;
 import com.sinc.ssgfun.vo.UserVO;
 
 @Repository("luckDao")
@@ -19,9 +20,10 @@ public class LuckDaoImpl implements LuckDao {
 	private SqlSession session;
 
 	@Override
-	public String luckCheckRow(String animal) {
+	public UnseVO luckCheckRow(String animal) {
 		System.out.println("LuckDaoImpl luckCheckRow");
-		//동물 이름으로 운세 msg select
+		//동물 이름으로 운세
+		System.out.println(animal);
 		return session.selectOne(LUCKPREFIX + "luckCheck", animal);
 	}
 
