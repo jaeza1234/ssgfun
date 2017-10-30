@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
+import com.sinc.ssgfun.vo.UserVO;
+
 @Repository("mainDao")
 public class MainDaoImpl implements MainDao {
 	
@@ -15,4 +17,15 @@ public class MainDaoImpl implements MainDao {
 
 	@Resource(name="sqlSession")
 	private SqlSession session;
+
+	@Override
+	public int plusFruitRow(UserVO loginUser, int num) {
+		System.out.println("MainDaoImpl plusFruitRow");
+		
+		for (int i = 0; i < num; i++) {
+			session.update(MAINPREFIX + "plusChance", loginUser);
+		}
+		
+		return 0;
+	}
 }
