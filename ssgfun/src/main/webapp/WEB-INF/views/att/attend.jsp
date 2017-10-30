@@ -398,8 +398,7 @@ height: auto;
     }
 }
 .modals-dialog.modals-fullsize { 
-	width: 1000px; 
-	height: auto;
+	height: 500px;
 	margin: 0 auto;
 	display: inline-block;
 	text-align: left;
@@ -413,7 +412,6 @@ height: auto;
 .modals-content.modals-fullsize {
 	height: auto;
 	min-height: 100%;
-	border-radius: 20px; 
 }
 
 .modals-content {
