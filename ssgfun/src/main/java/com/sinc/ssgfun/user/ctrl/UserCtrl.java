@@ -52,6 +52,8 @@ public class UserCtrl {
 		
 		AttendVO attInfo = userService.attInfo(loginUser);
 		resultMap.put("eacnt", attInfo.getEacnt());
+		resultMap.put("eaattcnt", attInfo.getEaattcnt());
+		
 		return resultMap;
 	}
 
