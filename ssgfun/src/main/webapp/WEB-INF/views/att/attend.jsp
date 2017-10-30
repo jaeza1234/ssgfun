@@ -140,6 +140,7 @@ body {
 
 .plant > div {
   position: absolute;
+  top: -10px;
 }
 
 .plant:before {
@@ -207,37 +208,37 @@ left: 28px;
 transform: rotate(2deg);
 }
 
-.leaf2 {
+.leaf5 {
 top: -10px;
 right: 22px;
 transform: rotate(47deg);
 }
 
-.leaf3 {
+.leaf4 {
 top: 27px;
 right: 12px;
 transform: rotate(-8deg);
 }
 
-.leaf4 {
+.leaf2 {
 top: 18px;
 left: 28px;
 transform: rotate(-126deg);
 }
 
-.leaf5 {
+.leaf3 {
 top: 39px;
 left: -2px;
 transform: rotate(-73deg);
 }
 
-.leaf6 {
+.leaf7 {
 bottom: 33px;
 left: 5px;
 transform: rotate(-34deg);
 }
 
-.leaf7 {
+.leaf6 {
 bottom: 30px;
 right: 1px;
 transform: rotate(-87deg);
@@ -340,7 +341,7 @@ transform: rotate(-87deg);
 	height: 100px;
 	position: absolute;
 	left: 118px;
-	top: -313px;
+	top: -290px;
 }
 
 .waterImg {
@@ -358,7 +359,7 @@ height: auto;
 }
 .noteDiv {
 	position: absolute;	
-	top: 510px;
+	top: 560px;
 	left: 37px;
 }
 .noteTxt {
@@ -464,7 +465,7 @@ height: auto;
 		</div>
 	</a>	
 	<div class="am-content">
-	<img class="bgimg" src="../resources/assets/img/attend/attendance_bg.png">
+	<img class="bgimg" src="../resources/assets/img/attend/bg_modify.png">
 	<img class="bgheader" src="../resources/assets/img/attend/check_header.png">
 	<div class="textarea">
 		<div class="fruittxt">
@@ -612,7 +613,7 @@ height: auto;
 	               aria-hidden="true">×
 	            </button>
 	            <h4 class="modal-title" id="myModalLabel">
-	               <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;알림&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>
+	               &nbsp;&nbsp;알림&nbsp;&nbsp;
 	            </h4>
 	         </div>
 	         <div class="modal-body">
@@ -623,7 +624,7 @@ height: auto;
 	         <div class="modal-footer">
 	            <button type="button" class="btn btn-default success" 
 	               data-dismiss="modal" onClick="history.go(0)">
-	               <img src="/resources/assets/img/roul/ok_btn.png">
+	               <img class="okBtn" src="/resources/assets/img/roul/ok_btn.png">
 	            </button>
 	         </div>
 	      </div><!-- /.modal-content -->
@@ -679,7 +680,7 @@ height: auto;
 					success: function(data) {
 						if (data.result==1) {
 							$('#myModal').modal('show');
- 							alert(data.eaattcnt)
+ 							/* alert(data.eaattcnt) */
 							$('.fruittxt').html(data.eacnt);
 						}else if(data.result==0){
 							$('#myModalFail').modal('show');

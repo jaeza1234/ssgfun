@@ -5,7 +5,12 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- add -->
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <title> prototype about roulette </title>
+
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 
 <!-- Bootstrap -->
@@ -104,10 +109,10 @@ window.onload = function(){
 		
 		if(pArr[part] == "꽝") {
 			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
-			$('#result_id3').html("<img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p></p><p>" + pArr[part] + "</p>");
+			$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[part] + "</p>");
 		} else {
 			$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
-			$('#result_id3').html("<img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p></p><p>" + pArr[part] + "</p>");
+			$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[part] + "</p>");
 		}
 		
         
@@ -136,25 +141,26 @@ window.onload = function(){
 
 <style type="text/css">
 body {
-	font-size: 50px;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 p {
 	padding: 10px;
 }
 
 #image{
-    margin:50px 50px; 
-	position:absolute;
- 	top: 295px;
- 	left: 149px;
-	width: 63%;
+    margin: 50px 50px;
+    position: absolute;
+    top: 105px;
+    left: 10px;
+    width: 70%;
 }
 
 #n_id{
 	position:absolute;
-	top:295px;
-	left:470px;
-	width: 7%;
+	top:140px;
+	left:190px;
+	width: 6%;
 }
 
 .am-wrapper>.bgimg {
@@ -163,6 +169,9 @@ p {
 	left: 0;
 	width: 100%;
 	height: 100%;
+	min-width: 100%;
+	margin: 0;
+	padding: 0;
 }
 .am-wrapper>.bgheader {
 	position: absolute;
@@ -172,10 +181,10 @@ p {
 }
 .fruit {
 	position: absolute;
-    top: 203px;
-    left: 470px;
+    top: 86px;
+    left: 193px;
     width: 100px;
-    font-size: 45px;
+    font-size: 20px;
 }
 .roulEvent {
 	position: absolute;
@@ -185,16 +194,17 @@ p {
 }
 .roulette_bg {
 	position: absolute;
-	top: 290px;
-	left: 21px;
+    top: 155px;
+    left: 15px;
+    width: 70%;
 }
 #roulette_bg {
-	width: 150%;
+	width: 400px;
 }
 .backpage {
 	position: absolute;
-	top: 70px;
-	left: 10px;
+	top: 0px;
+	left: 0px;
 	width: 150px;
 	height: 150px;
 }
@@ -226,24 +236,25 @@ p {
 		display: inline-block;
 		vertical-align: middle;
 		content: " ";
- 		height: 600px;
+ 		height: 300px;
     }
 }
 .modal-dialog.modal-fullsize { 
-	width: 1000px; 
-	height: auto;
-	margin: 0 auto;
-	display: inline-block;
-	text-align: left;
-	vertical-align: middle; 
-	padding: 0;
-	position: absolute;
-	top: 450px;
-	left: 0px; 
+	width: 200px;
+    height: 200px;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0;
+    position: absolute;
+    top: 200px;
+    left: 45px; 
+    min-width: 30%;
+    min-height: 30%;
 }
 .modal-content.modal-fullsize {
 	height: auto;
-	min-height: 100%;
 	border-radius: 20px; 
 }
 
@@ -261,44 +272,51 @@ p {
 	background-color: #ffffff;
 	border-top: transparent;
 	text-align: center;
+	padding-top: 0;
 }
 .modal-title {
 	padding-top: 0px;
 	color: #fff;
-	font-size: 45px;
+	/* font-size: 45px; */
+}
+.modal-body {
+	padding: 0;
 }
 .bomb {
-	width: 300px;
-	height: 300px;
+	width: 100px;
+	height: 100px;
 }
 .luck {
-	width: 300px;
-	height: 300px;
+	width: 100px;
+	height: 100px;
 }
 
 .rTxt {
-	width: 740px;
+	width: 320px;
     position: absolute;
-    top: 1050px;
-    left: 132px;
+    top: 498px;
+    left: 53px;
 }
 .titleTxt {
-	font-size: 40px;
+	font-size: 20px;
 }
 .conTxt {
-	font-size: 35px;
+	font-size: 16px;
 	color: #747474;
 }
 .conTxtSpan {
 	border-bottom: groove;
-	padding-bottom: 15px;
+	padding-bottom: 10px;
 }
 .goImg {
-	width: 130px;
+	width: 60px;
+}
+.okBtn {
+	width: 50%;
 }
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden;">
 	<div class="am-wrapper">
 		<img class="bgimg" src="/resources/assets/img/roul/ssg_game_long.png">
 
@@ -320,7 +338,7 @@ p {
 		<img src="/resources/assets/img/roul/niddle.png" id="n_id">
 		<div class="rTxt">
 			<span class="titleTxt"><b>[게임방법 소개]</b></span><br>
-			<span class="conTxt">소유한 열매를 1개 사용하여 룰렛 게임 1회 참여 가능</span><br>
+			<span class="conTxt">소유한 열매를 1개 사용하여 룰렛 게임 1회 참여 가능</span><br><br>
 			<span class="titleTxt"><b>[열매 획득하는 방법]</b></span><br>
 			<span class="conTxt">
 				<span class="conTxtSpan">
@@ -329,7 +347,7 @@ p {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/user/att.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
-					<br>
+					<br><br>
 				</span>
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;오늘의 운세
@@ -337,14 +355,14 @@ p {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/luck/main.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
-					<br>
+					<br><br>
 				</span>
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/recharge.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
-					<br>
+					<br><br>
 				</span>
 			</span>
 		</div>
@@ -376,7 +394,7 @@ p {
 	         <div class="modal-footer">
 	            <button type="button" class="btn btn-default" 
 	               data-dismiss="modal">
-	               <img src="/resources/assets/img/roul/ok_btn.png">
+	               <img class="okBtn" src="/resources/assets/img/roul/ok_btn.png">
 	            </button>
 	         </div>
 	      </div><!-- /.modal-content -->
