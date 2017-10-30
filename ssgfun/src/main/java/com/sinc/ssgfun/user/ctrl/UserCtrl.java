@@ -66,14 +66,13 @@ public class UserCtrl {
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 
 		AttendVO attInfo = new AttendVO();
-		if(obtain.equals("0") || obtain.equals("1") || obtain.equals("2") || obtain.equals("3") || obtain.equals("5") || obtain.equals("6")
-				|| obtain.equals("7") || obtain.equals("8") || obtain.equals("9")) {
+		if(obtain.equals("100") || obtain.equals("300") || obtain.equals("500")) {
 			loginUser.setUmoney(Integer.parseInt(obtain));
 			attInfo.setEacnt(userService.obtainMoney(loginUser));
-		} else if(obtain.equals("1000ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")) {
+		} else if(obtain.equals("1000¿øÄíÆù")) {
 			loginUser.setUcname(obtain);
 			attInfo.setEacnt(userService.obtainCoupon(loginUser));
-		} else if(obtain.equals("ï¿½Ñ¹ï¿½ï¿½ï¿½")) {
+		} else if(obtain.equals("¿­¸Å+1")) {
 			attInfo.setEacnt(userService.obtainAtt(loginUser));
 			if(attInfo.getEacnt() == 1) {
 				attInfo = userService.attInfo(loginUser);

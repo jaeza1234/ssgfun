@@ -39,30 +39,25 @@ public class LottoCtrl {
 		logger.info("LottoCtrl myLotto");
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
-//		loginUser.setUphone(3);
 		AttendVO attInfo = userService.attInfo(loginUser);
-//		List<LottoVO> myLotto = lottoService.getMyLotto(loginUser);
 		
 		model.addAttribute("attInfo", attInfo);
-//		model.addAttribute("myLotto", myLotto);
 		
 		return "fun/lotto";
 	}
 	
 	@RequestMapping("/myLottoList.fun")
 	@ResponseBody
-	public List<LottoVO> myLottoList(HttpSession session, String gdate, String gno) {
+	public List<LottoVO> myLottoList(HttpSession session, String gdate) {
 		logger.info("LottoCtrl myLottoList");
 		
-		System.out.println("lotto >>>>>>>>>>>>> " + gdate + " >>>> " + gno);
-//		System.out.println("lotto >>>>>>>>>>>>> " + lotto.toString());
+		System.out.println("lotto >>>>>>>>>>>>> " + gdate);
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 
 		LottoVO lotto = new LottoVO();
 		lotto.setUno(loginUser.getUno());
 		lotto.setGdate(gdate);
-		lotto.setGno(gno);
 		
         List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
         
@@ -149,11 +144,7 @@ public class LottoCtrl {
 		lotto.setUno(loginUser.getUno());
 		lotto.setGdate(gdate);
 		
-		List<LottoVO> myLottoList = lottoService.getMyNextLotto(lotto);
-		for(LottoVO l : myLottoList) {
-			System.out.println("asdfasdf >>>>>>>>>> " + l.getNextgdate());
-			
-		}
+		List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
 		
 		return myLottoList;
 	}

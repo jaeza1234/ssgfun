@@ -44,6 +44,250 @@ function imgChange(obj){
 	 
 }
 
+var lottoNum = '';
+
+function mylottolist(lottoNum) {
+	
+	var num = lottoNum.toString().split(',');
+	
+	$.ajax({
+		url: 'myLottoList.fun',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			'gdate': '2017-10-28'
+		},
+		success: function(data) {
+			var table = '';
+			table += '<table class="myLottoTable">';
+			table += '	<tbody id="myLotto">';
+			
+			$.each(data, function(idx, lotto) {
+				var cnt = 0;
+				table += '<tr>';
+				table += '	<td>' + (idx + 1) + '</td>';
+				table += '	<td>' + (idx + 1) + '</td>';
+				if(lotto.ulnum1 == num[0] || lotto.ulnum1 == num[1] || lotto.ulnum1 == num[2] || lotto.ulnum1 == num[3] || lotto.ulnum1 == num[4] || lotto.ulnum1 == num[5]) {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+					cnt ++;
+				} else {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_off.png" class="apiLotto" ></td>';
+				}
+				if(lotto.ulnum2 == num[0] || lotto.ulnum2 == num[1] || lotto.ulnum2 == num[2] || lotto.ulnum2 == num[3] || lotto.ulnum2 == num[4] || lotto.ulnum2 == num[5]) {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+					cnt ++;
+				} else {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_off.png" class="apiLotto" ></td>';
+				}
+				if(lotto.ulnum3 == num[0] || lotto.ulnum3 == num[1] || lotto.ulnum3 == num[2] || lotto.ulnum3 == num[3] || lotto.ulnum3 == num[4] || lotto.ulnum3 == num[5]) {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+					cnt ++;
+				} else {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_off.png" class="apiLotto" ></td>';
+				}
+				if(lotto.ulnum4 == num[0] || lotto.ulnum4 == num[1] || lotto.ulnum4 == num[2] || lotto.ulnum4 == num[3] || lotto.ulnum4 == num[4] || lotto.ulnum4 == num[5]) {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+					cnt ++;
+				} else {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_off.png" class="apiLotto" ></td>';
+				}
+				if(lotto.ulnum5 == num[0] || lotto.ulnum5 == num[1] || lotto.ulnum5 == num[2] || lotto.ulnum5 == num[3] || lotto.ulnum5 == num[4] || lotto.ulnum5 == num[5]) {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+					cnt ++;
+				} else {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_off.png" class="apiLotto" ></td>';
+				}
+				if(lotto.ulnum6 == num[0] || lotto.ulnum6 == num[1] || lotto.ulnum6 == num[2] || lotto.ulnum6 == num[3] || lotto.ulnum6 == num[4] || lotto.ulnum6 == num[5]) {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+					cnt ++;
+				} else {
+					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="apiLotto" ></td>';
+				}
+				if(cnt > 3) {
+					table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
+				} else {
+					table += '	<td></td>';
+				}
+				table += '</tr>';
+				
+				prevgdate = lotto.prevgdate;
+				nextgdate = lotto.nextgdate;
+			});
+			
+			table += '	</tbody>';
+			table += '</table>';
+			$('.myLottoList').html(table);
+			$('#prevgdate').html(prevgdate);
+			$('#nextgdate').html(nextgdate);
+		}
+	});
+}
+
+function prevlotto(lottoNum) {
+	
+	var num = lottoNum.toString().split(',');
+	
+	$.ajax({
+		url: 'prevMyLotto.fun',
+		type: 'post',
+		dataType: 'json',
+		data: { 'gdate': $('#prevgdate').text() },
+		success: function(data) {
+			if(data.length == 0) {
+				alert('이전 데이터 없다');
+			} else {
+				var table = '';
+				table += '<table class="myLottoTable">';
+				table += '	<tbody id="myLotto">';
+				
+				$.each(data, function(idx, lotto) {
+					var cnt = 0;
+					table += '<tr>';
+					table += '	<td>' + (idx + 1) + '</td>';
+					table += '	<td>' + (idx + 1) + '</td>';
+					if(lotto.ulnum1 == num[0] || lotto.ulnum1 == num[1] || lotto.ulnum1 == num[2] || lotto.ulnum1 == num[3] || lotto.ulnum1 == num[4] || lotto.ulnum1 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum2 == num[0] || lotto.ulnum2 == num[1] || lotto.ulnum2 == num[2] || lotto.ulnum2 == num[3] || lotto.ulnum2 == num[4] || lotto.ulnum2 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum3 == num[0] || lotto.ulnum3 == num[1] || lotto.ulnum3 == num[2] || lotto.ulnum3 == num[3] || lotto.ulnum3 == num[4] || lotto.ulnum3 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum4 == num[0] || lotto.ulnum4 == num[1] || lotto.ulnum4 == num[2] || lotto.ulnum4 == num[3] || lotto.ulnum4 == num[4] || lotto.ulnum4 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum5 == num[0] || lotto.ulnum5 == num[1] || lotto.ulnum5 == num[2] || lotto.ulnum5 == num[3] || lotto.ulnum5 == num[4] || lotto.ulnum5 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum6 == num[0] || lotto.ulnum6 == num[1] || lotto.ulnum6 == num[2] || lotto.ulnum6 == num[3] || lotto.ulnum6 == num[4] || lotto.ulnum6 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(cnt > 3) {
+						table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
+					} else {
+						table += '	<td></td>';
+					}
+					table += '</tr>';
+					
+					prevgdate = lotto.prevgdate;
+					nextgdate = lotto.nextgdate;
+				});
+				
+				table += '	</tbody>';
+				table += '</table>';
+				$('.myLottoList').html(table);
+				$('#prevgdate').text(prevgdate);
+				$('#nextgdate').text(nextgdate);
+			}
+		}
+	});
+}
+
+function nextlotto(lottoNum) {
+	
+	var num = lottoNum.toString().split(',');
+	
+	$.ajax({
+		url: 'nextMyLotto.fun',
+		type: 'post',
+		dataType: 'json',
+		data: { 'gdate': $('#nextgdate').text() },
+		success: function(data) {
+			if(data.length == 0) {
+				alert('다음 데이터가 없다');
+			} else {
+				var table = '';
+				table += '<table class="myLottoTable">';
+				table += '	<tbody id="myLotto">';
+				
+				$.each(data, function(idx, lotto) {
+					var cnt = 0;
+					table += '<tr>';
+					table += '	<td>' + (idx + 1) + '</td>';
+					table += '	<td>' + (idx + 1) + '</td>';
+					if(lotto.ulnum1 == num[0] || lotto.ulnum1 == num[1] || lotto.ulnum1 == num[2] || lotto.ulnum1 == num[3] || lotto.ulnum1 == num[4] || lotto.ulnum1 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum2 == num[0] || lotto.ulnum2 == num[1] || lotto.ulnum2 == num[2] || lotto.ulnum2 == num[3] || lotto.ulnum2 == num[4] || lotto.ulnum2 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum3 == num[0] || lotto.ulnum3 == num[1] || lotto.ulnum3 == num[2] || lotto.ulnum3 == num[3] || lotto.ulnum3 == num[4] || lotto.ulnum3 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum4 == num[0] || lotto.ulnum4 == num[1] || lotto.ulnum4 == num[2] || lotto.ulnum4 == num[3] || lotto.ulnum4 == num[4] || lotto.ulnum4 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum5 == num[0] || lotto.ulnum5 == num[1] || lotto.ulnum5 == num[2] || lotto.ulnum5 == num[3] || lotto.ulnum5 == num[4] || lotto.ulnum5 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(lotto.ulnum6 == num[0] || lotto.ulnum6 == num[1] || lotto.ulnum6 == num[2] || lotto.ulnum6 == num[3] || lotto.ulnum6 == num[4] || lotto.ulnum6 == num[5]) {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+						cnt ++;
+					} else {
+						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="apiLotto" ></td>';
+					}
+					if(cnt > 3) {
+						table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
+					} else {
+						table += '	<td></td>';
+					}
+					table += '</tr>';
+					
+					prevgdate = lotto.prevgdate;
+					nextgdate = lotto.nextgdate;
+				});
+				
+				table += '	</tbody>';
+				table += '</table>';
+				
+				$('.myLottoList').html(table);
+				$('#prevgdate').text(prevgdate);
+				$('#nextgdate').text(nextgdate);
+				
+				
+			}
+		}
+	});
+}
+
+function buylotto() {
+	
+}
+
 $(document).ready(function() {
 	
 	var bnum = '';
@@ -70,7 +314,7 @@ $(document).ready(function() {
 			var gno = data.gno;
 			var gdate = data.gdate;
 			
-			var lottoNum = (data.nums).toString().split(',');
+			lottoNum = (data.nums).toString().split(',');
 			var lottoAPINum = '';
 			$.each(lottoNum, function(idx, num) {
 				lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ num +'_on.png" class="apiLotto" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
@@ -82,47 +326,13 @@ $(document).ready(function() {
 			$('#lottoAPIgno').html(gno);
 			$('#lottoAPIgdate').html(gdate);
 			$('#lottoAPINum').html(lottoAPINum);
-
+			
+			
+			mylottolist(lottoNum);
 		}
 	});
 	
-	$.ajax({
-		url: 'myLottoList.fun',
-		type: 'post',
-		dataType: 'json',
-		data: {
-			'gdate': '2017-10-28'
-// 			'gno': '778회차'
-		},
-		success: function(data) {
-			var table = '';
-			table += '<table class="myLottoTable">';
-			table += '	<tbody id="myLotto">';
-			
-			$.each(data, function(idx, lotto) {
-				table += '<tr>';
-				table += '	<td>${status.index + 1 }</td>';
-				table += '	<td>${status.index + 1 }</td>';
-				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
-				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
-				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
-				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
-				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
-				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
-				table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
-				table += '</tr>';
-				
-				prevgdate = lotto.prevgdate;
-				nextgdate = lotto.nextgdate;
-			});
-			
-			table += '	</tbody>';
-			table += '</table>';
-			$('.myLottoList').html(table);
-			$('#prevgdate').html(prevgdate);
-			$('#nextgdate').html(nextgdate);
-		}
-	});
+	
 	
 	$('#random').click(function() {
 		
@@ -167,16 +377,41 @@ $(document).ready(function() {
 						'gno': gno},
 				success: function(data) {
 					var txt = '';
-					$.each(data, function(idx, obj) {
+					$.each(data, function(idx, lotto) {
 						txt += '<tr>';
 						txt += '<td>' + (idx+1) + '</td>';
 						txt += '<td>' + (idx+1) + '</td>';
-						txt += '<td>' + obj.ulnum1 + '</td>';
-						txt += '<td>' + obj.ulnum2 + '</td>';
-						txt += '<td>' + obj.ulnum3 + '</td>';
-						txt += '<td>' + obj.ulnum4 + '</td>';
-						txt += '<td>' + obj.ulnum5 + '</td>';
-						txt += '<td>' + obj.ulnum6 + '</td>';
+						if(lotto.ulnum1 == num[0] || lotto.ulnum1 == num[1] || lotto.ulnum1 == num[2] || lotto.ulnum1 == num[3] || lotto.ulnum1 == num[4] || lotto.ulnum1 == num[5]) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_off.png" class="apiLotto" ></td>';
+						}
+						if(lotto.ulnum2 == num[0] || lotto.ulnum2 == num[1] || lotto.ulnum2 == num[2] || lotto.ulnum2 == num[3] || lotto.ulnum2 == num[4] || lotto.ulnum2 == num[5]) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_off.png" class="apiLotto" ></td>';
+						}
+						if(lotto.ulnum3 == num[0] || lotto.ulnum3 == num[1] || lotto.ulnum3 == num[2] || lotto.ulnum3 == num[3] || lotto.ulnum3 == num[4] || lotto.ulnum3 == num[5]) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_off.png" class="apiLotto" ></td>';
+						}
+						if(lotto.ulnum4 == num[0] || lotto.ulnum4 == num[1] || lotto.ulnum4 == num[2] || lotto.ulnum4 == num[3] || lotto.ulnum4 == num[4] || lotto.ulnum4 == num[5]) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_off.png" class="apiLotto" ></td>';
+						}
+						if(lotto.ulnum5 == num[0] || lotto.ulnum5 == num[1] || lotto.ulnum5 == num[2] || lotto.ulnum5 == num[3] || lotto.ulnum5 == num[4] || lotto.ulnum5 == num[5]) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_off.png" class="apiLotto" ></td>';
+						}
+						if(lotto.ulnum6 == num[0] || lotto.ulnum6 == num[1] || lotto.ulnum6 == num[2] || lotto.ulnum6 == num[3] || lotto.ulnum6 == num[4] || lotto.ulnum6 == num[5]) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="apiLotto" ></td>';
+						}
+						txt += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
 						txt += '<td><input type="button" value="수령" /></td>';
 						txt += '</tr>';
 					});
@@ -191,91 +426,11 @@ $(document).ready(function() {
 	});
 	
 	$('.prev').click(function() {
-		
-			$.ajax({
-				url: 'prevMyLotto.fun',
-				type: 'post',
-				dataType: 'json',
-				data: { 'gdate': $('#prevgdate').text() },
-				success: function(data) {
-					if(data) {
-						console.log(data);
-						alert(data);
-						var table = '';
-						table += '<table class="myLottoTable">';
-						table += '	<tbody id="myLotto">';
-						
-						$.each(data, function(idx, lotto) {
-							table += '<tr>';
-							table += '	<td>${status.index + 1 }</td>';
-							table += '	<td>${status.index + 1 }</td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
-							table += '</tr>';
-							
-							prevgdate = lotto.prevgdate;
-							nextgdate = lotto.nextgdate;
-						});
-						
-						table += '	</tbody>';
-						table += '</table>';
-						$('.myLottoList').html(table);
-						$('#prevgdate').text(prevgdate);
-						$('#nextgdate').text(nextgdate);
-					} else {
-						alert('이전 데이터가 없다');
-					}
-				}
-			});
+		prevlotto(lottoNum);
 	});
 
 	$('.next').click(function() {
-		
-			$.ajax({
-				url: 'nextMyLotto.fun',
-				type: 'post',
-				dataType: 'json',
-				data: { 'gdate': $('#nextgdate').text() },
-				success: function(data) {
-					if(data != null) {
-						var table = '';
-						table += '<table class="myLottoTable">';
-						table += '	<tbody id="myLotto">';
-						
-						$.each(data, function(idx, lotto) {
-							table += '<tr>';
-							table += '	<td>${status.index + 1 }</td>';
-							table += '	<td>${status.index + 1 }</td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
-							table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
-							table += '</tr>';
-							
-							prevgdate = lotto.prevgdate;
-							nextgdate = lotto.nextgdate;
-						});
-						
-						table += '	</tbody>';
-						table += '</table>';
-						
-						$('.myLottoList').html(table);
-						$('#prevgdate').text(prevgdate);
-						$('#nextgdate').text(nextgdate);
-					} else {
-						alert('다음 데이터가 없다');
-					}
-				}
-			});
-			
+		nextlotto(lottoNum);
 	});
 	
 });
