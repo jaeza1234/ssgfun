@@ -24,7 +24,7 @@
 				REGDATE = DEFAULT,
 				EAATTCNT = EAATTCNT + 1
 		WHERE	UNO = #{uno}
-		<!-- AND		TO_CHAR(REGDATE, 'MM/DD') != TO_CHAR(SYSDATE, 'MM/DD') -->
+		AND		TO_CHAR(REGDATE, 'MM/DD') != TO_CHAR(SYSDATE, 'MM/DD')
  	</update>
 
  	<update id="play" parameterType="com.sinc.ssgfun.vo.AttendVO" >

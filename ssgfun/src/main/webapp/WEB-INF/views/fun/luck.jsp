@@ -169,10 +169,63 @@
 	width: 100%;
 	margin: 0 auto;
 }
+<<<<<<< HEAD
 div {
 	border: none;
 }
 
+=======
+.modal {
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+ 		height: 600px;
+    }
+}
+.modal-dialog.modal-fullsize { 
+	width: 1000px; 
+	height: auto;
+	margin: 0 auto;
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle; 
+	padding: 0;
+	position: absolute;
+	top: 450px;
+	left: 0px; 
+}
+.modal-content.modal-fullsize {
+	height: auto;
+	min-height: 100%;
+	border-radius: 20px; 
+}
+
+.modal-content {
+	background-image: url("/resources/assets/img/roul/popup_box2.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	text-align: center;
+}
+
+.btn-default {
+	border-color: transparent;
+}
+.modal-footer {
+	background-color: #ffffff;
+	border-top: transparent;
+	text-align: center;
+}
+.modal-title {
+	padding-top: 0px;
+	color: #fff;
+	font-size: 45px;
+}
+>>>>>>> branch 'master' of https://github.com/jaeza1234/ssgfun.git
 </style>
 </head>
 
@@ -273,6 +326,35 @@ div {
 
 
 		</div>
+		
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel" aria-hidden="true">
+		   <div class="modal-dialog modal-fullsize">
+		      <div class="modal-content modal-fullsize">
+		         <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" 
+		               aria-hidden="true">×
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel">
+		               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		            	<!-- <div id="result_id"></div>
+						<div id="result_id2"></div> -->
+						<div id="result_id3">
+						</div>
+		         </div>
+		         <div class="modal-footer">
+		            <button type="button" class="btn btn-default" 
+		               data-dismiss="modal">
+		               <img src="/resources/assets/img/roul/ok_btn.png">
+		            </button>
+		         </div>
+		      </div><!-- /.modal-content -->
+		   </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script
@@ -318,7 +400,8 @@ div {
 					success : function(data) {
 						
 						if (data.result == 0) {
-							alert('축하합니다. 열매1개 획득!');
+							/* alert('축하합니다. 열매1개 획득!'); */
+							$('#myModal').modal('show');
 							$('#fcnt').html(data.eacnt);
 						}	
 						/* document.getElementById('txt1').innerHTML = data.msg; */
@@ -347,5 +430,8 @@ div {
 
 			}
 		</script>
+		<script>
+        	$(function () { $('#myModal').modal('hide')});
+    	</script>
 </body>
 </html>
