@@ -30,16 +30,17 @@
 window.onload = function(){
      
 //     var pArr = ["0","1","2","3","4:꽝","5","6","7","8","9"];
-    var pArr = ["1",
-                "2",
-                "한번더",
+    var pArr = ["꽝",
+                "열매+1",
+                "100",
+                "꽝",
+                "300",
+                "꽝",
+                "열매+1",
                 "1000원쿠폰",
                 "꽝",
-                "꽝",
-                "1000원쿠폰",
-                "5",
-                "한번더",
-                "꽝"];
+                "500"
+               ];
  
    	var eacnt = ${attInfo.eacnt};
    	
@@ -315,7 +316,7 @@ p {
 			<img src="/resources/assets/img/roul/roulette_bg.png" id="roulette_bg">
 		</div>
 		
-		<img src="/resources/assets/img/roul/roulette.png" id="image">
+		<img src="/resources/assets/img/roul/roulette_modify.png" id="image">
 		<img src="/resources/assets/img/roul/niddle.png" id="n_id">
 		<div class="rTxt">
 			<span class="titleTxt"><b>[게임방법 소개]</b></span><br>

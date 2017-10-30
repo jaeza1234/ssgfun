@@ -28,6 +28,7 @@
 		FROM	T_USER_LOTTO
 		WHERE	UNO = #{uno}
 		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD')-6 AND TO_DATE(#{gdate}, 'YYYY-MM-DD')
+		ORDER BY REGDATE DESC
  	</select>
 
  	<select id="getMyNextLotto" parameterType="com.sinc.ssgfun.vo.LottoVO" resultType="com.sinc.ssgfun.vo.LottoVO">
@@ -46,7 +47,8 @@
 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE
 		FROM	T_USER_LOTTO
 		WHERE	UNO = #{uno}
-		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD') AND TO_DATE(#{gdate}, 'YYYY-MM-DD') + 6
+		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD') + 1 AND TO_DATE(#{gdate}, 'YYYY-MM-DD') + 7
+		ORDER BY REGDATE DESC
  	</select>
  	
  	
