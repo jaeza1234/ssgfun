@@ -15,16 +15,16 @@
 }
 .event {
 	position: absolute;
-	top: 370px;
+	top: 150px;
 	width: 100%;
-	height: 330px;
+	height: 150px;
 }
 .backpage {
 	position: absolute;
-	top: 24px;
-	left: 10px;
-	width: 150px;
-	height: 150px;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 80px;
 }
 
 </style>

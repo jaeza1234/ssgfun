@@ -16,28 +16,28 @@
 }
 .roulEvent {
 	position: absolute;
- 	top: 344px; 
+ 	top: 140px; 
 	width: 100%;
 	height: 25%;
 }
 .lottoEvent {
 	position: absolute;
-	top: 752px;
+	top: 345px;
 	width: 100%;
 	height: 25%;
 }
 .luckEvent {
 	position: absolute;
-	top: 1162px;
+	top: 550px;
 	width: 100%;
 	height: 25%;
 }
 .backpage {
 	position: absolute;
-	top: 70px;
-	left: 10px;
-	width: 150px;
-	height: 150px;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 80px;
 }
 
 </style>

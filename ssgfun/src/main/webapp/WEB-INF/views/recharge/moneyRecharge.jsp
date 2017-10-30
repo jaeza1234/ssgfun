@@ -43,10 +43,9 @@
 
 </script>
 <style type="text/css">
-	body {
-		font-size: 35px;
-	}
-	
+div{
+	border: 5em;
+}
 	.am-wrapper>.bgimg {
 		position: absolute;
 		top: 0;
@@ -56,59 +55,59 @@
 	
 	.backpage {
 		position: absolute;
-		top: 15px;
-		left: 10px;
-		width: 150px;
-		height: 150px;
+		top: 0;
+		left: 0;
+		width: 80px;
+		height: 80px;
 	}
 	.money{
 		position: absolute;
-		    top: 322px;
-	    left: 449px;
-	    width: 360px;
-	    height: 118px;
+		top: 130px;
+	    left: 120px;
+	    height: 50px;
 	}
 	.txt{
 		 text-align: right;
-		 size: 5px;
+		 font-size: 20px;
+		 size: 3px;
 	 
 	 
 	}
 	.plus1{
 		    position: absolute;
-	    top: 489px;
-	    left: 100px;
+	    top: 200px;
+	    left: 50px;
 	    width: 156px;
 	    height: 79px;
 	
 	}
 	.plus5{
 		    position: absolute;
-	    top: 489px;
-	    left: 305px;
+	    top: 200px;
+	    left: 50px;
 	    width: 156px;
 	    height: 79px;
 	
 	}
 	.plus10{
 		    position: absolute;
-	    top: 489px;
-	    left: 510px;
+	    top: 200px;
+	    left: 50px;
 	    width: 156px;
 	    height: 79px;
 	
 	}
 	.edit{
 		    position: absolute;
-	    top: 489px;
-	    left: 715px;
+	    top: 200px;
+	    left: 50px;
 	    width: 156px;
 	    height: 79px;
 	
 	}
 	.chargebtn{
 		position: absolute;
-	    top: 1800px;
+	    top: 800px;
 	    width: 100%;
 	  	height: 175px;
 	

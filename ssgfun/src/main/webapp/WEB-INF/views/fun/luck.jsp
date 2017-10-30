@@ -24,9 +24,6 @@
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/kfonts2.css" rel="stylesheet">
 <style type="text/css">
-body {
-	font-size: 35px;
-}
 
 .am-wrapper>.bgimg {
 	position: absolute;
@@ -37,139 +34,145 @@ body {
 
 .backpage {
 	position: absolute;
-	top: 15px;
-	left: 10px;
-	width: 150px;
-	height: 150px;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 80px;
 }
 
 .fruit {
 	position: absolute;
-	top: 205px;
-	left: 480px;
-	width: 100px;
-	height: 100px;
-	font-size: 45px
+	top: 90px;
+	left: 195px;
+	width: 80px;
+	height: 80px;
+	font-size: 20px
 }
 
 .textArea {
 	position: absolute;
-	top: 1280px;
-	left: 45px;
-	width: 92%;
-	height: 500px;
+	top: 535px;
+	width: 100%;
+	height: 300px;
 }
 
 .checked {
-	width: 150%;
-	height: 150%;
+	width: 160%;
+	height: 160%;
+	border:0;
 }
 
 .mouse {
 	position: absolute;
-	top: 456px;
-	left: 62px;
-	width: 120px;
-	height: 120px;
+	top: 190px;
+	left: 26px;
+	width: 48px;
+	height: 48px;
+	
 }
 
 .caw {
 	position: absolute;
-	top: 456px;
-	left: 291px;
-	width: 120px;
-	height: 120px;
+	top: 190px;
+	left: 121px;
+	width: 48px;
+	height: 48px;
 }
 
 .tiger {
 	position: absolute;
-	top: 456px;
-	left: 512px;
-	width: 120px;
-	height: 120px;
+	top: 190px;
+	left: 215px;
+	width: 48px;
+	height: 48px;
 }
 
 .rabbit {
 	position: absolute;
-	top: 456px;
-	left: 737px;
-	width: 120px;
-	height: 120px;
+	top: 190px;
+	left: 310px;
+	width: 48px;
+	height: 48px;
 }
 
 .dragon {
 	position: absolute;
-	top: 719px;
-	left: 62px;
-	width: 120px;
-	height: 120px;
+	top: 301px;
+	left: 26px;
+	width: 48px;
+	height: 48px;
 }
 
 .snake {
 	position: absolute;
-	top: 719px;
-	left: 291px;
-	width: 120px;
-	height: 120px;
+	top: 301px;
+	left: 121px;
+	width: 48px;
+	height: 48px;
 }
 
 .horse {
 	position: absolute;
-	top: 719px;
-	left: 512px;
-	width: 120px;
-	height: 120px;
+	top: 301px;
+	left: 215px;
+	width: 48px;
+	height: 48px;
 }
 
 .sheep {
 	position: absolute;
-	top: 719px;
-	left: 737px;
-	width: 120px;
-	height: 120px;
+	top: 301px;
+	left: 310px;
+	width: 48px;
+	height: 48px;
 }
 
 .monkey {
 	position: absolute;
-	top: 982px;
-	left: 62px;
-	width: 120px;
-	height: 120px;
+	top: 413px;
+	left: 26px;
+	width: 48px;
+	height: 48px;
 }
 
 .chicken {
 	position: absolute;
-	top: 982px;
-	left: 291px;
-	width: 120px;
-	height: 120px;
+	top: 413px;
+	left: 121px;
+	width: 48px;
+	height: 48px;
 }
 
 .dog {
 	position: absolute;
-	top: 982px;
-	left: 512px;
-	width: 120px;
-	height: 120px;
+	top: 413px;
+	left: 215px;
+	width: 48px;
+	height: 48px;
 }
 
 .pig {
 	position: absolute;
-	top: 982px;
-	left: 737px;
-	width: 120px;
-	height: 120px;
+	top: 413px;
+	left: 310px;
+	width: 48px;
+	height: 48px;
+	border: 0;
 }
 
 .txt {
-    margin-top: 10px;
 	overflow: scroll;
 	border: 0;
+	margin-top: 10px
 }
 .container {
 	width: 100%;
 	margin: 0 auto;
 }
+div {
+	border: none;
+}
+
 </style>
 </head>
 
@@ -185,42 +188,42 @@ body {
 		</div>
 
 		<div class="mouse" onclick="unse('mouse')">
-			<img alt="" src="" id="mouse" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="mouse" class="checked">
 		</div>
 		<div class="caw" onclick="unse('caw')">
-			<img alt="" src="" id="caw" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="caw" class="checked">
 		</div>
 		<div class="tiger" onclick="unse('tiger')">
-			<img alt="" src="" id="tiger" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="tiger" class="checked">
 		</div>
 		<div class="rabbit" onclick="unse('rabbit')">
-			<img alt="" src="" id="rabbit" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="rabbit" class="checked">
 		</div>
 
 		<div class="dragon" onclick="unse('dragon')">
-			<img alt="" src="" id="dragon" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="dragon" class="checked">
 		</div>
 		<div class="snake" onclick="unse('snake')">
-			<img alt="" src="" id="snake" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="snake" class="checked">
 		</div>
 		<div class="horse" onclick="unse('horse')">
-			<img alt="" src="" id="horse" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="horse" class="checked">
 		</div>
 		<div class="sheep" onclick="unse('sheep')">
-			<img alt="" src="" id="sheep" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="sheep" class="checked">
 		</div>
 
 		<div class="monkey" onclick="unse('monkey')">
-			<img alt="" src="" id="monkey" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="monkey" class="checked">
 		</div>
 		<div class="chicken" onclick="unse('chicken')">
-			<img alt="" src="" id="chicken" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="chicken" class="checked">
 		</div>
 		<div class="dog" onclick="unse('dog')">
-			<img alt="" src="" id="dog" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="dog" class="checked">
 		</div>
 		<div class="pig" onclick="unse('pig')">
-			<img alt="" src="" id="pig" class="checked">
+			<img alt="" src="/resources/assets/img/unse/blank.png" id="pig" class="checked">
 		</div>
 
 		<div class="textArea">
@@ -229,12 +232,12 @@ body {
 			<!-- <span id="date"></span>
 			<textarea readonly="readonly" id='txt' cols="28" rows="12">조회하실 동물을 클릭하세요!!</textarea> -->
 			<div class="container">
-				<ul class="nav nav-tabs">
-					<li class="active"><a href="#home" data-toggle="tab">오늘 </a></li>
-					<li><a href="#tab1" data-toggle="tab">내일</a></li>
-					<li><a href="#tab2" data-toggle="tab">이번주</a></li>
-					<li><a href="#tab3" data-toggle="tab">이번달</a></li>
-					<li><a href="#tab4" data-toggle="tab">올해</a></li>
+				<ul class="nav nav-tabs" style="width: 100%">
+					<li class="active" style="width:71px"><a href="#home" data-toggle="tab">오늘</a></li>
+					<li style="width:71px"><a href="#tab1" data-toggle="tab">내일</a></li>
+					<li style="width:71px"><a href="#tab2" data-toggle="tab">이번주</a></li>
+					<li style="width:71px"><a href="#tab3" data-toggle="tab">이번달</a></li>
+					<li style="width:71px"><a href="#tab4" data-toggle="tab">올해</a></li>
 
 				</ul>
 
@@ -242,25 +245,25 @@ body {
 					<div class="tab-pane active" id="home">
 
 						<span id="date1"></span>
-						<textarea readonly="readonly" class='txt' id='txt1' cols="27" rows="13">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt1' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 
 					<div class="tab-pane" id="tab1">
 						<span id="date2"></span>
-						<textarea readonly="readonly" class='txt' id='txt2' cols="27" rows="13">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt2' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 					<div class="tab-pane" id="tab2">
 						<span id="date3"></span>
-						<textarea readonly="readonly" class='txt' id='txt3' cols="27" rows="13">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt3' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 
 					<div class="tab-pane" id="tab3">
 						<span id="date4"></span>
-						<textarea readonly="readonly" class='txt' id='txt4' cols="27" rows="13">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt4' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 					<div class="tab-pane" id="tab4">
 						<span id="date5"></span>
-						<textarea readonly="readonly" class='txt' id='txt5' cols="27" rows="13">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt5' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 
 				</div>
@@ -301,7 +304,7 @@ body {
 						$('#' + anis[int]).prop('src',
 								'/resources/assets/img/unse/over_icon.png');
 					} else {
-						$('#' + anis[int]).prop('src', '');
+						$('#' + anis[int]).prop('src', '/resources/assets/img/unse/blank.png');
 					}
 				}
 

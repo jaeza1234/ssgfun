@@ -17,24 +17,24 @@
 
 .backpage {
 	position: absolute;
-	top: 40px;
-	left: 10px;
-	width: 150px;
-	height: 150px;
+	top: 0;
+	left: 0;
+	width: 80px;
+	height: 80px;
 }
 .goAtt{
 	position: absolute;
-	top: 1614px;
-	left: 100px;
-	width: 80%;
-	height: 120px;
+	top: 680px;
+	left: 35px;
+	width: 83%;
+	height: 50px;
 }
 .goFun{
 	position: absolute;
-	top: 1772px;
-	left: 100px;
-	width: 80%;
-	height: 120px;
+	top: 745px;
+	left: 35px;
+	width: 83%;
+	height: 50px;
 }
 
 </style>
