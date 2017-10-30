@@ -5,6 +5,8 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title> prototype about roulette </title>
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 
@@ -135,6 +137,118 @@ window.onload = function(){
 </script>
 
 <style type="text/css">
+/*
+	pixel-ratio : 1 && Portrait
+*/
+	/* iPad 2 세로보기 */
+	@media only screen and (min-width : 768px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 1){
+		
+	}
+
+/*
+	pixel-ratio : 1 && landscape
+*/
+	/* iPad 2 세로보기 */
+	@media only screen and (min-width : 1024px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 1){
+		
+	}
+
+/*
+	pixel-ratio : 1.5 && Portrait
+*/
+	/* 갤럭시 S2 세로보기 - low-dpi */
+	@media only screen and (min-width : 240px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 1.5){
+		
+	}
+	/* 갤럭시 S2 세로보기 - medium-dpi */
+	@media only screen and (min-width : 320px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 1.5){
+		
+	}
+	/* 갤럭시 S2 세로보기 - high-dpi */
+	@media only screen and (min-width : 480px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 1.5){
+		
+	}
+
+/*
+	pixel-ratio : 1.5 && landscape
+*/
+	/* 갤럭시 S2 가로보기 - low-dpi */
+	@media only screen and (min-width : 400px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1.5){
+		
+	}
+	/* 갤럭시 S2 가로보기 - medium-dpi */
+	@media only screen and (min-width : 533px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1.5){
+		
+	} 
+	/* 갤럭시 S2 가로보기 - high-dpi */
+	@media only screen and (min-width : 800px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio: 1.5){
+		
+	} 
+
+/*
+	pixel-ratio : 2 && Portrait
+*/
+	/* 갤럭시 Nexus, 갤럭시 S3 세로보기 - low-dpi */
+	@media only screen and (min-width : 270px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* Galaxy Note 세로보기 - low-dpi */
+	@media only screen and (min-width : 300px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* iPhone 4 세로보기 */
+	@media only screen and (min-width : 320px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* 갤럭시 Nexus, 갤럭시 S3 세로보기 - medium-dpi */
+	@media only screen and (min-width : 360px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	} 
+	/* Galaxy Note 세로보기 - medium-dpi */
+	@media only screen and (min-width : 400px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* 갤럭시 Nexus, 갤럭시 S3 세로보기 - high-dpi */
+	@media only screen and (min-width : 540px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	} 
+	/* Galaxy Note 세로보기 - high-dpi */
+	@media only screen and (min-width : 600px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+
+/*
+	pixel-ratio : 2 && Landscape
+*/
+	/* 갤럭시 Nexus 가로보기 - low-dpi */
+	@media only screen and (min-width : 448px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* iPhone 4 가로보기 && 갤럭시 NOTE, 갤럭시 S3 가로보기 - low-dpi */
+	@media only screen and (min-width : 480px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* iPhone 5 가로보기  */
+	@media only screen and (min-width : 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+	
+	}
+	/* 갤럭시 Nexus 가로보기 - medium-dpi */
+	@media only screen and (min-width : 598px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* Galaxy Note, 갤럭시 S3 가로보기 - medium-dpi */
+	@media only screen and (min-width : 640px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* 갤럭시 Nexus 가로보기 - high-dpi */
+	@media only screen and (min-width : 897px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+	/* Galaxy Note, 갤럭시 S3 가로보기 - high-dpi */
+	@media only screen and (min-width : 960px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2){
+		
+	}
+
 body {
 	font-size: 50px;
 }

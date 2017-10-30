@@ -633,6 +633,13 @@ th, td, tr {
 	overflow: scroll;
 	border: 0;
 }
+.myLottoList{
+	position: relative;
+    top: 48px;
+    width: 100%;
+    height: 583px;
+    overflow: scroll;
+}
 </style>
 </head>
 <body>
