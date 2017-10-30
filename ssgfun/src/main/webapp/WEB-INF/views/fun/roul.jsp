@@ -327,7 +327,7 @@ p {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
+					<a href="/user/att.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br>
 				</span>
 				<span class="conTxtSpan">
@@ -335,7 +335,7 @@ p {
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
+					<a href="/luck/main.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br>
 				</span>
 				<span class="conTxtSpan">

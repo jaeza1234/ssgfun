@@ -384,6 +384,58 @@ height: auto;
 	z-index: 4000;
 }
 
+.modals {
+	text-align: center;
+	
+}
+
+@media screen and (min-width: 768px) {
+	.modals:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+ 		height: 600px;
+    }
+}
+.modals-dialog.modals-fullsize { 
+	width: 1000px; 
+	height: auto;
+	margin: 0 auto;
+	display: inline-block;
+	text-align: left;
+	vertical-align: middle; 
+	padding: 0;
+	position: absolute;
+	top: 450px;
+	left: 0px;
+	z-index: 10000; 
+}
+.modals-content.modals-fullsize {
+	height: auto;
+	min-height: 100%;
+	border-radius: 20px; 
+}
+
+.modals-content {
+	background-image: url("/resources/assets/img/roul/popup_box2.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	text-align: center;
+}
+
+.btn-default {
+	border-color: transparent;
+}
+.modals-footer {
+	background-color: #ffffff;
+	border-top: transparent;
+	text-align: center;
+}
+.modals-title {
+	padding-top: 0px;
+	color: #fff;
+	font-size: 45px;
+}
 </style>
 </head>
 <body>
@@ -462,6 +514,60 @@ height: auto;
 		</div>
 		</div>
 	</div>
+	<!-- Modal -->
+	<div class="modals fade" id="myModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="myModalLabel" aria-hidden="true">
+	   <div class="modals-dialog modals-fullsize">
+	      <div class="modals-content modals-fullsize">
+	         <div class="modals-header">
+	            <button type="button" class="close" data-dismiss="modal" 
+	               aria-hidden="true">×
+	            </button>
+	            <h4 class="modals-title" id="myModalLabel">
+	               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+	            </h4>
+	         </div>
+	         <div class="modals-body">
+	            	<div>
+	            		출석성공
+	            	</div>
+	         </div>
+	         <div class="modal-footer">
+	            <button type="button" class="btn btn-default" 
+	               data-dismiss="modal">
+	               <img src="/resources/assets/img/roul/ok_btn.png">
+	            </button>
+	         </div>
+	      </div><!-- /.modal-content -->
+	   </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- Modal -->
+	<div class="modals fade" id="myModalFail" tabindex="-1" role="dialog" 
+	   aria-labelledby="myModalLabel" aria-hidden="true">
+	   <div class="modals-dialog modals-fullsize">
+	      <div class="modals-content modals-fullsize">
+	         <div class="modals-header">
+	            <button type="button" class="close" data-dismiss="modal" 
+	               aria-hidden="true">×
+	            </button>
+	            <h4 class="modals-title" id="myModalLabel">
+	               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+	            </h4>
+	         </div>
+	         <div class="modals-body">
+	            	<div>
+	            		하루에 한번만!
+	            	</div>
+	         </div>
+	         <div class="modals-footer">
+	            <button type="button" class="btn btn-default" 
+	               data-dismiss="modal">
+	               <img src="/resources/assets/img/roul/ok_btn.png">
+	            </button>
+	         </div>
+	      </div><!-- /.modal-content -->
+	   </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	<script src="/resources/assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
 	<script
 		src="/resources/assets/lib/jquery.nanoscroller/javascripts/jquery.nanoscroller.min.js"
@@ -485,10 +591,10 @@ height: auto;
 					dataType: 'json',
 					success: function(data) {
 						if (data.result==1) {
-							alert('오늘 출석 성공!!');
 							$('#fcnt').html(data.eacnt);
+							$('#myModal').modal('show');
 						}else if(data.result==0){
-							alert('하루 1번만 출석체크!!');
+							$('#myModalFail').modal('show');
 						};
 						
 						/* $('.waterImg').css("display", "none"); */
@@ -497,5 +603,8 @@ height: auto;
 			});
 		});
 	</script>
+	<script>
+        $(function () { $('#myModal').modal('hide')});
+    </script>
 </body>
 </html>
