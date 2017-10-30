@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -192,53 +193,54 @@ li {
   border-radius: 100px 0px 100px 0px;
 }
 
-li:nth-child(1) {
+.white {
+	background-color: #fff;
+	border: solid #da2128;
+}
+.red {
+	background-color: #da2128;
+}
+
+.leaf1 {
 top: -19px;
 left: 28px;
 transform: rotate(2deg);
-background-color: #da2128;
 }
 
-li:nth-child(2) {
+.leaf2 {
 top: -10px;
 right: 22px;
 transform: rotate(47deg);
-background-color: #da2128;
 }
 
-li:nth-child(3) {
+.leaf3 {
 top: 27px;
 right: 12px;
 transform: rotate(-8deg);
-background-color: #da2128;
 }
 
-li:nth-child(4) {
+.leaf4 {
 top: 18px;
 left: 28px;
 transform: rotate(-126deg);
-background-color: #da2128;
 }
 
-li:nth-child(5) {
+.leaf5 {
 top: 39px;
 left: -2px;
 transform: rotate(-73deg);
-background-color: #da2128;
 }
 
-li:nth-child(6) {
+.leaf6 {
 bottom: 33px;
 left: 5px;
 transform: rotate(-34deg);
-background-color: #da2128;
 }
 
-li:nth-child(7) {
+.leaf7 {
 bottom: 30px;
 right: 1px;
 transform: rotate(-87deg);
-background-color: #da2128;
 }
 
 
@@ -383,38 +385,38 @@ height: auto;
 	height: 100px;
 	z-index: 4000;
 }
-
-.modals {
+.modal {
 	text-align: center;
-	
 }
 
 @media screen and (min-width: 768px) {
-	.modals:before {
+	.modal:before {
 		display: inline-block;
 		vertical-align: middle;
 		content: " ";
  		height: 600px;
     }
 }
-.modals-dialog.modals-fullsize { 
-	height: 500px;
+.modal-dialog.modal-fullsize { 
+	width: 300px; 
+	height: auto;
 	margin: 0 auto;
 	display: inline-block;
 	text-align: left;
 	vertical-align: middle; 
 	padding: 0;
 	position: absolute;
-	top: 450px;
-	left: 0px;
-	z-index: 10000; 
+	top: 200px;
+	left: 50px;
+	min-width: 50%; 
 }
-.modals-content.modals-fullsize {
+.modal-content.modal-fullsize {
 	height: auto;
 	min-height: 100%;
+	border-radius: 20px; 
 }
 
-.modals-content {
+.modal-content {
 	background-image: url("/resources/assets/img/roul/popup_box2.png");
 	background-repeat: no-repeat;
 	background-size: 100%;
@@ -424,16 +426,24 @@ height: auto;
 .btn-default {
 	border-color: transparent;
 }
-.modals-footer {
+.modal-footer {
 	background-color: #ffffff;
 	border-top: transparent;
 	text-align: center;
 }
-.modals-title {
+.modal-title {
 	padding-top: 0px;
 	color: #fff;
-	font-size: 45px;
+	font-size: 17px;
 }
+.okBtn {
+	width: 50%;
+}
+.luck {
+	width: 80px;
+	height: 80px;
+}
+
 </style>
 </head>
 <body>
@@ -483,15 +493,95 @@ height: auto;
 				    <div class="plant">
 				      <div class="head">
 				      <!--div class="face"></div-->
-				      <ul>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				          <li></li>
-				        </ul>
+					  	<ul>
+					  		<c:choose>
+					  			<c:when test="${attInfo.eaattcnt == 0}">
+					  				<li class="leaf1 white"></li>
+							          <li class="leaf2 white"></li>
+							          <li class="leaf3 white"></li>
+							          <li class="leaf4 white"></li>
+							          <li class="leaf5 white"></li>
+							          <li class="leaf6 white"></li>
+							          <li class="leaf7 white"></li>
+					  			</c:when>
+					  			<c:otherwise>
+					  				<c:if test="${attInfo.eaattcnt % 7 == 0}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 red"></li>
+							          <li class="leaf3 red"></li>
+							          <li class="leaf4 red"></li>
+							          <li class="leaf5 red"></li>
+							          <li class="leaf6 red"></li>
+							          <li class="leaf7 red"></li>
+							       	</c:if>
+							       	<c:if test="${attInfo.eaattcnt % 7 == 1}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 white"></li>
+							          <li class="leaf3 white"></li>
+							          <li class="leaf4 white"></li>
+							          <li class="leaf5 white"></li>
+							          <li class="leaf6 white"></li>
+							          <li class="leaf7 white"></li>
+							       	</c:if>
+							       	<c:if test="${attInfo.eaattcnt % 7 == 2}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 red"></li>
+							          <li class="leaf3 white"></li>
+							          <li class="leaf4 white"></li>
+							          <li class="leaf5 white"></li>
+							          <li class="leaf6 white"></li>
+							          <li class="leaf7 white"></li>
+							       	</c:if>
+							       	<c:if test="${attInfo.eaattcnt % 7 == 3}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 red"></li>
+							          <li class="leaf3 red"></li>
+							          <li class="leaf4 white"></li>
+							          <li class="leaf5 white"></li>
+							          <li class="leaf6 white"></li>
+							          <li class="leaf7 white"></li>
+							       	</c:if>
+							       	<c:if test="${attInfo.eaattcnt % 7 == 4}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 red"></li>
+							          <li class="leaf3 red"></li>
+							          <li class="leaf4 red"></li>
+							          <li class="leaf5 white"></li>
+							          <li class="leaf6 white"></li>
+							          <li class="leaf7 white"></li>
+							       	</c:if>
+							       	<c:if test="${attInfo.eaattcnt % 7 == 5}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 red"></li>
+							          <li class="leaf3 red"></li>
+							          <li class="leaf4 red"></li>
+							          <li class="leaf5 red"></li>
+							          <li class="leaf6 white"></li>
+							          <li class="leaf7 white"></li>
+							       	</c:if>
+							       	<c:if test="${attInfo.eaattcnt % 7 == 6}">
+							       	  <li class="leaf1 red"></li>
+							          <li class="leaf2 red"></li>
+							          <li class="leaf3 red"></li>
+							          <li class="leaf4 red"></li>
+							          <li class="leaf5 red"></li>
+							          <li class="leaf6 red"></li>
+							          <li class="leaf7 white"></li>
+							       	</c:if>
+					  			</c:otherwise>
+					  		</c:choose>
+					  		<%-- <c:if test="${attInfo.eaattcnt == 0}">
+					       	  <li class="leaf1 white"></li>
+					          <li class="leaf2 white"></li>
+					          <li class="leaf3 white"></li>
+					          <li class="leaf4 white"></li>
+					          <li class="leaf5 white"></li>
+					          <li class="leaf6 white"></li>
+					          <li class="leaf7 white"></li>
+					       	</c:if> --%>
+					       	
+					          
+					        </ul>
 				       </div>
 				    </div>
 				    
@@ -513,26 +603,26 @@ height: auto;
 		</div>
 	</div>
 	<!-- Modal -->
-	<div class="modals fade" id="myModal" tabindex="-1" role="dialog" 
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
 	   aria-labelledby="myModalLabel" aria-hidden="true">
-	   <div class="modals-dialog modals-fullsize">
-	      <div class="modals-content modals-fullsize">
-	         <div class="modals-header">
+	   <div class="modal-dialog modal-fullsize">
+	      <div class="modal-content modal-fullsize">
+	         <div class="modal-header">
 	            <button type="button" class="close" data-dismiss="modal" 
 	               aria-hidden="true">×
 	            </button>
-	            <h4 class="modals-title" id="myModalLabel">
-	               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+	            <h4 class="modal-title" id="myModalLabel">
+	               <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;알림&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>
 	            </h4>
 	         </div>
-	         <div class="modals-body">
+	         <div class="modal-body">
 	            	<div>
-	            		출석성공
+	            		[출석완료] 열매 1개 지급!
 	            	</div>
 	         </div>
 	         <div class="modal-footer">
-	            <button type="button" class="btn btn-default" 
-	               data-dismiss="modal">
+	            <button type="button" class="btn btn-default success" 
+	               data-dismiss="modal" onClick="history.go(0)">
 	               <img src="/resources/assets/img/roul/ok_btn.png">
 	            </button>
 	         </div>
@@ -540,27 +630,27 @@ height: auto;
 	   </div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 	<!-- Modal -->
-	<div class="modals fade" id="myModalFail" tabindex="-1" role="dialog" 
+	<div class="modal fade" id="myModalFail" tabindex="-1" role="dialog" 
 	   aria-labelledby="myModalLabel" aria-hidden="true">
-	   <div class="modals-dialog modals-fullsize">
-	      <div class="modals-content modals-fullsize">
-	         <div class="modals-header">
+	   <div class="modal-dialog modal-fullsize">
+	      <div class="modal-content modal-fullsize">
+	         <div class="modal-header">
 	            <button type="button" class="close" data-dismiss="modal" 
 	               aria-hidden="true">×
 	            </button>
-	            <h4 class="modals-title" id="myModalLabel">
-	               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+	            <h4 class="modal-title" id="myModalLabel">
+	               &nbsp;&nbsp;알림&nbsp;&nbsp;
 	            </h4>
 	         </div>
-	         <div class="modals-body">
+	         <div class="modal-body">
 	            	<div>
-	            		하루에 한번만!
+	            		출석은 하루에 한 번만 가능합니다.
 	            	</div>
 	         </div>
-	         <div class="modals-footer">
-	            <button type="button" class="btn btn-default" 
+	         <div class="modal-footer">
+	            <button type="button" class="btn btn-default fail" 
 	               data-dismiss="modal">
-	               <img src="/resources/assets/img/roul/ok_btn.png">
+	               <img class="okBtn" src="/resources/assets/img/roul/ok_btn.png">
 	            </button>
 	         </div>
 	      </div><!-- /.modal-content -->
@@ -578,7 +668,6 @@ height: auto;
 			//initialize the javascript
 			//App.init();
 			
-			
 			$('#attCheck').on("click",function() {
 //		 		alert('클릭');
 				$('.waterImg').css("display","block");
@@ -589,8 +678,9 @@ height: auto;
 					dataType: 'json',
 					success: function(data) {
 						if (data.result==1) {
-							$('#fcnt').html(data.eacnt);
 							$('#myModal').modal('show');
+ 							alert(data.eaattcnt)
+							$('.fruittxt').html(data.eacnt);
 						}else if(data.result==0){
 							$('#myModalFail').modal('show');
 						};

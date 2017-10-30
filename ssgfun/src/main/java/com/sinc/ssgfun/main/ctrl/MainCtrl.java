@@ -84,4 +84,26 @@ public class MainCtrl {
 		return attInfo.getEacnt() + "";
 	}
 	
+	@RequestMapping("/recharge.fun")
+	public String recharge() {
+		logger.info("MainCtrl recharge");
+		
+		return "recharge/moneyRecharge";
+	}
+	
+	
+	@RequestMapping("/moneyRecharge.fun")
+	@ResponseBody
+	public int moneyRecharge(HttpSession session, String money) {
+		logger.info("MainCtrl moneyRecharge");
+		
+		///머니 받아와서 10000으로 나눠서 열매 지급하고 결과 ajax로 돌려줌.
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		mainService.plusFruit(loginUser, Integer.parseInt(money)/10000);
+		
+		return Integer.parseInt(money)/10000;
+	}
+	
+	
 }
