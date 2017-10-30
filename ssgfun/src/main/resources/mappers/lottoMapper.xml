@@ -11,7 +11,7 @@
 		VALUES(SEQ_USER_LOTTO.NEXTVAL, #{ulname}, #{ulnum1}, #{ulnum2}, #{ulnum3}, #{ulnum4}, #{ulnum5}, #{ulnum6}, DEFAULT, NULL, #{uno})
  	</insert>
  	
- 	<select id="getMyLotto" parameterType="com.sinc.ssgfun.vo.UserVO" resultType="com.sinc.ssgfun.vo.LottoVO">
+ 	<select id="getMyLotto" parameterType="com.sinc.ssgfun.vo.LottoVO" resultType="com.sinc.ssgfun.vo.LottoVO">
  		SELECT	ULNO,
  		 		ULNAME,
  		  		ULNUM1,
@@ -22,10 +22,31 @@
  		       	ULNUM6,
  		        REGDATE,
 				MODDATE, 
-				UNO
+				UNO,
+				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE,
+				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE
 		FROM	T_USER_LOTTO
 		WHERE	UNO = #{uno}
-		AND		TO_CHAR(REGDATE, 'MM/DD') = TO_CHAR(SYSDATE, 'MM/DD')
+		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD')-6 AND TO_DATE(#{gdate}, 'YYYY-MM-DD')
+ 	</select>
+
+ 	<select id="getMyNextLotto" parameterType="com.sinc.ssgfun.vo.LottoVO" resultType="com.sinc.ssgfun.vo.LottoVO">
+ 		SELECT	ULNO,
+ 		 		ULNAME,
+ 		  		ULNUM1,
+ 		  		ULNUM2,
+ 		    	ULNUM3,
+ 		     	ULNUM4,
+ 		      	ULNUM5,
+ 		       	ULNUM6,
+ 		        REGDATE,
+				MODDATE, 
+				UNO,
+				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE,
+				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE
+		FROM	T_USER_LOTTO
+		WHERE	UNO = #{uno}
+		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD') AND TO_DATE(#{gdate}, 'YYYY-MM-DD') + 6
  	</select>
  	
  	

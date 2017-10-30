@@ -29,9 +29,16 @@ public class LottoDaoImpl implements LottoDao {
 	}
 
 	@Override
-	public List<LottoVO> getMyLotto(UserVO loginUser) {
+	public List<LottoVO> getMyLotto(LottoVO lotto) {
 		logger.info("LottoDaoImpl getMyLotto");
 		
-		return session.selectList(LOTTOPREFIX + "getMyLotto", loginUser);
+		return session.selectList(LOTTOPREFIX + "getMyLotto", lotto);
+	}
+
+	@Override
+	public List<LottoVO> getMyNextLotto(LottoVO lotto) {
+		logger.info("LottoDaoImpl getMyNextLotto");
+		
+		return session.selectList(LOTTOPREFIX + "getMyNextLotto", lotto);
 	}
 }

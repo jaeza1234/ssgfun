@@ -9,6 +9,8 @@ public interface LottoDao {
 
 	int buyLotto(LottoVO lotto);
 
-	List<LottoVO> getMyLotto(UserVO loginUser);
+	List<LottoVO> getMyLotto(LottoVO lotto);
+
+	List<LottoVO> getMyNextLotto(LottoVO lotto);
 
 }

@@ -51,6 +51,9 @@ $(document).ready(function() {
 	var gno = '';
 	var gdate = '';
 	var nums = '';
+	var prevgdate = '';
+	var nextgdate = '';
+	
 	var eacnt = ${attInfo.eacnt};
 	
 	$.ajax({
@@ -80,6 +83,45 @@ $(document).ready(function() {
 			$('#lottoAPIgno').html(gno);
 			$('#lottoAPIgdate').html(gdate);
 			$('#lottoAPINum').html(lottoAPINum);
+
+		}
+	});
+	
+	$.ajax({
+		url: 'myLottoList.fun',
+		type: 'post',
+		dataType: 'json',
+		data: {
+			'gdate': '2017-10-28'
+// 			'gno': '778회차'
+		},
+		success: function(data) {
+			var table = '';
+			table += '<table class="myLottoTable">';
+			table += '	<tbody id="myLotto">';
+			
+			$.each(data, function(idx, lotto) {
+				table += '<tr>';
+				table += '	<td>${status.index + 1 }</td>';
+				table += '	<td>${status.index + 1 }</td>';
+				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+				table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+				table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
+				table += '</tr>';
+				
+				prevgdate = lotto.prevgdate;
+				nextgdate = lotto.nextgdate;
+			});
+			
+			table += '	</tbody>';
+			table += '</table>';
+			$('.myLottoList').html(table);
+			$('#prevgdate').html(prevgdate);
+			$('#nextgdate').html(nextgdate);
 		}
 	});
 	
@@ -129,6 +171,7 @@ $(document).ready(function() {
 					$.each(data, function(idx, obj) {
 						txt += '<tr>';
 						txt += '<td>' + (idx+1) + '</td>';
+						txt += '<td>' + (idx+1) + '</td>';
 						txt += '<td>' + obj.ulnum1 + '</td>';
 						txt += '<td>' + obj.ulnum2 + '</td>';
 						txt += '<td>' + obj.ulnum3 + '</td>';
@@ -140,16 +183,100 @@ $(document).ready(function() {
 					});
 					
 					$('#myLotto').html(txt);
-
-					
 				}
 			});
 			
     	} else {
     		alert('열매부족하다');
     	}
+	});
+	
+	$('.prev').click(function() {
+		
+			$.ajax({
+				url: 'prevMyLotto.fun',
+				type: 'post',
+				dataType: 'json',
+				data: { 'gdate': $('#prevgdate').text() },
+				success: function(data) {
+					if(data) {
+						console.log(data);
+						alert(data);
+						var table = '';
+						table += '<table class="myLottoTable">';
+						table += '	<tbody id="myLotto">';
+						
+						$.each(data, function(idx, lotto) {
+							table += '<tr>';
+							table += '	<td>${status.index + 1 }</td>';
+							table += '	<td>${status.index + 1 }</td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
+							table += '</tr>';
+							
+							prevgdate = lotto.prevgdate;
+							nextgdate = lotto.nextgdate;
+						});
+						
+						table += '	</tbody>';
+						table += '</table>';
+						$('.myLottoList').html(table);
+						$('#prevgdate').text(prevgdate);
+						$('#nextgdate').text(nextgdate);
+					} else {
+						alert('이전 데이터가 없다');
+					}
+				}
+			});
+	});
 
-
+	$('.next').click(function() {
+		
+			$.ajax({
+				url: 'nextMyLotto.fun',
+				type: 'post',
+				dataType: 'json',
+				data: { 'gdate': $('#nextgdate').text() },
+				success: function(data) {
+					if(data != null) {
+						var table = '';
+						table += '<table class="myLottoTable">';
+						table += '	<tbody id="myLotto">';
+						
+						$.each(data, function(idx, lotto) {
+							table += '<tr>';
+							table += '	<td>${status.index + 1 }</td>';
+							table += '	<td>${status.index + 1 }</td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="apiLotto" ></td>';
+							table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td>';
+							table += '</tr>';
+							
+							prevgdate = lotto.prevgdate;
+							nextgdate = lotto.nextgdate;
+						});
+						
+						table += '	</tbody>';
+						table += '</table>';
+						
+						$('.myLottoList').html(table);
+						$('#prevgdate').text(prevgdate);
+						$('#nextgdate').text(nextgdate);
+					} else {
+						alert('다음 데이터가 없다');
+					}
+				}
+			});
+			
 	});
 	
 });
@@ -323,6 +450,30 @@ th, td, tr {
 	width: 300px;
  	margin-left: 18px;
 }
+.prev {
+	position: relative;
+ 	top: 45px;
+/*  	margin-top: 80px; */
+ 	margin-left: 60px;
+ 	font-size: 50px;
+}
+.prev_btn {
+	height: 30px;
+ 	margin-left: 20px;
+ 	font-size: 50px;
+}
+.next {
+	position: relative;
+ 	top: 45px;
+/* 	margin-top: 80px; */
+ 	margin-left: 480px;
+ 	font-size: 50px;
+}
+.next_btn {
+	height: 30px;
+ 	margin-left: 20px;
+ 	font-size: 50px;
+}
 .txt {
     margin-top: 10px;
 	overflow: scroll;
@@ -369,37 +520,42 @@ th, td, tr {
     </div>
     
     <div class="lotto_bg_bottm">
+    	<span class="prev"><img src="/resources/assets/img/lotto/prev_icon.png" class="prev_btn" /> 이전회</span>
+    	<span class="next">다음회<img src="/resources/assets/img/lotto/next_icon.png" class="next_btn" /> </span>
     	<div class="myLottoList" >
-			<table class="myLottoTable">
-				<tr>
-					<th>번호</th>
-					<th>등수</th>
-					<th>1</th>
-					<th>2</th>
-					<th>3</th>
-					<th>4</th>
-					<th>5</th>
-					<th>6</th>
-					<th>수령</th>
-				</tr>
-				<tbody id="myLotto">
-					<c:forEach items="${myLotto }" var="lotto" varStatus="status">
-						<tr>
-							<td>${status.index + 1 }</td>
-							<td>${status.index + 1 }</td>
-							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum1}_on.png" class="apiLotto" ></td>
-							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum2}_on.png" class="apiLotto" ></td>
-							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum3}_on.png" class="apiLotto" ></td>
-							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum4}_on.png" class="apiLotto" ></td>
-							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum5}_on.png" class="apiLotto" ></td>
-							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum6}_on.png" class="apiLotto" ></td>
-							<td><input type="button" value="수령" /></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+<!-- 			<table class="myLottoTable"> -->
+<!-- 				<tr> -->
+<!-- 					<th>번호</th> -->
+<!-- 					<th>등수</th> -->
+<!-- 					<th>1</th> -->
+<!-- 					<th>2</th> -->
+<!-- 					<th>3</th> -->
+<!-- 					<th>4</th> -->
+<!-- 					<th>5</th> -->
+<!-- 					<th>6</th> -->
+<!-- 					<th>수령</th> -->
+<!-- 				</tr> -->
+<!-- 				<tbody id="myLotto"> -->
+<%-- 					<c:forEach items="${myLotto }" var="lotto" varStatus="status"> --%>
+<!-- 						<tr> -->
+<%-- 							<td>${status.index + 1 }</td> --%>
+<%-- 							<td>${status.index + 1 }</td> --%>
+<%-- 							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum1}_on.png" class="apiLotto" ></td> --%>
+<%-- 							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum2}_on.png" class="apiLotto" ></td> --%>
+<%-- 							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum3}_on.png" class="apiLotto" ></td> --%>
+<%-- 							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum4}_on.png" class="apiLotto" ></td> --%>
+<%-- 							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum5}_on.png" class="apiLotto" ></td> --%>
+<%-- 							<td><img src="/resources/assets/img/lotto/number_${lotto.ulnum6}_on.png" class="apiLotto" ></td> --%>
+<!-- 							<td><img src="/resources/assets/img/lotto/btn.png" style="width:80px;" ></td> -->
+<!-- 						</tr> -->
+<%-- 					</c:forEach> --%>
+<!-- 				</tbody> -->
+<!-- 			</table> -->
 		</div>
     </div>
+    
+    <div id="prevgdate" style="display: none;"></div>
+    <div id="nextgdate" style="display: none;"></div>
 	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/resources/assets/js/bootstrap.min.js"></script>
