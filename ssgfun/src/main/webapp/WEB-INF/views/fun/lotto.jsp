@@ -243,9 +243,18 @@ html,body {
 	border:0;
 
 }
+#selectLotto {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	height: 699px;
+	background-image: url("/resources/assets/img/lotto/lotto_select_blank.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
 input[type="checkbox"] { 
 	display:inline-block; 
-	margin-top: 32px;
+	margin-top: 26px;
 	margin-left: 23px;
 	width:80px; 
 	height:80px; 
@@ -262,7 +271,7 @@ input[type="checkbox"] {
 }
 input[type="checkbox"]:checked { 
 	display:inline-block; 
-	margin-top: 32px;
+	margin-top: 26px;
 	margin-left: 23px;
 	width:80px; 
 	height:80px; 
@@ -286,6 +295,7 @@ input[type="checkbox"]:checked {
 	background-repeat: no-repeat;
 	background-size: contain;
 }
+
 .backpage {
 	position: absolute;
 	top: 24px;
@@ -303,7 +313,20 @@ th, td, tr {
 	width: 100px;
 	height: 100px;
 	text-align: center;
-
+}
+#select_btn {
+	position: relative;
+	margin: 0 auto;
+	top: 40px;
+}
+.inner_btn {
+	width: 300px;
+ 	margin-left: 18px;
+}
+.txt {
+    margin-top: 10px;
+	overflow: scroll;
+	border: 0;
 }
 </style>
 </head>
@@ -326,7 +349,6 @@ th, td, tr {
 		<div id="buy_btn" data-toggle="collapse" data-target="#demo"></div>
 	</div>
 
-
 	<div id="demo" class="collapse">
 		<form id ="lottoForm" action="buyLotto.fun" method="get">
 			<div id="selectLotto" >
@@ -338,15 +360,16 @@ th, td, tr {
 							onclick="imgChange(this)" style="background-image: url('/resources/assets/img/lotto/number_${status.index }_off.png')" />
 				</c:forEach>
 				<div id="select_btn">
-					<span onclick="javascript:randomSelect();"><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn" ></span>
-					<span><img src="/resources/assets/img/lotto/cancel_btn.png" class="cancel_btn" ></span>
-					<span onclick="javascript:goBuy();" ><img src="/resources/assets/img/lotto/buy_btn_small.png" class="buy_btn" ></span>
+					<span onclick="javascript:randomSelect();"><img src="/resources/assets/img/lotto/random_btn.png" class="random_btn inner_btn" ></span>
+					<span><img src="/resources/assets/img/lotto/cancel_btn.png" class="cancel_btn inner_btn" ></span>
+					<span onclick="javascript:goBuy();" ><img src="/resources/assets/img/lotto/buy_btn_small.png" class="buy_btn inner_btn" ></span>
 				</div>
 			</div>
 		</form>
     </div>
     
     <div class="lotto_bg_bottm">
+    	<div class="myLottoList" >
 			<table class="myLottoTable">
 				<tr>
 					<th>번호</th>
@@ -375,6 +398,7 @@ th, td, tr {
 					</c:forEach>
 				</tbody>
 			</table>
+		</div>
     </div>
 	
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
