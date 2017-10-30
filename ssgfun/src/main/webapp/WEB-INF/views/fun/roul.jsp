@@ -342,7 +342,7 @@ p {
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<a href="#"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
+					<a href="/recharge.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br>
 				</span>
 			</span>

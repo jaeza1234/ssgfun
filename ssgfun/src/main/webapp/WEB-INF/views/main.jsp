@@ -54,11 +54,19 @@
 	width: 60px;
 	height: 20px;
 }
+.recharge{
+	position: absolute;
+    top: 481px;
+    width: 100%;
+    height: 136px;
+}
 </style>
 </head>
 <body>
 	<div class="am-wrapper">
 		<img class="bgimg" src="/resources/assets/img/bgimg/IMG_6811.PNG">
+		<div class="recharge" onclick="location.href='/recharge.fun'">
+		</div>
 		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -475,7 +483,7 @@
 							<div class="chat-window">
 								<div class="title">
 									<div class="user">
-										<img src="/resources/assets/img/avatar7.jpg">
+										<	 src="/resources/assets/img/avatar7.jpg">
 										<h2>Maggie jackson</h2>
 										<span>Active 1h ago</span>
 									</div>

@@ -21,7 +21,6 @@ function goBuy(){
 	}else{
 		alert("6개 눌러줘요");
 	}
-	
 }
 var cnt = 0;
 function imgChange(obj){

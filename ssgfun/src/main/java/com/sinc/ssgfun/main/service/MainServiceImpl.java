@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.sinc.ssgfun.main.sql.MainDao;
+import com.sinc.ssgfun.vo.UserVO;
 
 
 @Service("mainService")
@@ -16,5 +17,15 @@ public class MainServiceImpl implements MainService {
 
 	@Resource(name="mainDao")
 	private MainDao mainDao;
+
+	@Override
+	public void plusFruit(UserVO loginUser, int num) {
+		System.out.println("MainServiceImpl getFruit"); 
+		
+		mainDao.plusFruitRow(loginUser,num);
+		
+		
+		
+	}
 
 }
