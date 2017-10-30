@@ -298,7 +298,6 @@ $(document).ready(function() {
 	var nextgdate = '';
 	
 	var eacnt = ${attInfo.eacnt};
-	
 	$.ajax({
 		url: 'http://lotto.kaisyu.com/api?method=get',
 		type: 'get',
@@ -632,6 +631,13 @@ th, td, tr {
     margin-top: 10px;
 	overflow: scroll;
 	border: 0;
+}
+.myLottoList{
+	position: relative;
+    top: 48px;
+    width: 100%;
+    height: 583px;
+    overflow: scroll;
 }
 </style>
 </head>

@@ -96,7 +96,7 @@ public class LottoCtrl {
 		lotto1.setUlnum5(Integer.parseInt(lotto[4]));
 		lotto1.setUlnum6(Integer.parseInt(lotto[5]));
 
-		lotto1.setUlname(gno + "È¸Â÷");
+		lotto1.setUlname(gno + "È¸ï¿½ï¿½");
 		lotto1.setUno(loginUser.getUno());
 		
 		int result = lottoService.buyLotto(lotto1);

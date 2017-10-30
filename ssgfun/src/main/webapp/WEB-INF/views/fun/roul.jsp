@@ -8,7 +8,6 @@
 <!-- add -->
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <title> prototype about roulette </title>
 
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
@@ -140,6 +139,7 @@ window.onload = function(){
 </script>
 
 <style type="text/css">
+
 body {
 	overflow-x: hidden;
 	overflow-y: hidden;
