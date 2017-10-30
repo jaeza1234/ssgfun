@@ -28,9 +28,16 @@ public class LottoServiceImpl implements LottoService {
 	}
 
 	@Override
-	public List<LottoVO> getMyLotto(UserVO loginUser) {
+	public List<LottoVO> getMyLotto(LottoVO lotto) {
 		logger.info("LottoServiceImpl getMyLotto");
 		
-		return lottoDao.getMyLotto(loginUser);
+		return lottoDao.getMyLotto(lotto);
+	}
+
+	@Override
+	public List<LottoVO> getMyNextLotto(LottoVO lotto) {
+logger.info("LottoServiceImpl getMyNextLotto");
+		
+		return lottoDao.getMyNextLotto(lotto);
 	}
 }

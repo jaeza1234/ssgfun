@@ -39,13 +39,34 @@ public class LottoCtrl {
 		logger.info("LottoCtrl myLotto");
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+//		loginUser.setUphone(3);
 		AttendVO attInfo = userService.attInfo(loginUser);
-		List<LottoVO> myLotto = lottoService.getMyLotto(loginUser);
+//		List<LottoVO> myLotto = lottoService.getMyLotto(loginUser);
 		
 		model.addAttribute("attInfo", attInfo);
-		model.addAttribute("myLotto", myLotto);
+//		model.addAttribute("myLotto", myLotto);
 		
 		return "fun/lotto";
+	}
+	
+	@RequestMapping("/myLottoList.fun")
+	@ResponseBody
+	public List<LottoVO> myLottoList(HttpSession session, String gdate, String gno) {
+		logger.info("LottoCtrl myLottoList");
+		
+		System.out.println("lotto >>>>>>>>>>>>> " + gdate + " >>>> " + gno);
+//		System.out.println("lotto >>>>>>>>>>>>> " + lotto.toString());
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+
+		LottoVO lotto = new LottoVO();
+		lotto.setUno(loginUser.getUno());
+		lotto.setGdate(gdate);
+		lotto.setGno(gno);
+		
+        List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
+        
+		return myLottoList;
 	}
 	
 	@RequestMapping("/randomLotto.fun")
@@ -87,14 +108,54 @@ public class LottoCtrl {
 		
 		List<LottoVO> myLotto = new ArrayList<LottoVO>();
 		if(result == 1) {
-			myLotto = lottoService.getMyLotto(loginUser);
+//			myLotto = lottoService.getMyLotto(loginUser);
 		}
 		AttendVO attInfo = userService.attInfo(loginUser);
-		List<LottoVO> myLotto2 = lottoService.getMyLotto(loginUser);
+//		List<LottoVO> myLotto2 = lottoService.getMyLotto(loginUser);
 		
 		model.addAttribute("attInfo", attInfo);
-		model.addAttribute("myLotto", myLotto2);
+//		model.addAttribute("myLotto", myLotto2);
 		return "redirect:./myLotto.fun";
+	}
+	
+	@RequestMapping("/prevMyLotto.fun")
+	@ResponseBody
+	public List<LottoVO> prevMyLotto(HttpSession session, String gdate) {
+		logger.info("LottoCtrl myLottoList");
+		
+		System.out.println("prev lotto >>>>>>>>>>>>> " + gdate );
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+
+		LottoVO lotto = new LottoVO();
+		lotto.setUno(loginUser.getUno());
+		lotto.setGdate(gdate);
+		
+        List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
+
+		return myLottoList;
+	}
+	
+	@RequestMapping("/nextMyLotto.fun")
+	@ResponseBody
+	public List<LottoVO> nextMyLotto(HttpSession session, String gdate) {
+		logger.info("LottoCtrl myLottoList");
+		
+		System.out.println("next lotto >>>>>>>>>>>>> " + gdate );
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		
+		LottoVO lotto = new LottoVO();
+		lotto.setUno(loginUser.getUno());
+		lotto.setGdate(gdate);
+		
+		List<LottoVO> myLottoList = lottoService.getMyNextLotto(lotto);
+		for(LottoVO l : myLottoList) {
+			System.out.println("asdfasdf >>>>>>>>>> " + l.getNextgdate());
+			
+		}
+		
+		return myLottoList;
 	}
 	
 }
