@@ -59,10 +59,10 @@
 }
 .recharge{
 	position: absolute;
-    top: 330px;
+    top: 385px;
     width: 100%;
-    height: 136px;
-    border: 1px solid gold;
+    height: 120px;
+    
 .s7-menu2:before {
     content: none;
 </style>
@@ -79,6 +79,7 @@
 						class="icon-bar"><span></span><span></span><span></span></span></a><a
 						href="index.html" class="navbar-brand"></a>
 				</div>
+				
 				<a href="/event.fun" class="am-toggle-right-sidebar">
 					<span class="s7-menu2">&nbsp;</span>
 				</a>
