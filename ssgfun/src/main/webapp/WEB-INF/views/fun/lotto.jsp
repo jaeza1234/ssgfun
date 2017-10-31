@@ -16,7 +16,7 @@
 <script type="text/javascript">
 function goBuy(){
 	
-	if(eacnt > 0) {
+	if($('.fruit').text() > 0) {
 		$.ajax({
 			url: '/play.fun',
 			type: 'post',
@@ -148,17 +148,20 @@ function loadlottoapi(gno) {
 }  
 function prevlottoapi(gno) {
 	
+// 	alert(gno);
+// 	alert('gno-1' + (gno-1));
+	
 	var url = '';
 	if(gno == null) {
 		url = 'http://lotto.kaisyu.com/api?method=get';
 	} else {
-		url = 'http://lotto.kaisyu.com/api?method=get&gno=' + gno;
+		url = 'http://lotto.kaisyu.com/api?method=get&gno=' + (gno-1);
 	}
 
-	if(gno == 777) {
-		nextlotto(lottoNum);
-	} 
-	if(gno > 777) {
+// 	if(gno == 777) {
+// 		nextlotto(lottoNum);
+// 	} 
+	if(gno == 778) {
 		prevlotto(lottoNum);
 	} else {
 		$.ajax({
@@ -196,14 +199,19 @@ function prevlottoapi(gno) {
 }  
 function nextlottoapi(gno) {
 	
+// 	alert(gno);
+// 	alert('gno+1' + (gno+1));
+	
+// 	gno = gno+1;
+	
 	var url = '';
 	if(gno == null) {
 		url = 'http://lotto.kaisyu.com/api?method=get';
 	} else {
-		url = 'http://lotto.kaisyu.com/api?method=get&gno=' + gno;
+		url = 'http://lotto.kaisyu.com/api?method=get&gno=' + (gno+1);
 	}
 
-	if(gno > 778) {
+	if(gno == 778) {
 		nextlotto(lottoNum);
 	} else {
 		
@@ -593,13 +601,13 @@ $(document).ready(function() {
 
 	$('.prev').click(function() {
 		
-		prevlottoapi(Number($('#lottoAPIgno').text())-1);
+		prevlottoapi(Number($('#lottoAPIgno').text()));
 		
 	});
 	
 	$('.next').click(function() {
 		
-		nextlottoapi(Number($('#lottoAPIgno').text())+1);
+		nextlottoapi(Number($('#lottoAPIgno').text()));
 		
 	});
 });
