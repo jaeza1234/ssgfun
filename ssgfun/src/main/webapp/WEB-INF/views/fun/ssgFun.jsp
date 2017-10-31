@@ -9,30 +9,39 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
+body {
+	background-color: #fff;x`
+}
+
 .am-wrapper>.bgimg {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
 }
 .roulEvent {
 	position: absolute;
- 	top: 140px; 
+ 	top: 125px; 
 	width: 100%;
-	height: 25%;
+	height: 27%;
+	background-image: url('/resources/assets/img/funlist/funlist_1.png');
+	background-size: 100% 100%;
 }
 .lottoEvent {
 	position: absolute;
-	top: 345px;
+	top: 330px;
 	width: 100%;
-	height: 25%;
+	height: 27%;
+	background-image: url('/resources/assets/img/funlist/funlist_2.png');
+	background-size: 100% 100%;
 }
 .luckEvent {
 	position: absolute;
-	top: 550px;
+	top: 535px;
 	width: 100%;
-	height: 25%;
+	height: 27%;
+	background-image: url('/resources/assets/img/funlist/funlist_3.png');
+	background-size: 100% 100%;
 }
 .backpage {
 	position: absolute;
@@ -46,7 +55,7 @@
 </head>
 <body>
 	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/funlist/fun_noneBottom.png">
+		<img class="bgimg" src="/resources/assets/img/funlist/fun_header_txt.png">
 		
 		
 		<a href="/roul/roul.fun">
