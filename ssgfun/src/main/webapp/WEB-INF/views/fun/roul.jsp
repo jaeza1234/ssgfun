@@ -142,7 +142,6 @@ window.onload = function(){
 
 body {
 	overflow-x: hidden;
-	overflow-y: hidden;
 }
 p {
 	padding: 10px;
@@ -163,7 +162,7 @@ p {
 	width: 6%;
 }
 
-.am-wrapper>.bgimg {
+.bgimg {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -199,7 +198,8 @@ p {
     width: 70%;
 }
 #roulette_bg {
-	width: 400px;
+	width: 397px;
+	left: -5px;
 }
 .backpage {
 	position: absolute;
@@ -256,6 +256,7 @@ p {
 .modal-content.modal-fullsize {
 	height: auto;
 	border-radius: 20px; 
+	width: 100px;
 }
 
 .modal-content {
@@ -292,10 +293,10 @@ p {
 }
 
 .rTxt {
-	width: 320px;
+	width: 300px;
     position: absolute;
     top: 498px;
-    left: 53px;
+    left: 61px;
 }
 .titleTxt {
 	font-size: 20px;
@@ -309,7 +310,7 @@ p {
 	padding-bottom: 10px;
 }
 .goImg {
-	width: 60px;
+	width: 50px;
 }
 .okBtn {
 	width: 50%;

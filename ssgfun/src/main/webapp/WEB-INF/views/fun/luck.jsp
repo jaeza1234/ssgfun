@@ -5,6 +5,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
@@ -24,7 +26,9 @@
 <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
 <link href="/resources/css/kfonts2.css" rel="stylesheet">
 <style type="text/css">
-
+body {
+	overflow-x: hidden;
+}
 .am-wrapper>.bgimg {
 	position: absolute;
 	top: 0;
@@ -51,9 +55,11 @@
 
 .textArea {
 	position: absolute;
-	top: 535px;
-	width: 100%;
-	height: 300px;
+	top: 540px;
+	left: 6px;
+	width: 400px;
+	height: 400px;
+	font-size: 18px;
 }
 
 .checked {
@@ -169,12 +175,10 @@
 	width: 100%;
 	margin: 0 auto;
 }
-<<<<<<< HEAD
 div {
 	border: none;
 }
 
-=======
 .modal {
 	text-align: center;
 }
@@ -185,24 +189,26 @@ div {
 		vertical-align: middle;
 		content: " ";
  		height: 600px;
+ 		width: 100px;
     }
 }
 .modal-dialog.modal-fullsize { 
-	width: 1000px; 
-	height: auto;
+	width: 200px; 
+	height: 200px;
 	margin: 0 auto;
 	display: inline-block;
 	text-align: left;
 	vertical-align: middle; 
 	padding: 0;
 	position: absolute;
-	top: 450px;
+	top: 170px;
 	left: 0px; 
 }
 .modal-content.modal-fullsize {
 	height: auto;
 	min-height: 100%;
-	border-radius: 20px; 
+	border-radius: 20px;
+	width: 100px; 
 }
 
 .modal-content {
@@ -215,17 +221,30 @@ div {
 .btn-default {
 	border-color: transparent;
 }
+.modal-header {
+	padding: 8px;
+	border-bottom: none;
+}
 .modal-footer {
 	background-color: #ffffff;
 	border-top: transparent;
 	text-align: center;
+	padding-top: 0;
+	margin-top: 0;
 }
 .modal-title {
 	padding-top: 0px;
 	color: #fff;
-	font-size: 45px;
+	font-size: 20px;
 }
->>>>>>> branch 'master' of https://github.com/jaeza1234/ssgfun.git
+
+.okBtn {
+	width: 50%;
+}
+.luck {
+	width: 100px;
+	height: 100px;
+}
 </style>
 </head>
 
@@ -298,25 +317,25 @@ div {
 					<div class="tab-pane active" id="home">
 
 						<span id="date1"></span>
-						<textarea readonly="readonly" class='txt' id='txt1' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt1' cols="24" rows="10">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 
 					<div class="tab-pane" id="tab1">
 						<span id="date2"></span>
-						<textarea readonly="readonly" class='txt' id='txt2' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt2' cols="24" rows="10">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 					<div class="tab-pane" id="tab2">
 						<span id="date3"></span>
-						<textarea readonly="readonly" class='txt' id='txt3' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt3' cols="24" rows="10">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 
 					<div class="tab-pane" id="tab3">
 						<span id="date4"></span>
-						<textarea readonly="readonly" class='txt' id='txt4' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt4' cols="24" rows="10">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 					<div class="tab-pane" id="tab4">
 						<span id="date5"></span>
-						<textarea readonly="readonly" class='txt' id='txt5' cols="29" rows="12">조회하실 동물을 클릭하세요!!</textarea>
+						<textarea readonly="readonly" class='txt' id='txt5' cols="24" rows="10">조회하실 동물을 클릭하세요!!</textarea>
 					</div>
 
 				</div>
@@ -337,19 +356,24 @@ div {
 		               aria-hidden="true">×
 		            </button>
 		            <h4 class="modal-title" id="myModalLabel">
-		               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+		               <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>
 		            </h4>
 		         </div>
 		         <div class="modal-body">
 		            	<!-- <div id="result_id"></div>
 						<div id="result_id2"></div> -->
 						<div id="result_id3">
+						<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>
+						<p></p><p></p>
+						<div>
+							[당첨] 열매 1개 획득!
+						</div>
 						</div>
 		         </div>
 		         <div class="modal-footer">
 		            <button type="button" class="btn btn-default" 
 		               data-dismiss="modal">
-		               <img src="/resources/assets/img/roul/ok_btn.png">
+		               <img class="okBtn" src="/resources/assets/img/roul/ok_btn.png">
 		            </button>
 		         </div>
 		      </div><!-- /.modal-content -->
@@ -362,7 +386,6 @@ div {
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="/resources/js/bootstrap.min.js"></script>
 
-		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function() {
 				var d = new Date();
