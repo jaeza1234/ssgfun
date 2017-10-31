@@ -380,10 +380,10 @@ height: auto;
 
 .backpage {
 	position: absolute;
-	top: 15px;
-	left: 10px;
-	width: 100px;
-	height: 100px;
+	top: 0px;
+	left: 0px;
+	width: 80px;
+	height: 80px;
 	z-index: 4000;
 }
 .modal {

@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
+
 .am-wrapper>.bgimg {
 	position: absolute;
 	top: 0;
@@ -43,7 +44,7 @@
 </head>
 <body>
 <div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/bgimg/evDeBg02.jpg">
+		<img class="bgimg" src="/resources/assets/img/bgimg/ssg_fun.png">
 
 		
 		<a href="javascript:history.back();">

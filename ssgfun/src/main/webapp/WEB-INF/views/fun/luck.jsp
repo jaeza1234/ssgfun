@@ -172,6 +172,8 @@ body {
 	margin-top: 10px;
 	position: relative;
 	left: -10px;
+	
+	
 }
 .container {
 	width: 90%;
