@@ -65,9 +65,22 @@ div{
     top: 385px;
     width: 100%;
     height: 120px;
+}
     
-.s7-menu2:before {
+.s7-menu2:before; {
     content: none;
+}
+    
+.right {
+	width: 85px;
+	height: 55px;
+}
+
+.left {
+	width: 55px;
+	height: 65px;
+}
+
 </style>
 </head>
 <body>
@@ -78,12 +91,11 @@ div{
 		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a href="#" class="am-toggle-left-sidebar navbar-toggle collapsed"><span
-						class="icon-bar"><span></span><span></span><span></span></span></a><a
-						href="index.html" class="navbar-brand"></a>
+					<a href="#" class="am-toggle-left-sidebar navbar-toggle collapsed left"><span
+						class="icon-bar"><span></span><span></span><span></span></span></a>
 				</div>
 				
-				<a href="/event.fun" class="am-toggle-right-sidebar">
+				<a href="/event.fun" class="am-toggle-right-sidebar right">
 					<span class="s7-menu2">&nbsp;</span>
 				</a>
 				
