@@ -295,7 +295,7 @@ p {
 .rTxt {
 	width: 280px;
     position: absolute;
-    top: 505px;
+    top: 483px;
     left: 76px;
 }
 .titleTxt {
