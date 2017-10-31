@@ -48,7 +48,7 @@ public class LottoCtrl {
 	
 	@RequestMapping("/myLottoList.fun")
 	@ResponseBody
-	public List<LottoVO> myLottoList(HttpSession session, String gdate) {
+	public List<LottoVO> myLottoList(HttpSession session, String gdate, String gno) {
 		logger.info("LottoCtrl myLottoList");
 		
 		System.out.println("lotto >>>>>>>>>>>>> " + gdate);
@@ -58,6 +58,8 @@ public class LottoCtrl {
 		LottoVO lotto = new LottoVO();
 		lotto.setUno(loginUser.getUno());
 		lotto.setGdate(gdate);
+		lotto.setGno(gno);
+		lotto.setUlname(gno);
 		
         List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
         
@@ -86,49 +88,59 @@ public class LottoCtrl {
 	}
 
 	@RequestMapping("/buyLotto.fun")
-	public String buyLotto(HttpSession session, String lottoNum, String gno, String[] lotto, Model model) {
+	@ResponseBody
+	public List<LottoVO> buyLotto(HttpSession session, String gno, String[] lotto, Model model) {
 		logger.info("LottoCtrl buyLotto");
-		System.out.println(lotto.length);
-
-		LottoVO lotto1 = new LottoVO();
-		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
-		System.out.println(loginUser.toString());
-		lotto1.setUlnum1(Integer.parseInt(lotto[0]));
-		lotto1.setUlnum2(Integer.parseInt(lotto[1]));
-		lotto1.setUlnum3(Integer.parseInt(lotto[2]));
-		lotto1.setUlnum4(Integer.parseInt(lotto[3]));
-		lotto1.setUlnum5(Integer.parseInt(lotto[4]));
-		lotto1.setUlnum6(Integer.parseInt(lotto[5]));
-
-		lotto1.setUlname(gno + "ȸ��");
-		lotto1.setUno(loginUser.getUno());
-		
-		int result = lottoService.buyLotto(lotto1);
-		
-		List<LottoVO> myLotto = new ArrayList<LottoVO>();
-		if(result == 1) {
-//			myLotto = lottoService.getMyLotto(loginUser);
+		System.out.println("gno >>>>>>>>>>>> " + gno);
+		System.out.println("lotto.length >>>>>>>>> " + lotto.length);
+		for(String l : lotto) {
+			System.out.println("lottoNum >>>>>>> " + l);
 		}
+
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+
+		LottoVO myLotto = new LottoVO();
+		myLotto.setUlnum1(Integer.parseInt(lotto[0]));
+		myLotto.setUlnum2(Integer.parseInt(lotto[1]));
+		myLotto.setUlnum3(Integer.parseInt(lotto[2]));
+		myLotto.setUlnum4(Integer.parseInt(lotto[3]));
+		myLotto.setUlnum5(Integer.parseInt(lotto[4]));
+		myLotto.setUlnum6(Integer.parseInt(lotto[5]));
+		myLotto.setGno(gno);
+		myLotto.setUlname(gno);
+
+		myLotto.setUno(loginUser.getUno());
+		
+		
+		int result = lottoService.buyLotto(myLotto);
+		
+				
+		List<LottoVO> myLottoList = new ArrayList<LottoVO>();
+//		if(result == 1) {
+//			myLottoList = lottoService.getMyLotto(loginUser);
+//		}
 		AttendVO attInfo = userService.attInfo(loginUser);
 //		List<LottoVO> myLotto2 = lottoService.getMyLotto(loginUser);
 		
-		model.addAttribute("attInfo", attInfo);
-//		model.addAttribute("myLotto", myLotto2);
-		return "redirect:./myLotto.fun";
+		
+		return myLottoList;
 	}
 	
 	@RequestMapping("/prevMyLotto.fun")
 	@ResponseBody
-	public List<LottoVO> prevMyLotto(HttpSession session, String gdate) {
+	public List<LottoVO> prevMyLotto(HttpSession session, String gdate, String gno) {
 		logger.info("LottoCtrl prevMyLotto");
 		
 		System.out.println("prev lotto >>>>>>>>>>>>> " + gdate );
+		System.out.println("prev lotto >>>>>>>>>>>>> " + gno );
 		
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 
 		LottoVO lotto = new LottoVO();
 		lotto.setUno(loginUser.getUno());
 		lotto.setGdate(gdate);
+		lotto.setGno(gno);
+		lotto.setUlname(gno);
 		
         List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
 
@@ -137,7 +149,7 @@ public class LottoCtrl {
 	
 	@RequestMapping("/nextMyLotto.fun")
 	@ResponseBody
-	public List<LottoVO> nextMyLotto(HttpSession session, String gdate) {
+	public List<LottoVO> nextMyLotto(HttpSession session, String gdate, String gno) {
 		logger.info("LottoCtrl nextMyLotto");
 		
 		System.out.println("next lotto >>>>>>>>>>>>> " + gdate );
@@ -147,6 +159,8 @@ public class LottoCtrl {
 		LottoVO lotto = new LottoVO();
 		lotto.setUno(loginUser.getUno());
 		lotto.setGdate(gdate);
+		lotto.setGno(gno);
+		lotto.setUlname(gno);
 		
 		List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
 		
