@@ -116,7 +116,7 @@ public class LottoCtrl {
 	@RequestMapping("/prevMyLotto.fun")
 	@ResponseBody
 	public List<LottoVO> prevMyLotto(HttpSession session, String gdate) {
-		logger.info("LottoCtrl myLottoList");
+		logger.info("LottoCtrl prevMyLotto");
 		
 		System.out.println("prev lotto >>>>>>>>>>>>> " + gdate );
 		
@@ -134,7 +134,7 @@ public class LottoCtrl {
 	@RequestMapping("/nextMyLotto.fun")
 	@ResponseBody
 	public List<LottoVO> nextMyLotto(HttpSession session, String gdate) {
-		logger.info("LottoCtrl myLottoList");
+		logger.info("LottoCtrl nextMyLotto");
 		
 		System.out.println("next lotto >>>>>>>>>>>>> " + gdate );
 		
