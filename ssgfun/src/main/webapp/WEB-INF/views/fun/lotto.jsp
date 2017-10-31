@@ -148,7 +148,8 @@ function loadlottoapi(gno) {
 }  
 function prevlottoapi(gno) {
 	
-// 	alert(gno);
+	alert('gno prev >>>>>>>>>>>> ' + $('#lottoAPIgdate').text());
+// 	alert('gno prev >>>>>>>>>>>> ' + Number($('#lottoAPIgdate').text())-6);
 // 	alert('gno-1' + (gno-1));
 	
 	var url = '';
@@ -264,6 +265,16 @@ function mylottolist(lotto) {
 			'gdate': '2017-10-28'
 		},
 		success: function(data) {
+			var checkgdate = $('#lottoAPIgdate').text();
+			var year = checkgdate.substr(0,4);
+			var month = checkgdate.substr(5,2);
+			var day = checkgdate.substr(8,2);
+			
+// 			alert('year >>> ' + year + 'month >>> ' + month + 'day >>>>> ' + day);
+			
+			var date = new Date(year, month, day);  // date로 변경
+			alert('date >>>>>  ' + date-6);
+
 			var table = '';
 			table += '<table class="myLottoTable">';
 			table += '	<tbody id="myLotto">';

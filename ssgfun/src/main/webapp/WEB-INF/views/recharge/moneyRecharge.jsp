@@ -79,7 +79,7 @@
 .txt {
 	text-align: right;
 	font-size: 18px;
-	size: 5;
+	width: 220px;
 }
 
 .plus1 {
