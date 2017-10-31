@@ -20,6 +20,9 @@
 <link rel="stylesheet" href="/resources/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
+.s7-menu2:before {
+	content: none;
+}
 .am-wrapper>.bgimg {
 	position: absolute;
 	top: 0;
