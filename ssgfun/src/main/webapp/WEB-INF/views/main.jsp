@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
 
+
 .s7-menu2:before {
 	content: none;
 }

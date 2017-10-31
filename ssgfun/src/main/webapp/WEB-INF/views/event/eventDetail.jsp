@@ -27,14 +27,14 @@
 }
 .goAtt{
 	position: absolute;
-	top: 680px;
+	top: 662px;
 	left: 35px;
 	width: 83%;
 	height: 50px;
 }
 .goFun{
 	position: absolute;
-	top: 745px;
+	top: 727px;
 	left: 35px;
 	width: 83%;
 	height: 50px;
@@ -44,7 +44,7 @@
 </head>
 <body>
 <div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/bgimg/ssg_fun.png">
+		<img class="bgimg" src="/resources/assets/img/bgimg/ssg_event.png">
 
 		
 		<a href="javascript:history.back();">
