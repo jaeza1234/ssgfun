@@ -460,7 +460,7 @@ height: auto;
 				
 			</div>
 		</nav> -->
-	<a href="javascript:history.back();">
+	<a href="/main.fun">
 		<div class="backpage">
 		</div>
 	</a>	

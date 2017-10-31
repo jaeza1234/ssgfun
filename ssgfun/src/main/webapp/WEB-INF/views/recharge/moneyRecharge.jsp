@@ -194,7 +194,7 @@
 	<div class="am-wrapper">
 		<img class="bgimg"
 			src="/resources/assets/img/bgimg/money_charge01.png"> 
-			<a href="javascript:history.back();">
+			<a href="/main.fun">
 				<div class="backpage"></div>
 			</a>
 
