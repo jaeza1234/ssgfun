@@ -88,7 +88,7 @@
 		</nav>
 		<div class="am-left-sidebar">
 			<div class="content">
-			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar02.jpg">
+			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar.png">
 			
 				<a href="/ssgFun.fun">
 					<div class="funDiv">
