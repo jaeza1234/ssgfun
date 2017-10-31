@@ -43,16 +43,15 @@
 
 </script>
 <style type="text/css">
-div{
-	border: 5em;
-}
+	div{
+		border: 1px solid gold;
+	}
 	.am-wrapper>.bgimg {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 	}
-	
 	.backpage {
 		position: absolute;
 		top: 0;
@@ -70,24 +69,20 @@ div{
 		 text-align: right;
 		 font-size: 20px;
 		 size: 3px;
-	 
-	 
 	}
 	.plus1{
-		    position: absolute;
+		position: absolute;
 	    top: 200px;
 	    left: 50px;
 	    width: 156px;
 	    height: 79px;
-	
 	}
 	.plus5{
-		    position: absolute;
+		position: absolute;
 	    top: 200px;
 	    left: 50px;
 	    width: 156px;
 	    height: 79px;
-	
 	}
 	.plus10{
 		    position: absolute;
@@ -110,7 +105,6 @@ div{
 	    top: 800px;
 	    width: 100%;
 	  	height: 175px;
-	
 	}
 </style>
 </head>

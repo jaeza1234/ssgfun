@@ -56,9 +56,10 @@
 }
 .recharge{
 	position: absolute;
-    top: 481px;
+    top: 330px;
     width: 100%;
     height: 136px;
+    border: 1px solid gold;
 .s7-menu2:before {
     content: none;
 </style>
