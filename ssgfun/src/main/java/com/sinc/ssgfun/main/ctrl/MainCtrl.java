@@ -98,10 +98,10 @@ public class MainCtrl {
 		logger.info("MainCtrl moneyRecharge");
 		
 		///머니 받아와서 10000으로 나눠서 열매 지급하고 결과 ajax로 돌려줌.
-		
+		System.out.println(money);
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		System.out.println(Integer.parseInt(money)/10000);
 		mainService.plusFruit(loginUser, Integer.parseInt(money)/10000);
-		
 		return Integer.parseInt(money)/10000;
 	}
 	
