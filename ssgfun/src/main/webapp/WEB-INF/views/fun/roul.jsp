@@ -293,10 +293,10 @@ p {
 }
 
 .rTxt {
-	width: 300px;
+	width: 280px;
     position: absolute;
-    top: 498px;
-    left: 61px;
+    top: 505px;
+    left: 76px;
 }
 .titleTxt {
 	font-size: 20px;
@@ -339,14 +339,14 @@ p {
 		<img src="/resources/assets/img/roul/niddle.png" id="n_id">
 		<div class="rTxt">
 			<span class="titleTxt"><b>[게임방법 소개]</b></span><br>
-			<span class="conTxt">소유한 열매를 1개 사용하여 룰렛 게임 1회 참여 가능</span><br><br>
+			<span class="conTxt">열매를 1개 사용하여 룰렛 게임 1회 참여 가능</span><br><br>
 			<span class="titleTxt"><b>[열매 획득하는 방법]</b></span><br>
 			<span class="conTxt">
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;출석체크
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/user/att.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
@@ -354,14 +354,14 @@ p {
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;오늘의 운세
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;
 					<a href="/luck/main.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/recharge.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>

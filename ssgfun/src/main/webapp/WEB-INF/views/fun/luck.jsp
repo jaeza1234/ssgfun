@@ -59,7 +59,7 @@ body {
 	left: 6px;
 	width: 400px;
 	height: 400px;
-	font-size: 18px;
+	font-size: 15px;
 }
 
 .checked {
@@ -169,12 +169,17 @@ body {
 .txt {
 	overflow: scroll;
 	border: 0;
-	margin-top: 10px
+	margin-top: 10px;
+	position: relative;
+	left: -10px;
 }
 .container {
-	width: 100%;
+	width: 90%;
 	margin: 0 auto;
+	padding: 0;
+	font-size: 18px;
 }
+
 div {
 	border: none;
 }
@@ -245,6 +250,22 @@ div {
 	width: 100px;
 	height: 100px;
 }
+.nav-tabs > li {
+	margin-left: -7px;
+	margin-right: -7px;
+}
+.nav-tabs {
+	background-color: transparent;
+	border-bottom: none;
+}
+.nav {
+	left: 12px;
+	position: relative;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	background-color: #f5f5f5;
+}
+
 </style>
 </head>
 
@@ -305,11 +326,11 @@ div {
 			<textarea readonly="readonly" id='txt' cols="28" rows="12">조회하실 동물을 클릭하세요!!</textarea> -->
 			<div class="container">
 				<ul class="nav nav-tabs" style="width: 100%">
-					<li class="active" style="width:71px"><a href="#home" data-toggle="tab">오늘</a></li>
-					<li style="width:71px"><a href="#tab1" data-toggle="tab">내일</a></li>
-					<li style="width:71px"><a href="#tab2" data-toggle="tab">이번주</a></li>
-					<li style="width:71px"><a href="#tab3" data-toggle="tab">이번달</a></li>
-					<li style="width:71px"><a href="#tab4" data-toggle="tab">올해</a></li>
+					<li class="active"><a href="#home" data-toggle="tab">오늘</a></li>
+					<li><a href="#tab1" data-toggle="tab">내일</a></li>
+					<li><a href="#tab2" data-toggle="tab">이번주</a></li>
+					<li><a href="#tab3" data-toggle="tab">이번달</a></li>
+					<li><a href="#tab4" data-toggle="tab">올해</a></li>
 
 				</ul>
 
