@@ -260,7 +260,6 @@
 
 		$('#chargebtn').click(function() {
 			
-			if ($('#txt').val()!="") {
 				$.ajax({
 					url : 'moneyRecharge.fun',
 					type : 'post',
@@ -269,14 +268,14 @@
 					},
 					dataType : 'json',
 					success : function(data) {
-						alert(data);
+						
 						$('#fruit').text('[축하] 열매 ' + data + '개 지급!');
 						$('#myModal').modal('show');
 						$(".txt").prop('value', '');
 
 					}
 				});
-			}
+			
 			
 
 		});
