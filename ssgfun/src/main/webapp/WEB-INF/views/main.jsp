@@ -41,11 +41,11 @@ div{
 	color: #222;
 }
 .funDiv {
-	position: relative;
-	bottom: 200px;
-	left: 180px;
-	width: 80px;
-	height: 80px;
+	position: absolute;
+	top: 620px;
+	left: 260px;
+	width: 70px;
+	height: 70px;
 }
 .content {
 	
@@ -56,8 +56,8 @@ div{
 .checkDiv {
 	position: absolute;
 	top: 65px;
-	left: 185px;
-	width: 60px;
+	left: 192px;
+	width: 62px;
 	height: 20px;
 }
 .recharge{
