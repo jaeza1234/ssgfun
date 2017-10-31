@@ -194,8 +194,8 @@ p {
 .roulette_bg {
 	position: absolute;
     top: 155px;
-    left: 15px;
-    width: 70%;
+    left: 5px;
+    width: 60%;
 }
 #roulette_bg {
 	width: 397px;
