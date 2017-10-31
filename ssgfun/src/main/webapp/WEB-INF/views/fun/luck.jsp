@@ -274,7 +274,7 @@ div {
 <body>
 	<div class="am-wrapper">
 		<img class="bgimg" src="/resources/assets/img/bgimg/unse_long.png"> <a
-			href="javascript:history.back();">
+			href="/ssgFun.fun">
 			<div class="backpage"></div>
 		</a>
 
