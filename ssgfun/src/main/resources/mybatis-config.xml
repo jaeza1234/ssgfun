@@ -8,6 +8,7 @@
 		<typeAlias type="com.sinc.ssgfun.vo.UserVO" alias="user" />
 		<typeAlias type="com.sinc.ssgfun.vo.AttendVO" alias="attend" />
 		<typeAlias type="com.sinc.ssgfun.vo.UnseVO" alias="unse" />
+		<typeAlias type="com.sinc.ssgfun.vo.LottoVO" alias="lotto" />
 	</typeAliases>
 	
 </configuration>
