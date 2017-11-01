@@ -207,7 +207,7 @@ p {
 	top: 0px;
 	left: 0px;
 	width: 80px;
-	height: 80zzpx;
+	height: 80px;
 }
 /* #result_id {
 	position: absolute;
@@ -316,6 +316,8 @@ p {
 .okBtn {
 	width: 50%;
 }
+div{
+ border: solid}
 
 </style>
 </head>
