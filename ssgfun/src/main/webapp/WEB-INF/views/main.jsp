@@ -39,6 +39,14 @@
 .fun {
 	color: #222;
 }
+.chulcheck {
+	position: absolute;
+	top: 620px;
+	left: 172px;
+	width: 70px;
+	height: 70px;
+}
+
 .funDiv {
 	position: absolute;
 	top: 620px;
@@ -69,10 +77,9 @@
 .recharge{
 	position: absolute;
     top: 385px;
-    width: 100%;
+    width: 84%;
     height: 120px;
 }
-    
 .s7-menu2:before; {
     content: none;
 }
@@ -86,6 +93,7 @@
 	width: 55px;
 	height: 65px;
 }
+div{border:solid;}
 
 </style>
 </head>
@@ -115,7 +123,8 @@
 				
 				<div class="rechargeSmall" onclick="location.href='/recharge.fun'">
 				</div>
-				
+				<div class="chulcheck" onclick="location.href='/user/att.fun'">
+				</div>
 				<div class="funDiv" onclick="location.href='/ssgFun.fun'">
 				</div>
 
