@@ -45,6 +45,7 @@ html,body {
     left: 195px;
     width: 100px;
     font-size: 20px;
+	font-weight: bold;
 }
 .lotto_bg_top {
 	margin: 0px;

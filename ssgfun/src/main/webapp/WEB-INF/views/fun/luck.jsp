@@ -50,7 +50,8 @@ body {
 	left: 195px;
 	width: 80px;
 	height: 80px;
-	font-size: 20px
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .textArea {

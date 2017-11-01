@@ -184,6 +184,7 @@ p {
     left: 193px;
     width: 100px;
     font-size: 20px;
+	font-weight: bold;
 }
 .roulEvent {
 	position: absolute;
@@ -205,8 +206,8 @@ p {
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	width: 150px;
-	height: 150px;
+	width: 80px;
+	height: 80zzpx;
 }
 /* #result_id {
 	position: absolute;
@@ -315,6 +316,7 @@ p {
 .okBtn {
 	width: 50%;
 }
+
 </style>
 </head>
 <body style="overflow-x: hidden;">

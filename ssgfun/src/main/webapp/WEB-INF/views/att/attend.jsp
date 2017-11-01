@@ -308,6 +308,8 @@ transform: rotate(-87deg);
 
 .fruittxt {
 	margin: 0 auto;
+	font-size: 20px;
+	font-weight: bold;
 }
 
 .am-wrapper {
