@@ -251,7 +251,9 @@ th, td, tr {
 						<c:if test="${status.index == 778}" >
 							<option value="${status.index }" selected>${status.index }</option>
 						</c:if>
-					    <option value="${status.index }">${status.index }</option>
+						<c:if test="${status.index != 778}" >
+						    <option value="${status.index }">${status.index }</option>
+						</c:if>
 					</c:forEach>
 				</select>
 			</span><span id="lottoAPIgno">
@@ -484,7 +486,11 @@ function nextlottoapi(gno) {
 			
 		},
 		error: function(request,status,error) {
-			$('#lottoAPIgno2').html(gno);
+			if(gno > 778) {
+				$('#lottoAPIgno2').html(gno);
+			} else {
+				$('#lottoAPIgno2').html(gno);
+			}
 			nextlotto(lottoNum, (Number(gno)+1));
 		}
 		
