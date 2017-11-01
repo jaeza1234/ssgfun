@@ -32,7 +32,7 @@
 <script type="text/javascript">
 /* serpiko.tistory.com */
 window.onload = function(){
-     
+    var roulFlag = true; 
 //     var pArr = ["0","1","2","3","4:꽝","5","6","7","8","9"];
     var pArr = ["꽝",
                 "열매+1",
@@ -50,20 +50,26 @@ window.onload = function(){
    	
     $('#image').click(function(){
     	
-    	if(eacnt > 0) {
-    		$.ajax({
-    			url: '/play.fun',
-    			type: 'post',
-    			dataType: 'json',
-    			success: function(data) {
-    				eacnt = data;
-    				$('.fruit').html(data);
-    			}
-    		});
-    		
-    		rotation();
-    	} else {
-    		alert('열매부족하다');
+    	
+    	if (roulFlag) {
+    		roulFlag = ! roulFlag;
+		
+	    	if(eacnt > 0) {
+	    		
+	    		$.ajax({
+	    			url: '/play.fun',
+	    			type: 'post',
+	    			dataType: 'json',
+	    			success: function(data) {
+	    				eacnt = data;
+	    				$('.fruit').html(data);
+	    			}
+	    		});
+	    		
+	    		rotation();
+	    	} else {
+	    		alert('열매부족하다');
+	    	}
     	}
     });
  
@@ -128,8 +134,10 @@ window.onload = function(){
 				}
 				
 				 $('#myModal').modal('show');
+				 //룰렛 다 끝나면 다시 플래그 true 로 변경;
 			}
 		});
+				 roulFlag = true;
     }
  
     function randomize($min, $max){
@@ -316,8 +324,6 @@ p {
 .okBtn {
 	width: 50%;
 }
-div{
- border: solid}
 
 </style>
 </head>
