@@ -945,6 +945,7 @@ $('.buy_btn').click(function() {
 					
 					$('.myLottoList').html(table);
 					$('th').html(tableGno);
+					$('#lottoAPIgno2').html(Number($('#lottoAPIgno').text())+1);
 				}
 			});
 		}else{
