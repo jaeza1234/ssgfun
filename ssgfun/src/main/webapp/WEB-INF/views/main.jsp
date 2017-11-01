@@ -46,6 +46,13 @@
 	width: 70px;
 	height: 70px;
 }
+.rechargeSmall {
+	position: absolute;
+	top: 480px;
+	left: 20px;
+	width: 70px;
+	height: 70px;
+}
 .content {
 	
 }
@@ -85,8 +92,10 @@
 <body>
 	<div class="am-wrapper">
 		<img class="bgimg" src="/resources/assets/img/bgimg/IMG_6811.PNG">
+		
 		<div class="recharge" onclick="location.href='/recharge.fun'">
 		</div>
+		
 		<nav class="navbar navbar-default navbar-fixed-top am-top-header">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -103,11 +112,12 @@
 		<div class="am-left-sidebar">
 			<div class="content">
 			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar.png">
-			
-				<a href="/ssgFun.fun">
-					<div class="funDiv">
-					</div>
-				</a>
+				
+				<div class="rechargeSmall" onclick="location.href='/recharge.fun'">
+				</div>
+				
+				<div class="funDiv" onclick="location.href='/ssgFun.fun'">
+				</div>
 
 				<a href="/user/att.fun">
 					<div class="checkDiv">
