@@ -93,7 +93,6 @@
 	width: 55px;
 	height: 65px;
 }
-div{border:solid;}
 
 </style>
 </head>

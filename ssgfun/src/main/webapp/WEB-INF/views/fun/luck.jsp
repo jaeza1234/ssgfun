@@ -449,7 +449,10 @@ div {
 						if (data.result == 0) {
 							/* alert('축하합니다. 열매1개 획득!'); */
 							$('#myModal').modal('show');
+							$('#fcnt').css('font-size', '23px');
 							$('#fcnt').html(data.eacnt);
+							$('#fcnt').css('font-size', '25px');
+							$('#fcnt').css('font-size', '20px');
 						}	
 						/* document.getElementById('txt1').innerHTML = data.msg; */
 						var d = new Date();
