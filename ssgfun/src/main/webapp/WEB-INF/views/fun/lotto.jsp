@@ -824,8 +824,6 @@ $('.lottoGNO').on('change', function() {
   
 $('.buy_btn').click(function() {
 	
-	alert('gfdsgfdsgfds');
-	  
 	if($('.fruit').text() > 0) {
 		$.ajax({
 			url: '/play.fun',
@@ -849,46 +847,83 @@ $('.buy_btn').click(function() {
 				cache: false,
 				data: param,
 				success: function(data) {
+					var tableGno = '';
 					var table = '';
 					table += '<table class="myLottoTable">';
-					table += '	<th>' + lotto.ulname + '</th>';
+					table += '	<th></th>';
 					table += '	<tbody id="myLotto">';
 					$.each(data, function(idx, lotto) {
 						var cnt = 0;
 						table += '<tr>';
 						table += '	<td>' + (idx + 1) + '</td>';
 						table += '	<td>' + (idx + 1) + '</td>';
-						if((lotto.regdate <= $('#lottoAPIgdate').text()) && (lotto.regdate >= $('#lottoAPIgdate').text()-6) || lotto.ulnum1 == num[0] || lotto.ulnum1 == num[1] || lotto.ulnum1 == num[2] || lotto.ulnum1 == num[3] || lotto.ulnum1 == num[4] || lotto.ulnum1 == num[5] || lotto.ulnum1 == $('#lottoAPIbNum').text() ) {
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == $('#lottoAPIbNum').text() ) {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="mybuyLotto" ></td>';
 							cnt ++;
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						if((lotto.regdate <= $('#lottoAPIgdate').text()) && (lotto.regdate >= $('#lottoAPIgdate').text()-6) || lotto.ulnum2 == num[0] || lotto.ulnum2 == num[1] || lotto.ulnum2 == num[2] || lotto.ulnum2 == num[3] || lotto.ulnum2 == num[4] || lotto.ulnum2 == num[5] || lotto.ulnum2 == $('#lottoAPIbNum').text()) {
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == $('#lottoAPIbNum').text()) {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="mybuyLotto" ></td>';
 							cnt ++;
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						if((lotto.regdate <= $('#lottoAPIgdate').text()) && (lotto.regdate >= $('#lottoAPIgdate').text()-6) || lotto.ulnum3 == num[0] || lotto.ulnum3 == num[1] || lotto.ulnum3 == num[2] || lotto.ulnum3 == num[3] || lotto.ulnum3 == num[4] || lotto.ulnum3 == num[5] || lotto.ulnum3 == $('#lottoAPIbNum').text()) {
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == $('#lottoAPIbNum').text()) {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="mybuyLotto" ></td>';
 							cnt ++;
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						if((lotto.regdate <= $('#lottoAPIgdate').text()) && (lotto.regdate >= $('#lottoAPIgdate').text()-6) || lotto.ulnum4 == num[0] || lotto.ulnum4 == num[1] || lotto.ulnum4 == num[2] || lotto.ulnum4 == num[3] || lotto.ulnum4 == num[4] || lotto.ulnum4 == num[5] || lotto.ulnum4 == $('#lottoAPIbNum').text()) {
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == $('#lottoAPIbNum').text()) {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="mybuyLotto" ></td>';
 							cnt ++;
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						if((lotto.regdate <= $('#lottoAPIgdate').text()) && (lotto.regdate >= $('#lottoAPIgdate').text()-6) || lotto.ulnum5 == num[0] || lotto.ulnum5 == num[1] || lotto.ulnum5 == num[2] || lotto.ulnum5 == num[3] || lotto.ulnum5 == num[4] || lotto.ulnum5 == num[5] || lotto.ulnum5 == $('#lottoAPIbNum').text()) {
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[0] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[1] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[2] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[3] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[4] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[5] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == $('#lottoAPIbNum').text()) {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="mybuyLotto" ></td>';
 							cnt ++;
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						if((lotto.regdate <= $('#lottoAPIgdate').text()) && (lotto.regdate >= $('#lottoAPIgdate').text()-6) || lotto.ulnum6 == num[0] || lotto.ulnum6 == num[1] || lotto.ulnum6 == num[2] || lotto.ulnum6 == num[3] || lotto.ulnum6 == num[4] || lotto.ulnum6 == num[5] || lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[0] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[1] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[2] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[3] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[4] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[5] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == $('#lottoAPIbNum').text()) {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="mybuyLotto" ></td>';
 							cnt ++;
 						} else {
@@ -901,16 +936,15 @@ $('.buy_btn').click(function() {
 						}
 						table += '</tr>';
 						
-						prevgdate = lotto.prevgdate;
-						nextgdate = lotto.nextgdate;
+						tableGno = lotto.ulname;
+						
 					});
 					
 					table += '	</tbody>';
 					table += '</table>';
 					
 					$('.myLottoList').html(table);
-					$('#prevgdate').text(prevgdate);
-					$('#nextgdate').text(nextgdate);
+					$('th').html(tableGno);
 				}
 			});
 		}else{
@@ -924,10 +958,11 @@ $('.buy_btn').click(function() {
 
 $('.cancel_btn').click(function() {
 
-	$('input:checkbox[name="lotto"]').prop('checked', false);
-	
 	for(var i = 1; i <= 45; i++){
-		imgChange(document.getElementById("chb"+i));
+		if($('#chb'+i).is(':checked')) {
+			$('#chb'+i).prop('checked', false);
+			imgChange(document.getElementById("chb"+i));
+		}
 	}
 
 });

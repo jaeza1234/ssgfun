@@ -108,20 +108,14 @@ public class LottoCtrl {
 		myLotto.setUlnum6(Integer.parseInt(lotto[5]));
 		myLotto.setGno(gno);
 		myLotto.setUlname(gno);
-
 		myLotto.setUno(loginUser.getUno());
-		
 		
 		int result = lottoService.buyLotto(myLotto);
 		
-				
 		List<LottoVO> myLottoList = new ArrayList<LottoVO>();
-//		if(result == 1) {
-//			myLottoList = lottoService.getMyLotto(loginUser);
-//		}
-		AttendVO attInfo = userService.attInfo(loginUser);
-//		List<LottoVO> myLotto2 = lottoService.getMyLotto(loginUser);
-		
+		if(result == 1) {
+			myLottoList = lottoService.getMyLotto(myLotto);
+		}
 		
 		return myLottoList;
 	}

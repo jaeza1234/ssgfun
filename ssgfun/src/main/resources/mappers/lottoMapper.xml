@@ -22,9 +22,9 @@
  		       	ULNUM6,
  		        REGDATE,
 				MODDATE, 
-				UNO,
-				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE,
-				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE
+				UNO
+<!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE, -->
+<!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE -->
 		FROM	T_USER_LOTTO
 		WHERE	UNO = #{uno}
 <!-- 		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD')-6 AND TO_DATE(#{gdate}, 'YYYY-MM-DD') -->
@@ -43,9 +43,9 @@
  		       	ULNUM6,
  		        REGDATE,
 				MODDATE, 
-				UNO,
-				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE,
-				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE
+				UNO
+<!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE, -->
+<!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE -->
 		FROM	T_USER_LOTTO
 		WHERE	UNO = #{uno}
 <!-- 		AND		REGDATE BETWEEN TO_DATE(#{gdate}, 'YYYY-MM-DD') + 1 AND TO_DATE(#{gdate}, 'YYYY-MM-DD') + 7 -->
