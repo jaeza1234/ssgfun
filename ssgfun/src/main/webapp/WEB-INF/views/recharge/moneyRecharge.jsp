@@ -254,7 +254,6 @@
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="/resources/js/bootstrap.min.js"></script>
 
-	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 

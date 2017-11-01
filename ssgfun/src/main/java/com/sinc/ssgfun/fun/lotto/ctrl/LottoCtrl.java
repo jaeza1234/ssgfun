@@ -63,6 +63,10 @@ public class LottoCtrl {
 		
         List<LottoVO> myLottoList = lottoService.getMyLotto(lotto);
         
+        for(LottoVO l : myLottoList) {
+        	System.out.println("qpoksdnf >>>>> >>>>>  " + l.toString());
+        }
+        
 		return myLottoList;
 	}
 	
