@@ -303,6 +303,8 @@ th, td, tr {
 var cnt = 0;
 function imgChange(obj){
 	
+// 	alert('imgChange >>>>>>>>>>>> ' + obj.value);
+	
 	if (!obj.checked) {
 			obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_off.png)";	
 			cnt-=1;
@@ -343,9 +345,9 @@ function lottoapi(gno) {
 			lottoAPINum += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 			lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ data.bnum +'_on.png" class="apiLotto" >';
 			
-			$('#lottoAPIgno').html(gno);
+			$('#lottoAPIgno').html(data.gno);
 			$('#lottoAPIgno2').html(778);
-			$('#lottoAPIgdate').html(gdate);
+			$('#lottoAPIgdate').html(data.gdate);
 			$('#lottoAPINum').html(lottoAPINum);
 			$('#lottoAPIbNum').html(data.bnum);
 			
@@ -371,13 +373,6 @@ function loadlottoapi(gno) {
 		jsonp: 'callback',
 		async: false,
 		success: function(data) {
-			bnum = data.bnum;
-			gno = data.gno;
-			gdate = data.gdate;
-			nums =data.nums;
-				
-			var gno = data.gno;
-			var gdate = data.gdate;
 			
 			lottoNum = (data.nums).toString().split(',');
 			var lottoAPINum = '';
@@ -387,9 +382,9 @@ function loadlottoapi(gno) {
 			lottoAPINum += '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 			lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ data.bnum +'_on.png" class="apiLotto" >';
 			
-			$('#lottoAPIgno').html(gno);
-			$('#lottoAPIgno2').html(gno);
-			$('#lottoAPIgdate').html(gdate);
+			$('#lottoAPIgno').html(data.gno);
+			$('#lottoAPIgno2').html(data.gno);
+			$('#lottoAPIgdate').html(data.gdate);
 			$('#lottoAPINum').html(lottoAPINum);
 			$('#lottoAPIbNum').html(data.bnum);
 			
@@ -925,6 +920,16 @@ $('.buy_btn').click(function() {
 	} else {
 		alert('열매부족하다'); 
 	}
+});
+
+$('.cancel_btn').click(function() {
+
+	$('input:checkbox[name="lotto"]').prop('checked', false);
+	
+	for(var i = 1; i <= 45; i++){
+		imgChange(document.getElementById("chb"+i));
+	}
+
 });
    
 $('.prev').click(function() {
