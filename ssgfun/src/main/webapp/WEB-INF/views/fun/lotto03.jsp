@@ -300,6 +300,30 @@ th, td, tr {
     <script src="/resources/assets/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+// function goBuy(){
+	
+// 	if($('.fruit').text() > 0) {
+// 		$.ajax({
+// 			url: '/play.fun',
+// 			type: 'post',
+// 			dataType: 'json',
+// 			success: function(data) {
+// 				eacnt = data;
+// 				$('.fruit').html(data);
+// 			}
+// 		});
+		
+// 		if(cnt == 6){
+// 			document.getElementById("lottoForm").submit();
+// 		}else{
+// 			alert("6개 눌러줘요");
+// 		}
+		
+// 	} else {
+// 		alert("열매 부족하다");
+// 	}
+	
+// }
 var cnt = 0;
 function imgChange(obj){
 	
@@ -315,8 +339,16 @@ function imgChange(obj){
 			cnt+=1;
 			
 		}
+		
 	}
+	
 }
+
+// var lottoNum = '';
+// var bnum = '';
+// var gno = '';
+// var gdate = '';
+// var nums = '';
 
 function lottoapi(gno) {
 	
@@ -334,6 +366,13 @@ function lottoapi(gno) {
 		jsonp: 'callback',
 		async: false,
 		success: function(data) {
+// 			bnum = data.bnum;
+// 			gno = data.gno;
+// 			gdate = data.gdate;
+// 			nums =data.nums;
+				
+			var gno = data.gno;
+			var gdate = data.gdate;
 			
 			lottoNum = (data.nums).toString().split(',');
 			var lottoAPINum = '';
@@ -348,6 +387,7 @@ function lottoapi(gno) {
 			$('#lottoAPIgdate').html(gdate);
 			$('#lottoAPINum').html(lottoAPINum);
 			$('#lottoAPIbNum').html(data.bnum);
+// 			$('#lottoAPIgNum').html(data.gno);
 			
 			mylottolist(lottoNum);
 			
@@ -392,6 +432,7 @@ function loadlottoapi(gno) {
 			$('#lottoAPIgdate').html(gdate);
 			$('#lottoAPINum').html(lottoAPINum);
 			$('#lottoAPIbNum').html(data.bnum);
+			$('#lottoAPIbNum').html(data.gno);
 			
 			mylottolist(lottoNum);
 		}
@@ -469,7 +510,7 @@ function mylottolist(lotto) {
 			'gno': '778'
 		},
 		success: function(data) {
-			var tableGno = '';
+
 			var table = '';
 			table += '<table class="myLottoTable">';
 			table += '	<th></th>';
@@ -558,7 +599,7 @@ function mylottolist(lotto) {
 					table += '	<td></td>';
 				}
 				table += '</tr>';
-				tableGno  = lotto.ulname;
+				
 			});
 			
 			table += '	</tbody>';
@@ -585,7 +626,6 @@ function prevlotto(lottoNum, gno) {
 				alert('이전 데이터 없다');
 				$('#lottoAPIgno2').html(Number(gno)+1);
 			} else {
-				var tableGno = '';
 				var table = '';
 				table += '<table class="myLottoTable">';
 				table += '	<tbody id="myLotto">';
@@ -673,13 +713,15 @@ function prevlotto(lottoNum, gno) {
 						table += '	<td></td>';
 					}
 					table += '</tr>';
-					tableGno  = lotto.ulname;
 					
 				});
 				
 				table += '	</tbody>';
 				table += '</table>';
 				$('.myLottoList').html(table);
+// 				$('#prevgdate').text(prevgdate);
+// 				$('#nextgdate').text(nextgdate);
+// 				$('#lottoAPIgNum').html(dbgnum);
 				$('th').html(tableGno);
 			}
 		}
@@ -701,7 +743,6 @@ function nextlotto(lottoNum, gno) {
 			if(data.length == 0) {
 				alert('다음 데이터가 없다');
 			} else {
-				var tableGNO = '';
 				var table = '';
 				table += '<table class="myLottoTable">';
 				table += '	<tbody id="myLotto">';
@@ -790,7 +831,7 @@ function nextlotto(lottoNum, gno) {
 						table += '	<td></td>';
 					}
 					table += '</tr>';
-					tableGno  = lotto.ulname;
+					
 				});
 				
 				table += '	</tbody>';
@@ -821,10 +862,31 @@ $(document).ready(function() {
 	
 	loadlottoapi();
 	
+// 	$('#random').click(function() {
+		
+//    		$.ajax({
+//    			url: 'randomLotto.fun',
+//    			type: 'post',
+//    			dataType: 'json',
+//    			success: function(data) {
+   				
+//    				var txt = '';
+//    				$.each(data, function(idx, num) {
+//    					txt += num + ' ';
+//    				});
+
+//    				$('#lottoNum').html(txt);
+//    			}
+//    		});
+
+// 	});
+	
 });
 
 $('.lottoGNO').on('change', function() {
+// 	alert('change >>>>> ' + $(this).val());
 	lottoapi($(this).val());
+	
 });
   
 $('.buy_btn').click(function() {
