@@ -324,7 +324,7 @@ p {
 .okBtn {
 	width: 50%;
 }
-
+div{border:solid;}
 </style>
 </head>
 <body style="overflow-x: hidden;">

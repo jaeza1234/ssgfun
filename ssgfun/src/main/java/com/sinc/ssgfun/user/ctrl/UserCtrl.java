@@ -69,10 +69,10 @@ public class UserCtrl {
 		if(obtain.equals("100") || obtain.equals("300") || obtain.equals("500")) {
 			loginUser.setUmoney(Integer.parseInt(obtain));
 			attInfo.setEacnt(userService.obtainMoney(loginUser));
-		} else if(obtain.equals("1000¿øÄíÆù")) {
+		} else if(obtain.equals("1000ì›ì¿ í°")) {
 			loginUser.setUcname(obtain);
 			attInfo.setEacnt(userService.obtainCoupon(loginUser));
-		} else if(obtain.equals("¿­¸Å+1")) {
+		} else if(obtain.equals("ì—´ë§¤+1")) {
 			attInfo.setEacnt(userService.obtainAtt(loginUser));
 			if(attInfo.getEacnt() == 1) {
 				attInfo = userService.attInfo(loginUser);
