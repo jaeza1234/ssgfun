@@ -34,7 +34,7 @@
 <body>
 	<div class="am-wrapper">
 		<img class="bgimg" src="/resources/assets/img/bgimg/event.png">
-		<a href="eventDetail.fun">
+		<a href="/eventDetail.fun">
 			<div class="event">
 			</div>
 		</a>

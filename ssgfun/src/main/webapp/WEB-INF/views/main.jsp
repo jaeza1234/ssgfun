@@ -74,6 +74,12 @@
 	width: 62px;
 	height: 20px;
 }
+.eventD{
+	position: absolute;
+    top: 137px;
+    width: 100%;
+    height: 250px;
+}
 .recharge{
 	position: absolute;
     top: 385px;
@@ -98,8 +104,10 @@
 </head>
 <body>
 	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/bgimg/IMG_6811.PNG">
+		<img class="bgimg" src="/resources/assets/img/bgimg/main.png">
 		
+		<div class="eventD" onclick="location.href='/eventDetail.fun'">
+		</div>
 		<div class="recharge" onclick="location.href='/recharge.fun'">
 		</div>
 		

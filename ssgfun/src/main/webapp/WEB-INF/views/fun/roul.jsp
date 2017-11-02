@@ -48,8 +48,9 @@ window.onload = function(){
  
    	var eacnt = ${attInfo.eacnt};
    	
-    $('#image').unbind("click").bind("click",function(){
-
+    $('#image').click(function(){
+    	
+    	
     	if (roulFlag) {
     		roulFlag = ! roulFlag;
 		
@@ -64,7 +65,6 @@ window.onload = function(){
 	    				$('.fruit').html(data);
 	    			}
 	    		});
-	    		
 	    		rotation();
 	    	} else {
 	    		alert('열매부족하다');
@@ -107,7 +107,6 @@ window.onload = function(){
         }
  
 //         $('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
-        $('#result_id3').html("<p>" + pArr[part] + "</p>");
 		/* if(part == 7) {
 			$('#result_id3').html("<p>" + pArr[part] + "</p>" + "<img src='/resources/assets/img/roul/niddle.png'>");
 		} */
@@ -126,7 +125,6 @@ window.onload = function(){
 			url: '/user/obtain.fun',
 			type: 'post',
 			dataType: 'json',
-			async: false,
 			data: {'obtain': $('#result_id3').text()},
 			success: function(data) {
 				console.log(data.eano);
@@ -325,6 +323,7 @@ p {
 .okBtn {
 	width: 50%;
 }
+div{border:solid;}
 </style>
 </head>
 <body style="overflow-x: hidden;">

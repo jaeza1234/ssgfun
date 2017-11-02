@@ -14,9 +14,9 @@
 
 <style type="text/css">
 
-div {
+/* div {
 	border: solid 1px gold;
-}
+} */
 html,body {
 	width:100%;
 	height:100%; 
