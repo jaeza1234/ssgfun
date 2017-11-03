@@ -65,7 +65,8 @@ html,body {
 .lottoG {
 	position: relative;
     top: 28px;
-    padding-left: 175px;
+/*     padding-left: 175px; */
+    padding-left: 135px;
 	font-size: 17px;
 }
 #lottoAPIgno {
