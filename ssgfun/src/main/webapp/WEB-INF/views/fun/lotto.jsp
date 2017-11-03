@@ -289,18 +289,45 @@ th, td, tr {
 		</div>
     </div>
     
-<!--     <div id="prevgdate" style="display: none;"></div> -->
-<!--     <div id="nextgdate" style="display: none;"></div> -->
-<!--     <div id="lottoAPIgNum" style="display: none;"></div> -->
     <div id="lottoAPINum2" style="display: none;"></div>
     <div id="lottoAPIbNum" style="display: none;"></div>
     <div id="lottoAPIgno2" style="display: none;"></div>
+    
+    <!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+	   aria-labelledby="myModalLabel" aria-hidden="true">
+	   <div class="modal-dialog modal-fullsize">
+	      <div class="modal-content modal-fullsize">
+	         <div class="modal-header">
+	            <button type="button" class="close" data-dismiss="modal" 
+	               aria-hidden="true">×
+	            </button>
+	            <h4 class="modal-title" id="myModalLabel">
+	               <!-- <i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i> -->
+	            </h4>
+	         </div>
+	         <div class="modal-body">
+					<div id="result">
+					</div>
+	         </div>
+	         <div class="modal-footer">
+	            <button type="button" class="btn btn-default" 
+	               data-dismiss="modal">
+	               <img class="okBtn" src="/resources/assets/img/roul/ok_btn.png">
+	            </button>
+	         </div>
+	      </div><!-- /.modal-content -->
+	   </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
-    <script src="/resources/assets/js/bootstrap.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+   <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+   <script src="/resources/assets/js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
+
+$(function () { $('#myModal').modal('hide')});
+
 var cnt = 0;
 function imgChange(obj){
 	
@@ -373,7 +400,7 @@ function loadlottoapi(gno) {
 		async: false,
 		success: function(data) {
 			
-			lottoNum = (data.nums).toString().split(',');
+			lottoNum = (data.nums).toString().split(',');	
 			var lottoAPINum = '';
 			$.each(lottoNum, function(idx, num) {
 				lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ num +'_on.png" class="apiLotto" >';
@@ -553,21 +580,21 @@ function mylottolist(lottoNum) {
 					if(lotto.ulflag == 1) {
 						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 					}
 				} else if(cnt == 4) {
 					table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 					if(lotto.ulflag == 1) {
 						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 					}
 				} else if(cnt == 5) {
 					table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 					if(lotto.ulflag == 1) {
 						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 					}
 				} else if(cnt == 6) {
 					if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -581,14 +608,14 @@ function mylottolist(lottoNum) {
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else {
 						table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 						}
 					}
 				} else {
@@ -714,21 +741,21 @@ function prevlotto(lottoNum, gno) {
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 4) {
 						table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 5) {
 						table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 6) {
 						if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -742,14 +769,14 @@ function prevlotto(lottoNum, gno) {
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else {
 							table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 							}
 						}
 					} else {
@@ -875,21 +902,21 @@ function nextlotto(lottoNum, gno) {
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 4) {
 						table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 5) {
 						table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
 							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 6) {
 						if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -903,14 +930,14 @@ function nextlotto(lottoNum, gno) {
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else {
 							table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 							}
 						}
 					} else {
@@ -1070,21 +1097,21 @@ $('.buy_btn').click(function() {
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 4) {
 							table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 5) {
 							table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 6) {
 							if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -1098,14 +1125,14 @@ $('.buy_btn').click(function() {
 								if(lotto.ulflag == 1) {
 									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 								}
 							} else {
 								table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 								if(lotto.ulflag == 1) {
 									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 								}
 							}
 						} else {
@@ -1159,10 +1186,35 @@ $('.next').click(function() {
 	
 });
 
-function winChkbtn(ulno) {
+function winChkbtn(ulno, cnt) {
+	
+	var obtain = '';
+
+	$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
+	if(cnt == 7) {
+		obtain = '10000000';
+		$('#result').html('<p>1등!!</p>');
+	} else if(cnt == 6) {
+		obtain = '1000000';
+		$('#result').html('<p>2등!!</p>');
+	} else if(cnt == 5) {
+		obtain = '100000';
+		$('#result').html('<p>3등!!</p>');
+	} else if(cnt == 4) {
+		obtain = '1000';
+		$('#result').html('<p>4등!!</p>');
+	} else if(cnt == 3) {
+		obtain = '500';
+		$('#result').html('<p>5등!!</p>');
+	} else {
+		obtain = '1';
+		$('#result').html('<p>이상하다!!!</p>');
+	}
+	
+	$('#myModal').modal('show');
 	
 	var num = '';
-
+	
 	$.ajax({
 		url: 'http://lotto.kaisyu.com/api?method=get&gno=' + $('#lottoAPIgno').text(),
 		type: 'get',
@@ -1178,7 +1230,8 @@ function winChkbtn(ulno) {
 				dataType: 'json',
 				data: {
 					'gno': $('#lottoAPIgno').text(),
-					'ulno': ulno
+					'ulno': ulno,
+					'obtain': obtain
 				},
 				success: function(data) {
 					var winChk = '';
@@ -1270,21 +1323,21 @@ function winChkbtn(ulno) {
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 4) {
 							table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 5) {
 							table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
 								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 6) {
 							if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -1298,14 +1351,14 @@ function winChkbtn(ulno) {
 								if(lotto.ulflag == 1) {
 									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 								}
 							} else {
 								table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 								if(lotto.ulflag == 1) {
 									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 								}
 							}
 						} else {
