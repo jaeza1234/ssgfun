@@ -99,6 +99,17 @@
 	width: 55px;
 	height: 65px;
 }
+.setting {
+	position: absolute;
+	top: 880px;
+	left: 172px;
+	width: 70px;
+	height: 70px;
+}
+div{
+	border:solid;
+}
+
 
 </style>
 </head>
@@ -134,7 +145,7 @@
 				</div>
 				<div class="funDiv" onclick="location.href='/ssgFun.fun'">
 				</div>
-				<div class="settting" onclick="javascript:window.ssgfun.setMessage('gogogogo');"></div>
+				<div class="setting" onclick="javascript:window.ssgfun.setMessage('gogogogo');"></div>
 
 				<a href="/user/att.fun">
 					<div class="checkDiv">

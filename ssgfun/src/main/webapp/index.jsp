@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
     <%
     	String uno  = (String)request.getParameter("userid");
-    	
+    	System.out.println("ASD"+uno);
+    	response.sendRedirect("/main.fun?uno="+uno);
     %>
 <script>
-	location.href = "/main.fun?uno="+uno;
 </script>
