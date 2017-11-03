@@ -362,7 +362,8 @@ height: auto;
 .noteDiv {
 	position: absolute;	
 	top: 560px;
-	left: 30px;
+	left: 35px;
+	
 }
 .noteTxt {
 	position: absolute;

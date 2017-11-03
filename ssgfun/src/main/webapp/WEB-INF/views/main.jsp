@@ -77,7 +77,7 @@
 .eventD{
 	position: absolute;
     top: 137px;
-    width: 100%;
+    width: 84%;
     height: 250px;
 }
 .recharge{
@@ -126,7 +126,7 @@
 		</nav>
 		<div class="am-left-sidebar">
 			<div class="content">
-			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar.png">
+			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar02.png">
 				
 				<div class="rechargeSmall" onclick="location.href='/recharge.fun'">
 				</div>

@@ -91,36 +91,39 @@ window.onload = function(){
         $('#result_id').html("<p>움직인각도:" + n + "</p>");
         var real_angle = n%360 +18;
         var part = Math.floor(real_angle/36);
-     
+     	alert(part);
         $('#result_id2').html("<p>상품범위:" + part + "</p>");
- 
+        
+  
+        
+        
+        
+ /* 
         if(part < 1){
-//             $('#result_id3').html("<p>당첨내역:" + pArr[0] + "</p>");
-            $('#result_id3').html("<p>" + pArr[0] + "</p>");
+            $('#result_id3').html("<p>뭘 쓰는거야" + pArr[0] + "</p>");
             return;
         }
  
         if(part >= 10){
-//             $('#result_id3').html("<p>당첨내역:" + pArr[pArr.length-1] + "</p>");
             $('#result_id3').html("<p>" + pArr[pArr.length-1] + "</p>");
             return;
-        }
- 
-//         $('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
-		/* if(part == 7) {
-			$('#result_id3').html("<p>" + pArr[part] + "</p>" + "<img src='/resources/assets/img/roul/niddle.png'>");
-		} */
+        } */
 		
-		if(pArr[part] == "꽝") {
+        
+        //룰렛 안 돌아가는 건 
+		if(part==0||part==3||part==5||part==8) {
 			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
 			$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[part] + "</p>");
+		} if (part==10) {
+			//pArr배열의 
+			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
+			$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[0] + "</p>");
 		} else {
 			$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
 			$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[part] + "</p>");
 		}
 		
         
-//         alert($('#result_id3').text());
         $.ajax({
 			url: '/user/obtain.fun',
 			type: 'post',
@@ -135,7 +138,7 @@ window.onload = function(){
 				 $('#myModal').modal('show');
 				 //룰렛 다 끝나면 다시 플래그 true 로 변경;
 			}
-		});
+		}); 
 				 roulFlag = true;
     }
  
@@ -323,7 +326,6 @@ p {
 .okBtn {
 	width: 50%;
 }
-div{border:solid;}
 </style>
 </head>
 <body style="overflow-x: hidden;">

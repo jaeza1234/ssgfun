@@ -403,6 +403,7 @@ div {
 		      </div><!-- /.modal-content -->
 		   </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+		
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script
@@ -419,7 +420,7 @@ div {
 				document.getElementById('date').innerHTML = localeDate;
 
 			});
-
+			
 			function unse(animal) {
 				/* $('#'+animal+'').prop('src',''); */
 				var anis = [ 'mouse', 'caw', 'tiger', 'rabbit', 'dragon',
