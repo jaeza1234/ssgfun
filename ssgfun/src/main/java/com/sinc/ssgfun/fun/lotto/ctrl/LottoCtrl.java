@@ -160,5 +160,29 @@ public class LottoCtrl {
 		
 		return myLottoList;
 	}
+
+	@RequestMapping("/winChk.fun")
+	@ResponseBody
+	public List<LottoVO> winChk(HttpSession session, String gno, String ulno) {
+		logger.info("LottoCtrl winChk");
+		
+		System.out.println("winChk lotto >>>>>>>>>>>>> " + gno + "  >>>>>> " + ulno);
+		
+		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		
+		LottoVO lotto = new LottoVO();
+		lotto.setUno(loginUser.getUno());
+		lotto.setGno(gno);
+		lotto.setUlname(gno);
+		lotto.setUlno(Integer.parseInt(ulno));
+		
+		int result = lottoService.winChk(lotto);
+		List<LottoVO> myLottoList = new ArrayList<LottoVO>();
+		if(result == 1) {
+			myLottoList = lottoService.getMyLotto(lotto);
+		}
+		
+		return myLottoList;
+	}
 	
 }

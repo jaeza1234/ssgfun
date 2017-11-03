@@ -17,6 +17,7 @@ public class LottoVO {
 	private String gdate;
 	private String prevgdate;
 	private String nextgdate;
+	private String ulflag;
 	
 	public LottoVO() {
 		super();
@@ -26,7 +27,7 @@ public class LottoVO {
 	public LottoVO(int ulno, String ulname, int ulnum1, int ulnum2, int ulnum3,
 			int ulnum4, int ulnum5, int ulnum6, String regdate, String moddate,
 			String uno, String bnum, String gno, String gdate,
-			String prevgdate, String nextgdate) {
+			String prevgdate, String nextgdate, String ulflag) {
 		super();
 		this.ulno = ulno;
 		this.ulname = ulname;
@@ -44,6 +45,7 @@ public class LottoVO {
 		this.gdate = gdate;
 		this.prevgdate = prevgdate;
 		this.nextgdate = nextgdate;
+		this.ulflag = ulflag;
 	}
 
 	@Override
@@ -54,7 +56,7 @@ public class LottoVO {
 				+ ulnum6 + ", regdate=" + regdate + ", moddate=" + moddate
 				+ ", uno=" + uno + ", bnum=" + bnum + ", gno=" + gno
 				+ ", gdate=" + gdate + ", prevgdate=" + prevgdate
-				+ ", nextgdate=" + nextgdate + "]";
+				+ ", nextgdate=" + nextgdate + ", ulflag=" + ulflag + "]";
 	}
 
 	public int getUlno() {
@@ -184,4 +186,13 @@ public class LottoVO {
 	public void setNextgdate(String nextgdate) {
 		this.nextgdate = nextgdate;
 	}
+
+	public String getUlflag() {
+		return ulflag;
+	}
+
+	public void setUlflag(String ulflag) {
+		this.ulflag = ulflag;
+	}
+	
 }

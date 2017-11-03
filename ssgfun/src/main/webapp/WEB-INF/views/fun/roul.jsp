@@ -93,33 +93,47 @@ window.onload = function(){
         var part = Math.floor(real_angle/36);
      
         $('#result_id2').html("<p>상품범위:" + part + "</p>");
+        
+		alert('움직인각도 > ' + n + ', 상품범위 >' + part +'당첨 > ' + pArr[part]);
  
         if(part < 1){
 //             $('#result_id3').html("<p>당첨내역:" + pArr[0] + "</p>");
             $('#result_id3').html("<p>" + pArr[0] + "</p>");
+			if(pArr[part] == "꽝") {
+				$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
+				$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[0] + "</p>");
+			} else {
+				$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
+				$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[0] + "</p>");
+			}
             return;
-        }
- 
-        if(part >= 10){
+        } else if(part >= 10){
 //             $('#result_id3').html("<p>당첨내역:" + pArr[pArr.length-1] + "</p>");
             $('#result_id3').html("<p>" + pArr[pArr.length-1] + "</p>");
+			if(pArr[part-1] == "꽝") {
+				$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
+				$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[pArr.length-1] + "</p>");
+			} else {
+				$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
+				$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[pArr.length-1] + "</p>");
+			}
             return;
+        } else {
+	        	
+	        //$('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
+	        $('#result_id3').html("<p>" + pArr[part] + "</p>");
+			/* if(part == 7) {
+				$('#result_id3').html("<p>" + pArr[part] + "</p>" + "<img src='/resources/assets/img/roul/niddle.png'>");
+			} */
+			
+			if(pArr[part] == "꽝") {
+				$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
+				$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[part] + "</p>");
+			} else {
+				$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
+				$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[part] + "</p>");
+			}
         }
- 
-//         $('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
-        $('#result_id3').html("<p>" + pArr[part] + "</p>");
-		/* if(part == 7) {
-			$('#result_id3').html("<p>" + pArr[part] + "</p>" + "<img src='/resources/assets/img/roul/niddle.png'>");
-		} */
-		
-		if(pArr[part] == "꽝") {
-			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
-			$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[part] + "</p>");
-		} else {
-			$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
-			$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[part] + "</p>");
-		}
-		
         
 //         alert($('#result_id3').text());
         $.ajax({

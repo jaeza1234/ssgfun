@@ -21,7 +21,8 @@
  		      	ULNUM5,
  		       	ULNUM6,
  		        REGDATE,
-				MODDATE, 
+				MODDATE,
+				ULFLAG, 
 				UNO
 <!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE, -->
 <!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE -->
@@ -42,7 +43,8 @@
  		      	ULNUM5,
  		       	ULNUM6,
  		        REGDATE,
-				MODDATE, 
+				MODDATE,
+				ULFLAG,
 				UNO
 <!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')-7, 'YYYY-MM-DD') AS PREVGDATE, -->
 <!-- 				TO_CHAR(TO_DATE(#{gdate}, 'YYYY-MM-DD')+7, 'YYYY-MM-DD') AS NEXTGDATE -->
@@ -52,6 +54,14 @@
 		AND		ULNAME = #{ulname}
 		ORDER BY REGDATE DESC
  	</select>
+ 	
+ 	<update id="winChk" parameterType="com.sinc.ssgfun.vo.LottoVO">
+ 		UPDATE	T_USER_LOTTO
+		SET		ULFLAG = 1
+		WHERE	UNO	= #{uno}
+		AND		ULNAME = #{ulname}
+		AND		ULNO = #{ulno}
+ 	</update>
  	
  	
 </mapper>  

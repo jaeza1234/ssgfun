@@ -36,8 +36,15 @@ public class LottoServiceImpl implements LottoService {
 
 	@Override
 	public List<LottoVO> getMyNextLotto(LottoVO lotto) {
-logger.info("LottoServiceImpl getMyNextLotto");
+		logger.info("LottoServiceImpl getMyNextLotto");
 		
 		return lottoDao.getMyNextLotto(lotto);
+	}
+
+	@Override
+	public int winChk(LottoVO lotto) {
+		logger.info("LottoServiceImpl winChk");
+		
+		return lottoDao.winChk(lotto);
 	}
 }

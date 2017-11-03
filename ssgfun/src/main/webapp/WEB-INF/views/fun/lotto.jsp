@@ -14,9 +14,9 @@
 
 <style type="text/css">
 
-div {
-	border: solid 1px gold;
-}
+/* div { */
+/* 	border: solid 1px gold; */
+/* } */
 html,body {
 	width:100%;
 	height:100%; 
@@ -260,7 +260,6 @@ th, td, tr {
 			</span>회차 당첨번호 &nbsp;&nbsp;<span id="lottoAPIgdate"></span>
 		</div>
 		<div id="lottoAPINum"></div>
-		<div id="buy_btn" data-toggle="collapse" data-target="#demo"></div>
 	</div>
 
 	<div id="demo" class="collapse">
@@ -289,9 +288,10 @@ th, td, tr {
 		</div>
     </div>
     
-    <div id="prevgdate" style="display: none;"></div>
-    <div id="nextgdate" style="display: none;"></div>
-    <div id="lottoAPIgNum" style="display: none;"></div>
+<!--     <div id="prevgdate" style="display: none;"></div> -->
+<!--     <div id="nextgdate" style="display: none;"></div> -->
+<!--     <div id="lottoAPIgNum" style="display: none;"></div> -->
+    <div id="lottoAPINum2" style="display: none;"></div>
     <div id="lottoAPIbNum" style="display: none;"></div>
     <div id="lottoAPIgno2" style="display: none;"></div>
 	
@@ -302,8 +302,6 @@ th, td, tr {
 <script type="text/javascript">
 var cnt = 0;
 function imgChange(obj){
-	
-// 	alert('imgChange >>>>>>>>>>>> ' + obj.value);
 	
 	if (!obj.checked) {
 			obj.style.backgroundImage = "url(/resources/assets/img/lotto/number_"+obj.value+"_off.png)";	
@@ -387,6 +385,7 @@ function loadlottoapi(gno) {
 			$('#lottoAPIgdate').html(data.gdate);
 			$('#lottoAPINum').html(lottoAPINum);
 			$('#lottoAPIbNum').html(data.bnum);
+			$('#lottoAPINum2').html(data.nums);
 			
 			mylottolist(lottoNum);
 		}
@@ -451,9 +450,9 @@ function nextlottoapi(gno) {
 	});
 }  
 
-function mylottolist(lotto) {
+function mylottolist(lottoNum) {
 	
-	var num = lotto.toString().split(',');
+	var num = lottoNum.toString().split(',');
 	
 	$.ajax({
 		url: 'myLottoList.fun',
@@ -464,6 +463,7 @@ function mylottolist(lotto) {
 			'gno': '778'
 		},
 		success: function(data) {
+			var winChk = '';
 			var tableGno = '';
 			var table = '';
 			table += '<table class="myLottoTable">';
@@ -473,8 +473,7 @@ function mylottolist(lotto) {
 				
 				var cnt = 0;
 				table += '<tr>';
-				table += '	<td>' + (idx + 1) + '</td>';
-				table += '	<td>' + (idx + 1) + '</td>';
+				table += '	<td class="win">' + (idx + 1) + '</td>';
 				if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 						lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 						lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -547,19 +546,65 @@ function mylottolist(lotto) {
 				} else {
 					table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 				}
-				if(cnt > 3) {
-					table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:55px;" ></td>';
+			
+				if(cnt == 3) {
+					table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
+					if(lotto.ulflag == 1) {
+						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+					} else {
+						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+					}
+				} else if(cnt == 4) {
+					table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
+					if(lotto.ulflag == 1) {
+						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+					} else {
+						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+					}
+				} else if(cnt == 5) {
+					table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
+					if(lotto.ulflag == 1) {
+						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+					} else {
+						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+					}
+				} else if(cnt == 6) {
+					if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
+							lotto.ulnum2 == $('#lottoAPIbNum').text() ||
+							lotto.ulnum3 == $('#lottoAPIbNum').text() ||
+							lotto.ulnum4 == $('#lottoAPIbNum').text() ||
+							lotto.ulnum5 == $('#lottoAPIbNum').text() ||
+							lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+						
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					}
 				} else {
-					table += '	<td></td>';
+					table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+					table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
 				}
+				
 				table += '</tr>';
 				tableGno  = lotto.ulname;
+				
 			});
 			
 			table += '	</tbody>';
 			table += '</table>';
 			$('.myLottoList').html(table);
 			$('th').html(tableGno);
+			
 		}
 	});
 }
@@ -589,7 +634,7 @@ function prevlotto(lottoNum, gno) {
 					var cnt = 0;
 					table += '<tr>';
 					table += '	<td>' + (idx + 1) + '</td>';
-					table += '	<td>' + (idx + 1) + '</td>';
+					table += '	<td class="win">' + (idx + 1) + '</td>';
 					if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -662,11 +707,55 @@ function prevlotto(lottoNum, gno) {
 					} else {
 						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 					}
-					if(cnt > 3) {
-						table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:55px;" ></td>';
+					
+					if(cnt == 3) {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else if(cnt == 4) {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else if(cnt == 5) {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else if(cnt == 6) {
+						if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum2 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum3 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum4 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum5 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+							
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						}
 					} else {
-						table += '	<td></td>';
+						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
 					}
+					
 					table += '</tr>';
 					tableGno  = lotto.ulname;
 					
@@ -706,7 +795,7 @@ function nextlotto(lottoNum, gno) {
 					var cnt = 0;
 					table += '<tr>';
 					table += '	<td>' + (idx + 1) + '</td>';
-					table += '	<td>' + (idx + 1) + '</td>';
+					table += '	<td class="win">' + (idx + 1) + '</td>';
 					if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -779,13 +868,58 @@ function nextlotto(lottoNum, gno) {
 					} else {
 						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 					}
-					if(cnt > 3) {
-						table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:55px;" ></td>';
+					
+					if(cnt == 3) {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else if(cnt == 4) {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else if(cnt == 5) {
+						table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
+						if(lotto.ulflag == 1) {
+							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+						}
+					} else if(cnt == 6) {
+						if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum2 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum3 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum4 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum5 == $('#lottoAPIbNum').text() ||
+								lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+							
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						}
 					} else {
-						table += '	<td></td>';
+						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
 					}
+					
 					table += '</tr>';
 					tableGno  = lotto.ulname;
+					
 				});
 				
 				table += '	</tbody>';
@@ -856,7 +990,7 @@ $('.buy_btn').click(function() {
 						var cnt = 0;
 						table += '<tr>';
 						table += '	<td>' + (idx + 1) + '</td>';
-						table += '	<td>' + (idx + 1) + '</td>';
+						table += '	<td class="win">' + (idx + 1) + '</td>';
 						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -929,15 +1063,57 @@ $('.buy_btn').click(function() {
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						if(cnt > 3) {
-							table += '	<td><img src="/resources/assets/img/lotto/btn.png" style="width:55px;" ></td>';
+						
+						if(cnt == 3) {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else if(cnt == 4) {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else if(cnt == 5) {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else if(cnt == 6) {
+							if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum2 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum3 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum4 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum5 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+								
+								table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
+								if(lotto.ulflag == 1) {
+									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								} else {
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								}
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
+								if(lotto.ulflag == 1) {
+									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								} else {
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								}
+							}
 						} else {
-							table += '	<td></td>';
+							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
 						}
+						
 						table += '</tr>';
-						
-						tableGno = lotto.ulname;
-						
+						tableGno  = lotto.ulname;
 					});
 					
 					table += '	</tbody>';
@@ -955,6 +1131,8 @@ $('.buy_btn').click(function() {
 	} else {
 		alert('열매부족하다'); 
 	}
+	
+	
 });
 
 $('.cancel_btn').click(function() {
@@ -979,6 +1157,176 @@ $('.next').click(function() {
 	nextlottoapi($('#lottoAPIgno2').text());
 	
 });
+
+function winChkbtn(ulno) {
+	
+	var num = '';
+
+	$.ajax({
+		url: 'http://lotto.kaisyu.com/api?method=get&gno=' + $('#lottoAPIgno').text(),
+		type: 'get',
+		dataType: 'jsonp',
+		jsonp: 'callback',
+		success: function(data) {
+			
+			num = data.nums;
+			
+			$.ajax({
+				url: 'winChk.fun',
+				type: 'post',
+				dataType: 'json',
+				data: {
+					'gno': $('#lottoAPIgno').text(),
+					'ulno': ulno
+				},
+				success: function(data) {
+					var winChk = '';
+					var tableGno = '';
+					var table = '';
+					table += '<table class="myLottoTable">';
+					table += '	<th></th>';
+					table += '	<tbody id="myLotto">';
+					$.each(data, function(idx, lotto) {
+						
+						var cnt = 0;
+						table += '<tr>';
+						table += '	<td class="win">' + (idx + 1) + '</td>';
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == $('#lottoAPIbNum').text() ) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_on.png" class="mybuyLotto" ></td>';
+							cnt ++;
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum1 + '_off.png" class="mybuyLotto" ></td>';
+						}
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum2 == $('#lottoAPIbNum').text()) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_on.png" class="mybuyLotto" ></td>';
+							cnt ++;
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum2 + '_off.png" class="mybuyLotto" ></td>';
+						}
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum3 == $('#lottoAPIbNum').text()) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_on.png" class="mybuyLotto" ></td>';
+							cnt ++;
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum3 + '_off.png" class="mybuyLotto" ></td>';
+						}
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[0] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[1] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[2] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[3] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[4] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == num[5] || 
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum4 == $('#lottoAPIbNum').text()) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_on.png" class="mybuyLotto" ></td>';
+							cnt ++;
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum4 + '_off.png" class="mybuyLotto" ></td>';
+						}
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[0] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[1] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[2] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[3] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[4] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == num[5] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum5 == $('#lottoAPIbNum').text()) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_on.png" class="mybuyLotto" ></td>';
+							cnt ++;
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum5 + '_off.png" class="mybuyLotto" ></td>';
+						}
+						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[0] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[1] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[2] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[3] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[4] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == num[5] ||
+								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_on.png" class="mybuyLotto" ></td>';
+							cnt ++;
+						} else {
+							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
+						}
+						
+						if(cnt == 3) {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else if(cnt == 4) {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else if(cnt == 5) {
+							table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
+							if(lotto.ulflag == 1) {
+								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+							}
+						} else if(cnt == 6) {
+							if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum2 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum3 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum4 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum5 == $('#lottoAPIbNum').text() ||
+									lotto.ulnum6 == $('#lottoAPIbNum').text()) {
+								
+								table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
+								if(lotto.ulflag == 1) {
+									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								} else {
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								}
+							} else {
+								table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
+								if(lotto.ulflag == 1) {
+									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								} else {
+									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+')"></td>';
+								}
+							}
+						} else {
+							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+						}
+					
+						table += '</tr>';
+						tableGno  = lotto.ulname;
+						
+					});
+					
+					table += '	</tbody>';
+					table += '</table>';
+					$('.myLottoList').html(table);
+					$('th').html(tableGno);
+				}
+			});
+		}
+	});
+	
+}
 
 </script>
 </body>

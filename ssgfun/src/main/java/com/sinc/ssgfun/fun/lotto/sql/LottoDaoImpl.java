@@ -41,4 +41,11 @@ public class LottoDaoImpl implements LottoDao {
 		
 		return session.selectList(LOTTOPREFIX + "getMyNextLotto", lotto);
 	}
+
+	@Override
+	public int winChk(LottoVO lotto) {
+		logger.info("LottoDaoImpl winChk");
+		
+		return session.update(LOTTOPREFIX + "winChk", lotto);
+	}
 }

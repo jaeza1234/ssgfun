@@ -13,4 +13,6 @@ public interface LottoDao {
 
 	List<LottoVO> getMyNextLotto(LottoVO lotto);
 
+	int winChk(LottoVO lotto);
+
 }
