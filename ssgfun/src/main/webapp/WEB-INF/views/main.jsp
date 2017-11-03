@@ -134,6 +134,7 @@
 				</div>
 				<div class="funDiv" onclick="location.href='/ssgFun.fun'">
 				</div>
+				<div class="settting" onclick="javascript:window.ssgfun.setMessage('gogogogo');"></div>
 
 				<a href="/user/att.fun">
 					<div class="checkDiv">

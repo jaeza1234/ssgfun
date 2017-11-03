@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
+div{border:solid gold}
 body {
 	background-color: #fff;
 }

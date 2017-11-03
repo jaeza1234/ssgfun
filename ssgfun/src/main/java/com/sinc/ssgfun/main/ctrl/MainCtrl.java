@@ -1,10 +1,13 @@
 package com.sinc.ssgfun.main.ctrl;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.junit.runner.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,13 +32,13 @@ public class MainCtrl {
 	private UserService userService;
 	
 	@RequestMapping("/main.fun")
-	public String main(HttpSession session) {
+	public String main(HttpSession session, HttpServletRequest req) {
 		logger.info("MainCtrl main");
 		
 		UserVO loginUser = new UserVO();
-		
-		loginUser.setUno("p908uz");
-		loginUser.setUpwd("ssg2017");
+		String uno = (String)req.getParameter("uno");
+		loginUser.setUno(uno);
+		loginUser.setUpwd(uno);
 		loginUser.setUname("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		loginUser.setUemail("p908uz@shinsegae.com");
 		loginUser.setUphone(01011112222);
@@ -99,7 +102,7 @@ public class MainCtrl {
 		
 		
 		
-		System.out.println("³Ñ¾î¿À´Â °ª:"+money);
+		System.out.println("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½:"+money);
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 		System.out.println(Integer.parseInt(money)/10000);
 		mainService.plusFruit(loginUser, Integer.parseInt(money)/10000);
