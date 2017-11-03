@@ -163,7 +163,7 @@ public class LottoCtrl {
 
 	@RequestMapping("/winChk.fun")
 	@ResponseBody
-	public List<LottoVO> winChk(HttpSession session, String gno, String ulno) {
+	public List<LottoVO> winChk(HttpSession session, String gno, String ulno, String obtain) {
 		logger.info("LottoCtrl winChk");
 		
 		System.out.println("winChk lotto >>>>>>>>>>>>> " + gno + "  >>>>>> " + ulno);
@@ -176,9 +176,12 @@ public class LottoCtrl {
 		lotto.setUlname(gno);
 		lotto.setUlno(Integer.parseInt(ulno));
 		
+		
 		int result = lottoService.winChk(lotto);
 		List<LottoVO> myLottoList = new ArrayList<LottoVO>();
 		if(result == 1) {
+			loginUser.setUmoney(Integer.parseInt(obtain));
+			result += userService.obtainMoney(loginUser);
 			myLottoList = lottoService.getMyLotto(lotto);
 		}
 		
