@@ -27,12 +27,13 @@ INSERT INTO T_USER(UNO, UPWD, UNAME, UEMAIL, UPHONE, UACCOUNT, UMONEY, REGDATE, 
 
 select * from t_user
 
+delete from T_USER cascade constraint;
 UPDATE	T_USER
 SET		UMONEY = UMONEY + 100,
 		MODDATE = SYSDATE
 WHERE	UNO = 'p908uz'
 
-select * from T_EVENT_ATT;
+select * from T_USER;
 
 -- T_EVENT_ATT ---------------------------------------------------------------------------------------------------------------------
 INSERT INTO T_EVENT_ATT(EANO, EACNT, EAATTCNT, EAHISTDATE, REGDATE, MODDATE, UNO)
