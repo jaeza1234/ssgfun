@@ -39,6 +39,14 @@
 .fun {
 	color: #222;
 }
+.chulcheck {
+	position: absolute;
+	top: 620px;
+	left: 172px;
+	width: 70px;
+	height: 70px;
+}
+
 .funDiv {
 	position: absolute;
 	top: 620px;
@@ -66,13 +74,18 @@
 	width: 62px;
 	height: 20px;
 }
+.eventD{
+	position: absolute;
+    top: 137px;
+    width: 84%;
+    height: 250px;
+}
 .recharge{
 	position: absolute;
     top: 385px;
-    width: 100%;
+    width: 84%;
     height: 120px;
 }
-    
 .s7-menu2:before; {
     content: none;
 }
@@ -91,8 +104,10 @@
 </head>
 <body>
 	<div class="am-wrapper">
-		<img class="bgimg" src="/resources/assets/img/bgimg/IMG_6811.PNG">
+		<img class="bgimg" src="/resources/assets/img/bgimg/main.png">
 		
+		<div class="eventD" onclick="location.href='/eventDetail.fun'">
+		</div>
 		<div class="recharge" onclick="location.href='/recharge.fun'">
 		</div>
 		
@@ -111,11 +126,12 @@
 		</nav>
 		<div class="am-left-sidebar">
 			<div class="content">
-			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar.png">
+			<img class="sidebarimg" src="/resources/assets/img/bgimg/sidebar02.png">
 				
 				<div class="rechargeSmall" onclick="location.href='/recharge.fun'">
 				</div>
-				
+				<div class="chulcheck" onclick="location.href='/user/att.fun'">
+				</div>
 				<div class="funDiv" onclick="location.href='/ssgFun.fun'">
 				</div>
 

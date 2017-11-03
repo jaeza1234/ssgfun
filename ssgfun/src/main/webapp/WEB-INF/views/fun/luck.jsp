@@ -403,6 +403,7 @@ div {
 		      </div><!-- /.modal-content -->
 		   </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
+		
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script
@@ -419,7 +420,7 @@ div {
 				document.getElementById('date').innerHTML = localeDate;
 
 			});
-
+			
 			function unse(animal) {
 				/* $('#'+animal+'').prop('src',''); */
 				var anis = [ 'mouse', 'caw', 'tiger', 'rabbit', 'dragon',
@@ -450,6 +451,11 @@ div {
 							/* alert('축하합니다. 열매1개 획득!'); */
 							$('#myModal').modal('show');
 							$('#fcnt').html(data.eacnt);
+	
+						/* 	setTimeout(function(){
+							$('#fcnt').css('font-size', '25px');
+							}, 1000);
+						 */
 						}	
 						/* document.getElementById('txt1').innerHTML = data.msg; */
 						var d = new Date();

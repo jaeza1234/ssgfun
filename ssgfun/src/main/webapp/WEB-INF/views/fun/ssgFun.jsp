@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 <style type="text/css">
 body {
-	background-color: #fff;x`
+	background-color: #fff;
 }
 
 .am-wrapper>.bgimg {
