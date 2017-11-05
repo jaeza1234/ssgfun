@@ -382,25 +382,20 @@ p {
 			<span class="titleTxt"><b>[열매 획득하는 방법]</b></span><br>
 			<span class="conTxt">
 				<span class="conTxtSpan">
-					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;출석체크
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;출석체크(하루1회 열매1개)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					
 					<a href="/user/att.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
 				<span class="conTxtSpan">
-					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;오늘의 운세
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;
+					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;오늘의 운세(랜덤 확률 열매1개)
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/luck/main.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
 				<span class="conTxtSpan">
-					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전(만원충전 열매1개)
 					<a href="/recharge.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
