@@ -14,10 +14,9 @@
 
 <style type="text/css">
 
-/* div { */
-/* 	border: solid 1px gold; */
-/* } */
-div{border:solid;}
+div {
+ 	border: solid 1px gold;
+}
 html,body {
 	width:100%;
 	height:100%; 
@@ -249,11 +248,11 @@ th, td, tr {
 		<div class="lottoG">
 			<span id="lottoAPIgnoSelec">
 				<select name="lottoGNO" class="lottoGNO">
-					<c:forEach begin="1" end="778" varStatus="status">
-						<c:if test="${status.index == 778}" >
+					<c:forEach begin="1" end="779" varStatus="status">
+						<c:if test="${status.index == 779}" >
 							<option value="${status.index }" selected>${status.index }</option>
 						</c:if>
-						<c:if test="${status.index != 778}" >
+						<c:if test="${status.index != 779}" >
 						    <option value="${status.index }">${status.index }</option>
 						</c:if>
 					</c:forEach>
@@ -262,6 +261,7 @@ th, td, tr {
 			</span>회차 당첨번호 &nbsp;&nbsp;<span id="lottoAPIgdate"></span>
 		</div>
 		<div id="lottoAPINum"></div>
+		<div id="buy_btn" data-toggle="collapse" data-target="#demo"></div>
 	</div>
 
 	<div id="demo" class="collapse">
@@ -373,7 +373,7 @@ function lottoapi(gno) {
 			lottoAPINum += '<img src="/resources/assets/img/lotto/number_'+ data.bnum +'_on.png" class="apiLotto" >';
 			
 			$('#lottoAPIgno').html(data.gno);
-			$('#lottoAPIgno2').html(778);
+			$('#lottoAPIgno2').html(779);
 			$('#lottoAPIgdate').html(data.gdate);
 			$('#lottoAPINum').html(lottoAPINum);
 			$('#lottoAPIbNum').html(data.bnum);
@@ -419,7 +419,8 @@ function loadlottoapi(gno) {
 			mylottolist(lottoNum);
 		}
 	});
-}  
+}
+
 function prevlottoapi(gno) {
 	
 	var url = '';
@@ -443,7 +444,8 @@ function prevlottoapi(gno) {
 			prevlotto(lottoNum, data.gno);
 		}
 	});
-}  
+}
+
 function nextlottoapi(gno) {
 	
 	var url = '';
@@ -488,8 +490,8 @@ function mylottolist(lottoNum) {
 		type: 'post',
 		dataType: 'json',
 		data: {
-			'gdate': '2017-10-28',
-			'gno': '778'
+			'gdate': '2017-11-04',
+			'gno': '779'
 		},
 		success: function(data) {
 			var winChk = '';
@@ -662,7 +664,6 @@ function prevlotto(lottoNum, gno) {
 				$.each(data, function(idx, lotto) {
 					var cnt = 0;
 					table += '<tr>';
-					table += '	<td>' + (idx + 1) + '</td>';
 					table += '	<td class="win">' + (idx + 1) + '</td>';
 					if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
@@ -823,7 +824,6 @@ function nextlotto(lottoNum, gno) {
 				$.each(data, function(idx, lotto) {
 					var cnt = 0;
 					table += '<tr>';
-					table += '	<td>' + (idx + 1) + '</td>';
 					table += '	<td class="win">' + (idx + 1) + '</td>';
 					if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
@@ -1018,7 +1018,6 @@ $('.buy_btn').click(function() {
 					$.each(data, function(idx, lotto) {
 						var cnt = 0;
 						table += '<tr>';
-						table += '	<td>' + (idx + 1) + '</td>';
 						table += '	<td class="win">' + (idx + 1) + '</td>';
 						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
