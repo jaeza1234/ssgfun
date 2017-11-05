@@ -39,11 +39,11 @@ public class MainCtrl {
 		String uno = (String)req.getParameter("uno");
 		loginUser.setUno(uno);
 		loginUser.setUpwd(uno);
-		loginUser.setUname("������");
+/*		loginUser.setUname("������");
 		loginUser.setUemail("p908uz@shinsegae.com");
 		loginUser.setUphone(01011112222);
 		loginUser.setUaccount("111-1111-1111");
-		loginUser.setRegdate("20171025");
+		loginUser.setRegdate("20171025");*/
 		
 		session.setAttribute("loginUser", loginUser);
 		
