@@ -37,15 +37,13 @@ public class MainCtrl {
 		
 		UserVO loginUser = new UserVO();
 		String uno = (String)req.getParameter("uno");
-		loginUser.setUno(uno);
-		loginUser.setUpwd(uno);
-		loginUser.setUname("������");
-		loginUser.setUemail("p908uz@shinsegae.com");
-		loginUser.setUphone(01011112222);
-		loginUser.setUaccount("111-1111-1111");
-		loginUser.setRegdate("20171025");
-		
-		session.setAttribute("loginUser", loginUser);
+		System.out.println("Main uno >>>>>>>>>> " + uno);
+		if(uno != null) {
+			loginUser.setUno(uno);
+			loginUser.setUpwd(uno);
+			
+			session.setAttribute("loginUser", loginUser);
+		}
 		
 		return "main";
 	}
@@ -102,7 +100,7 @@ public class MainCtrl {
 		
 		
 		
-		System.out.println("�Ѿ���� ��:"+money);
+		System.out.println("占싼억옙占쏙옙占� 占쏙옙:"+money);
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
 		System.out.println(Integer.parseInt(money)/10000);
 		mainService.plusFruit(loginUser, Integer.parseInt(money)/10000);
