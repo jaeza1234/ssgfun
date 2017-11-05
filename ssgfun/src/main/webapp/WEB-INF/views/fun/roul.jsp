@@ -178,7 +178,6 @@ window.onload = function(){
 </script>
 
 <style type="text/css">
-div{border:solid gold}
 body {
 	overflow-x: hidden;
 }

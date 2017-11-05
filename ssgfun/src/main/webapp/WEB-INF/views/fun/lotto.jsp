@@ -17,7 +17,6 @@
 /* div { */
 /* 	border: solid 1px gold; */
 /* } */
-div{border:solid;}
 html,body {
 	width:100%;
 	height:100%; 

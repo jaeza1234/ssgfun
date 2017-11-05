@@ -106,9 +106,6 @@
 	width: 70px;
 	height: 70px;
 }
-div{
-	border:solid;
-}
 
 
 </style>
