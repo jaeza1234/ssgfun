@@ -43,7 +43,7 @@ html,body {
 .fruit {
 	position: relative;
     top: 86px;
-    left: 195px;
+    left: 200px;
     width: 100px;
     font-size: 20px;
 	font-weight: bold;

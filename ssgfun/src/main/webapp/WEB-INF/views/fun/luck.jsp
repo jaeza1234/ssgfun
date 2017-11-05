@@ -47,7 +47,7 @@ body {
 .fruit {
 	position: absolute;
 	top: 90px;
-	left: 195px;
+	left: 200px;
 	width: 80px;
 	height: 80px;
 	font-size: 20px;

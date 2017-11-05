@@ -219,7 +219,7 @@ p {
 .fruit {
 	position: absolute;
     top: 86px;
-    left: 193px;
+    left: 200px;
     width: 100px;
     font-size: 20px;
 	font-weight: bold;
