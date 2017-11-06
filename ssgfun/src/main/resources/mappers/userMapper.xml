@@ -18,12 +18,24 @@
 		VALUES(SEQ_USER_COUPON.NEXTVAL, #{ucname}, NULL, NULL, DEFAULT, NULL, #{uno})
  	</update>
  	
- 	 	<update id="obtainAtt" parameterType="com.sinc.ssgfun.vo.UserVO" >
+ 	 <update id="obtainAtt" parameterType="com.sinc.ssgfun.vo.UserVO" >
 		UPDATE	T_EVENT_ATT
 		SET		EACNT = EACNT + 1,
 				MODDATE = SYSDATE
 		WHERE	UNO = #{uno}
  	</update>
+ 	
+ 	<select id="getMyInfo" parameterType="com.sinc.ssgfun.vo.UserVO" resultType="com.sinc.ssgfun.vo.UserVO">
+ 		SELECT	UNO, 
+				UPWD,
+				UNAME,
+				UACCOUNT,
+				UMONEY,
+				REGDATE,
+				MODDATE
+		FROM	T_USER
+		WHERE	UNO = #{uno}
+ 	</select>
  	
 </mapper>  
 

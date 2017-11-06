@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/resources/assets/css/style.css" type="text/css" />
 
@@ -705,7 +707,7 @@ function prevlotto(lottoNum, gno) {
 		},
 		success: function(data) {
 			if(data.length == 0) {
-				alert('이전 데이터 없다');
+				alert('구입내역이 없습니다.');
 				$('#lottoAPIgno2').html(Number(gno)+1);
 			} else {
 				var winChk = '';
@@ -864,7 +866,7 @@ function nextlotto(lottoNum, gno) {
 		},
 		success: function(data) {
 			if(data.length == 0) {
-				alert('다음 데이터가 없다');
+				alert('구입내역이 없습니다.');
 			} else {
 				var winChk = '';
 				var tableGno = '';

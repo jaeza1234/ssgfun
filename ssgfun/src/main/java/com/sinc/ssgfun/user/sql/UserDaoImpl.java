@@ -61,4 +61,11 @@ public class UserDaoImpl implements UserDao {
 
 		return session.update(USERREFIX + "obtainAtt", loginUser);
 	}
+
+	@Override
+	public UserVO getMyInfo(UserVO loginUser) {
+		logger.info("UserDaoImpl getMyInfo");
+
+		return session.selectOne(USERREFIX + "getMyInfo", loginUser);
+	}
 }

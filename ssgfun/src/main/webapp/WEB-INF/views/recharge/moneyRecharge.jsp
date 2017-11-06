@@ -277,8 +277,9 @@
 					}
 				});
 			
-			
-
+		});
+		$('.okBtn').click(function() {
+			location.href='main.fun?uno=${loginUser.uno}';
 		});
 	</script>
 	<script>

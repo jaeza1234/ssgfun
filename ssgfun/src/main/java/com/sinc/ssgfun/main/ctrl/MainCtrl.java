@@ -32,17 +32,21 @@ public class MainCtrl {
 	private UserService userService;
 	
 	@RequestMapping("/main.fun")
-	public String main(HttpSession session, HttpServletRequest req) {
+	public String main(HttpSession session, HttpServletRequest req, Model model) {
 		logger.info("MainCtrl main");
 		
 		UserVO loginUser = new UserVO();
 		String uno = (String)req.getParameter("uno");
 		System.out.println("Main uno >>>>>>>>>> " + uno);
+		UserVO myInfo = new UserVO();
 		if(uno != null) {
 			loginUser.setUno(uno);
 			loginUser.setUpwd(uno);
 			session.setAttribute("loginUser", loginUser);
+			myInfo = userService.getMyInfo(loginUser);
 		}
+		
+		model.addAttribute("myInfo", myInfo);
 		
 		return "main";
 	}
@@ -97,12 +101,12 @@ public class MainCtrl {
 	public int moneyRecharge(HttpSession session, String money) {
 		logger.info("MainCtrl moneyRecharge");
 		
-		
-		
-		System.out.println("占싼억옙占쏙옙占� 占쏙옙:"+money);
+		System.out.println("들어온돈:"+money);
 		UserVO loginUser = (UserVO) session.getAttribute("loginUser");
+		loginUser.setUmoney(Integer.parseInt(money));
 		System.out.println(Integer.parseInt(money)/10000);
 		mainService.plusFruit(loginUser, Integer.parseInt(money)/10000);
+		userService.obtainMoney(loginUser);
 		return Integer.parseInt(money)/10000;
 	}
 	

@@ -60,4 +60,11 @@ public class UserServiceImpl implements UserService {
 		return userDao.obtainAtt(loginUser);
 	}
 
+	@Override
+	public UserVO getMyInfo(UserVO loginUser) {
+		logger.info("UserServiceImpl getMyInfo");
+
+		return userDao.getMyInfo(loginUser);
+	}
+
 }

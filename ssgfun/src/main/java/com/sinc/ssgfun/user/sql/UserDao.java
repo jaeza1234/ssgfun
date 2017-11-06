@@ -17,4 +17,6 @@ public interface UserDao {
 
 	int obtainAtt(UserVO loginUser);
 
+	UserVO getMyInfo(UserVO loginUser);
+
 }

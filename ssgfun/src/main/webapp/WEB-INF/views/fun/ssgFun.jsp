@@ -70,7 +70,7 @@ body {
 			<div class="luckEvent"></div>
 		</a>
 
-		<a href="main.fun">
+		<a href="javascript:history.back();">
 			<div class="backpage"></div>
 		</a>
 		

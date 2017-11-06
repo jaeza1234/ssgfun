@@ -17,4 +17,6 @@ public interface UserService {
 
 	int obtainAtt(UserVO loginUser);
 
+	UserVO getMyInfo(UserVO loginUser);
+
 }

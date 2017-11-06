@@ -370,7 +370,7 @@ height: auto;
 .noteTxt {
 	position: absolute;
 	top: 29px;
-	left: 75px;
+	left: 40px;
 	text-align: center;
 	font-size: 20px;
 }
@@ -588,7 +588,7 @@ height: auto;
 					<span class="noteTxt">
 						하루에 한 번 꽃에 물을 주어<br>
 						열매를 얻을 수 있습니다.<br>
-						<strong class="strong">7개 달성 시 열매 추가 지급!</strong>
+						<strong class="strong">7개 달성 시 SSG Money 100 지급!</strong>
 					</span>
 					<a href="/ssgFun.fun">
 						<img class="go" src="../resources/assets/img/attend/go.png">
