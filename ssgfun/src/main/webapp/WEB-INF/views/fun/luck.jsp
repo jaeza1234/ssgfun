@@ -29,6 +29,9 @@
 body {
 	overflow-x: hidden;
 }
+p {
+	font-size: 20px;
+}
 .am-wrapper>.bgimg {
 	position: absolute;
 	top: 0;
@@ -275,7 +278,7 @@ div {
 <body>
 	<div class="am-wrapper">
 		<img class="bgimg" src="/resources/assets/img/bgimg/unse_long.png"> <a
-			href="/ssgFun.fun">
+			href="javascript:history.back();">
 			<div class="backpage"></div>
 		</a>
 
@@ -390,7 +393,7 @@ div {
 						<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>
 						<p></p><p></p>
 						<div>
-							[당첨] 열매 1개 획득!
+							<p>[당첨] 열매 1개 획득!</p>
 						</div>
 						</div>
 		         </div>

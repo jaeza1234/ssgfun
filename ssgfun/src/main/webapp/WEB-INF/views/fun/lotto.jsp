@@ -20,6 +20,9 @@ html,body {
 	margin:0; 
 	padding:0;
 }
+p {
+	font-size: 20px;
+}
 * {
   padding: 0;
   margin: 0;
@@ -148,8 +151,8 @@ input[type="checkbox"]:checked {
 }
 .lotto_bg_bottm {
 	width: 100%;
-	height: 422px;
-	background-image: url("/resources/assets/img/lotto/lotto_bg_bottom.png");
+	height: 730px;
+	background-image: url("/resources/assets/img/lotto/lotto_txt_append.png");
 	background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -227,6 +230,62 @@ th, td, tr {
 	/* Safari and Chrome */ 
 	border-radius:0; 
 	border:0;
+}
+.modal {
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.modal:before {
+		display: inline-block;
+		vertical-align: middle;
+		content: " ";
+ 		height: 300px;
+    }
+}
+.modal-dialog.modal-fullsize { 
+	width: 200px;
+    height: 200px;
+    margin: 0;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0;
+    position: absolute;
+    top: 200px;
+    left: 45px; 
+    min-width: 30%;
+    min-height: 30%;
+}
+.modal-content {
+	background-image: url("/resources/assets/img/roul/popup_box2.png");
+	background-repeat: no-repeat;
+	background-size: 100%;
+	text-align: center;
+}
+.modal-content.modal-fullsize {
+	height: auto;
+	border-radius: 20px; 
+	width: 100px;
+}
+.modal-footer {
+	background-color: #ffffff;
+	border-top: transparent;
+	text-align: center;
+	padding-top: 0;
+}
+.modal-title {
+	padding-top: 0px;
+	color: #fff;
+}
+.modal-body {
+	padding: 0;
+}
+.okBtn {
+	width: 50%;
+}
+.winModal {
+	width: 30%;
 }
 </style>
 </head>
@@ -467,7 +526,7 @@ function nextlottoapi(gno) {
 			
 		},
 		error: function(request,status,error) {
-			if(gno > 778) {
+			if(gno > 779) {
 				$('#lottoAPIgno2').html(gno);
 			} else {
 				$('#lottoAPIgno2').html((Number(gno)+1));
@@ -495,13 +554,15 @@ function mylottolist(lottoNum) {
 			var tableGno = '';
 			var table = '';
 			table += '<table class="myLottoTable">';
-			table += '	<th></th>';
+			table += '  <tr>';	
+			table += '		<th colspan="8" ></th>';
+			table += '  </tr>';	
 			table += '	<tbody id="myLotto">';
 			$.each(data, function(idx, lotto) {
 				
 				var cnt = 0;
 				table += '<tr>';
-				table += '	<td class="win">' + (idx + 1) + '</td>';
+				table += '	<td class="win">&#' + (idx + 65) + '</td>';
 				if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 						lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 						lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -576,25 +637,22 @@ function mylottolist(lottoNum) {
 				}
 			
 				if(cnt == 3) {
-					table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
 					if(lotto.ulflag == 1) {
-						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						table += '<td style="font-size: 13px;">수령완료</td>';
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+						table += '<td><img src="/resources/assets/img/lotto/5.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 					}
 				} else if(cnt == 4) {
-					table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 					if(lotto.ulflag == 1) {
-						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						table += '<td style="font-size: 13px;">수령완료</td>';
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+						table += '<td><img src="/resources/assets/img/lotto/4.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 					}
 				} else if(cnt == 5) {
-					table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 					if(lotto.ulflag == 1) {
-						table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+						table += '<td style="font-size: 13px;">수령완료</td>';
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+						table += '<td><img src="/resources/assets/img/lotto/3.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 					}
 				} else if(cnt == 6) {
 					if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -604,23 +662,20 @@ function mylottolist(lottoNum) {
 							lotto.ulnum5 == $('#lottoAPIbNum').text() ||
 							lotto.ulnum6 == $('#lottoAPIbNum').text()) {
 						
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/2.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/1.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 						}
 					}
 				} else {
-					table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
-					table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+					table += '<td>-</td>';
 				}
 				
 				table += '</tr>';
@@ -631,7 +686,7 @@ function mylottolist(lottoNum) {
 			table += '	</tbody>';
 			table += '</table>';
 			$('.myLottoList').html(table);
-			$('th').html(tableGno);
+			$('th').html(tableGno + '회차 구입내역');
 			
 		}
 	});
@@ -653,15 +708,19 @@ function prevlotto(lottoNum, gno) {
 				alert('이전 데이터 없다');
 				$('#lottoAPIgno2').html(Number(gno)+1);
 			} else {
+				var winChk = '';
 				var tableGno = '';
 				var table = '';
 				table += '<table class="myLottoTable">';
+				table += '  <tr>';	
+				table += '		<th colspan="8" ></th>';
+				table += '  </tr>';	
 				table += '	<tbody id="myLotto">';
-				table += '	<th></th>';
 				$.each(data, function(idx, lotto) {
+					
 					var cnt = 0;
 					table += '<tr>';
-					table += '	<td class="win">' + (idx + 1) + '</td>';
+					table += '	<td class="win">&#' + (idx + 65) + '</td>';
 					if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -734,27 +793,24 @@ function prevlotto(lottoNum, gno) {
 					} else {
 						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 					}
-					
+				
 					if(cnt == 3) {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/5.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 4) {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/4.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 5) {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/3.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 6) {
 						if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -764,23 +820,20 @@ function prevlotto(lottoNum, gno) {
 								lotto.ulnum5 == $('#lottoAPIbNum').text() ||
 								lotto.ulnum6 == $('#lottoAPIbNum').text()) {
 							
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/2.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/1.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 							}
 						}
 					} else {
-						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
-						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+						table += '<td>-</td>';
 					}
 					
 					table += '</tr>';
@@ -791,7 +844,8 @@ function prevlotto(lottoNum, gno) {
 				table += '	</tbody>';
 				table += '</table>';
 				$('.myLottoList').html(table);
-				$('th').html(tableGno);
+				$('th').html(tableGno + '회차 구입내역');
+				
 			}
 		}
 	});
@@ -812,16 +866,19 @@ function nextlotto(lottoNum, gno) {
 			if(data.length == 0) {
 				alert('다음 데이터가 없다');
 			} else {
-				var tableGNO = '';
+				var winChk = '';
+				var tableGno = '';
 				var table = '';
 				table += '<table class="myLottoTable">';
+				table += '  <tr>';	
+				table += '		<th colspan="8" ></th>';
+				table += '  </tr>';	
 				table += '	<tbody id="myLotto">';
-				table += '	<th></th>';
-				
 				$.each(data, function(idx, lotto) {
+					
 					var cnt = 0;
 					table += '<tr>';
-					table += '	<td class="win">' + (idx + 1) + '</td>';
+					table += '	<td class="win">&#' + (idx + 65) + '</td>';
 					if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 							lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -894,27 +951,24 @@ function nextlotto(lottoNum, gno) {
 					} else {
 						table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 					}
-					
+				
 					if(cnt == 3) {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/5.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 4) {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/4.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 5) {
-						table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 						if(lotto.ulflag == 1) {
-							table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+							table += '<td style="font-size: 13px;">수령완료</td>';
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+							table += '<td><img src="/resources/assets/img/lotto/3.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 						}
 					} else if(cnt == 6) {
 						if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -924,23 +978,20 @@ function nextlotto(lottoNum, gno) {
 								lotto.ulnum5 == $('#lottoAPIbNum').text() ||
 								lotto.ulnum6 == $('#lottoAPIbNum').text()) {
 							
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/2.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/1.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 							}
 						}
 					} else {
-						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
-						table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+						table += '<td>-</td>';
 					}
 					
 					table += '</tr>';
@@ -950,9 +1001,8 @@ function nextlotto(lottoNum, gno) {
 				
 				table += '	</tbody>';
 				table += '</table>';
-				
 				$('.myLottoList').html(table);
-				$('th').html(tableGno);
+				$('th').html(tableGno + '회차 구입내역');
 				
 			}
 		}
@@ -1007,15 +1057,19 @@ $('.buy_btn').click(function() {
 				cache: false,
 				data: param,
 				success: function(data) {
+					var winChk = '';
 					var tableGno = '';
 					var table = '';
 					table += '<table class="myLottoTable">';
-					table += '	<th></th>';
+					table += '  <tr>';	
+					table += '		<th colspan="8" ></th>';
+					table += '  </tr>';	
 					table += '	<tbody id="myLotto">';
 					$.each(data, function(idx, lotto) {
+						
 						var cnt = 0;
 						table += '<tr>';
-						table += '	<td class="win">' + (idx + 1) + '</td>';
+						table += '	<td class="win">&#' + (idx + 65) + '</td>';
 						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -1088,27 +1142,24 @@ $('.buy_btn').click(function() {
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						
+					
 						if(cnt == 3) {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/5.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 4) {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/4.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 5) {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/3.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 6) {
 							if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -1118,35 +1169,32 @@ $('.buy_btn').click(function() {
 									lotto.ulnum5 == $('#lottoAPIbNum').text() ||
 									lotto.ulnum6 == $('#lottoAPIbNum').text()) {
 								
-								table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
 								if(lotto.ulflag == 1) {
-									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+									table += '<td style="font-size: 13px;">수령완료</td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/2.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 								}
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 								if(lotto.ulflag == 1) {
-									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+									table += '<td style="font-size: 13px;">수령완료</td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/1.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 								}
 							}
 						} else {
-							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
-							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+							table += '<td>-</td>';
 						}
 						
 						table += '</tr>';
 						tableGno  = lotto.ulname;
+						
 					});
 					
 					table += '	</tbody>';
 					table += '</table>';
-					
 					$('.myLottoList').html(table);
-					$('th').html(tableGno);
-					$('#lottoAPIgno2').html(Number($('#lottoAPIgno').text())+1);
+					$('th').html(tableGno + '회차 구입내역');
+					
 				}
 			});
 		}else{
@@ -1190,19 +1238,19 @@ function winChkbtn(ulno, cnt) {
 	$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
 	if(cnt == 7) {
 		obtain = '10000000';
-		$('#result').html('<p>1등!!</p>');
+		$('#result').html('<br><img class="winModal" src="/resources/assets/img/lotto/1.png"><p>SSG MONEY 10000000</p>');
 	} else if(cnt == 6) {
 		obtain = '1000000';
-		$('#result').html('<p>2등!!</p>');
+		$('#result').html('<br><img class="winModal" src="/resources/assets/img/lotto/2.png"><p>SSG MONEY 1000000</p>');
 	} else if(cnt == 5) {
 		obtain = '100000';
-		$('#result').html('<p>3등!!</p>');
+		$('#result').html('<br><img class="winModal" src="/resources/assets/img/lotto/3.png"><p>SSG MONEY 100000</p>');
 	} else if(cnt == 4) {
 		obtain = '1000';
-		$('#result').html('<p>4등!!</p>');
+		$('#result').html('<br><img class="winModal" src="/resources/assets/img/lotto/4.png"><p>SSG MONEY 1000</p>');
 	} else if(cnt == 3) {
 		obtain = '500';
-		$('#result').html('<p>5등!!</p>');
+		$('#result').html('<br><img class="winModal" src="/resources/assets/img/lotto/5.png"><p>SSG MONEY 500</p>');
 	} else {
 		obtain = '1';
 		$('#result').html('<p>이상하다!!!</p>');
@@ -1235,13 +1283,15 @@ function winChkbtn(ulno, cnt) {
 					var tableGno = '';
 					var table = '';
 					table += '<table class="myLottoTable">';
-					table += '	<th></th>';
+					table += '  <tr>';	
+					table += '		<th colspan="8" ></th>';
+					table += '  </tr>';	
 					table += '	<tbody id="myLotto">';
 					$.each(data, function(idx, lotto) {
 						
 						var cnt = 0;
 						table += '<tr>';
-						table += '	<td class="win">' + (idx + 1) + '</td>';
+						table += '	<td class="win">&#' + (idx + 65) + '</td>';
 						if(lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[0] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[1] || 
 								lotto.ulname == $('#lottoAPIgno').text() && lotto.ulnum1 == num[2] || 
@@ -1314,27 +1364,24 @@ function winChkbtn(ulno, cnt) {
 						} else {
 							table += '	<td><img src="/resources/assets/img/lotto/number_' + lotto.ulnum6 + '_off.png" class="mybuyLotto" ></td>';
 						}
-						
+					
 						if(cnt == 3) {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_5.png" style="width:55px;" ></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/5.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 4) {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_4.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/4.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 5) {
-							table += '<td><img src="/resources/assets/img/lotto/text_icon_3.png" style="width:55px;"></td>';
 							if(lotto.ulflag == 1) {
-								table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+								table += '<td style="font-size: 13px;">수령완료</td>';
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+								table += '<td><img src="/resources/assets/img/lotto/3.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 							}
 						} else if(cnt == 6) {
 							if(lotto.ulnum1 == $('#lottoAPIbNum').text() ||
@@ -1344,25 +1391,22 @@ function winChkbtn(ulno, cnt) {
 									lotto.ulnum5 == $('#lottoAPIbNum').text() ||
 									lotto.ulnum6 == $('#lottoAPIbNum').text()) {
 								
-								table += '<td><img src="/resources/assets/img/lotto/text_icon_2.png" style="width:55px;" ></td>';
 								if(lotto.ulflag == 1) {
-									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+									table += '<td style="font-size: 13px;">수령완료</td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/2.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+cnt+')"></td>';
 								}
 							} else {
-								table += '<td><img src="/resources/assets/img/lotto/text_icon_1.png" style="width:55px;" ></td>';
 								if(lotto.ulflag == 1) {
-									table += '<td><img src="/resources/assets/img/lotto/plus_icon.png" style="width:55px;"></td>';
+									table += '<td style="font-size: 13px;">수령완료</td>';
 								} else {
-									table += '<td><img src="/resources/assets/img/lotto/btn.png" class="winChk" style="width:55px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
+									table += '<td><img src="/resources/assets/img/lotto/1.png" class="winChk" style="width:40px;" onclick="winChkbtn('+lotto.ulno+', '+(cnt+1)+')"></td>';
 								}
 							}
 						} else {
-							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
-							table += '<td><img src="/resources/assets/img/unse/blank.png" style="width:55px;" ></td>';
+							table += '<td>-</td>';
 						}
-					
+						
 						table += '</tr>';
 						tableGno  = lotto.ulname;
 						
@@ -1371,7 +1415,8 @@ function winChkbtn(ulno, cnt) {
 					table += '	</tbody>';
 					table += '</table>';
 					$('.myLottoList').html(table);
-					$('th').html(tableGno);
+					$('th').html(tableGno + '회차 구입내역');
+					
 				}
 			});
 		}

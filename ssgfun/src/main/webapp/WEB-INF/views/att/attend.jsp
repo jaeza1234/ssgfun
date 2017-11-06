@@ -36,7 +36,9 @@ body {
 	background-color: #fff;
 }
 
-
+p {
+	font-size: 20px;
+}
 :before,
 :after {
   content: "";
@@ -464,7 +466,7 @@ height: auto;
 				
 			</div>
 		</nav> -->
-	<a href="/main.fun">
+	<a href="javascript:history.back();">
 		<div class="backpage">
 		</div>
 	</a>	
@@ -575,17 +577,6 @@ height: auto;
 							       	</c:if>
 					  			</c:otherwise>
 					  		</c:choose>
-					  		<%-- <c:if test="${attInfo.eaattcnt == 0}">
-					       	  <li class="leaf1 white"></li>
-					          <li class="leaf2 white"></li>
-					          <li class="leaf3 white"></li>
-					          <li class="leaf4 white"></li>
-					          <li class="leaf5 white"></li>
-					          <li class="leaf6 white"></li>
-					          <li class="leaf7 white"></li>
-					       	</c:if> --%>
-					       	
-					          
 					        </ul>
 				       </div>
 				    </div>
@@ -621,9 +612,17 @@ height: auto;
 	            </h4>
 	         </div>
 	         <div class="modal-body">
+	         	<c:if test="${attInfo.eaattcnt % 7 == 6}">
+	            	<div>
+	            		[출석완료] 열매 1개 지급! <br/>
+	            		[SSG Money] 100 지급!
+	            	</div>
+	         	</c:if>
+	         	<c:if test="${attInfo.eaattcnt % 7 != 6}">
 	            	<div>
 	            		[출석완료] 열매 1개 지급!
 	            	</div>
+	         	</c:if>
 	         </div>
 	         <div class="modal-footer">
 	            <button type="button" class="btn btn-default success" 

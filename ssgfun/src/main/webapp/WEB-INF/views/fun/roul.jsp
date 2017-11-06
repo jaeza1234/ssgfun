@@ -91,60 +91,13 @@ window.onload = function(){
         $('#result_id').html("<p>움직인각도:" + n + "</p>");
         var real_angle = n%360 +18;
         var part = Math.floor(real_angle/36);
-     	alert(part);
         $('#result_id2').html("<p>상품범위:" + part + "</p>");
-        
-		alert('움직인각도 > ' + n + ', 상품범위 >' + part +'당첨 > ' + pArr[part]);
- 
- /* 
-        if(part < 1){
-//             $('#result_id3').html("<p>당첨내역:" + pArr[0] + "</p>");
-            $('#result_id3').html("<p>" + pArr[0] + "</p>");
-			if(pArr[part] == "꽝") {
-				$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
-				$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[0] + "</p>");
-			} else {
-				$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
-				$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[0] + "</p>");
-			}
-            $('#result_id3').html("<p>뭘 쓰는거야" + pArr[0] + "</p>");
-            return;
-        } else if(part >= 10){
-//             $('#result_id3').html("<p>당첨내역:" + pArr[pArr.length-1] + "</p>");
-        } else if(part >= 10){
-            $('#result_id3').html("<p>" + pArr[pArr.length-1] + "</p>");
-			if(pArr[part-1] == "꽝") {
-				$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
-				$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[pArr.length-1] + "</p>");
-			} else {
-				$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
-				$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[pArr.length-1] + "</p>");
-			}
-            return;
-        } else {
-	        	
-	        //$('#result_id3').html("<p>당첨내역:" + pArr[part] + "</p>");
-	        $('#result_id3').html("<p>" + pArr[part] + "</p>");
-			 if(part == 7) {
-				$('#result_id3').html("<p>" + pArr[part] + "</p>" + "<img src='/resources/assets/img/roul/niddle.png'>");
-			} 
-			
-			if(pArr[part] == "꽝") {
-				$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
-				$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[part] + "</p>");
-			} else {
-				$('#myModalLabel').html('<i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;당첨&nbsp;&nbsp;<i class="fa fa-star" aria-hidden="true"></i>');
-				$('#result_id3').html("<br><img class='luck' src='/resources/assets/img/roul/popup_icon.png'>" + "<p>" + pArr[part] + "</p>");
-			}
-        }
-    	*/
-		
         
         //룰렛 안 돌아가는 건 
 		if(part==0||part==3||part==5||part==8) {
 			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
 			$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[part] + "</p>");
-		} if (part==10) {
+		} else if (part==10) {
 			//pArr배열의 
 			$('#myModalLabel').html('<i class="fa fa-bomb" aria-hidden="true"></i>&nbsp;&nbsp;꽝&nbsp;&nbsp;<i class="fa fa-bomb" aria-hidden="true"></i>');
 			$('#result_id3').html("<br><img class='bomb'src='/resources/assets/img/roul/bomb.png'>" + "<p>" + pArr[0] + "</p>");
@@ -183,6 +136,7 @@ body {
 }
 p {
 	padding: 10px;
+	font-size: 20px;
 }
 
 #image{
@@ -332,10 +286,10 @@ p {
 }
 
 .rTxt {
-	width: 280px;
+	width: 300px;
     position: absolute;
     top: 483px;
-    left: 76px;
+    left: 60px;
 }
 .titleTxt {
 	font-size: 20px;
@@ -383,19 +337,20 @@ p {
 			<span class="conTxt">
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;출석체크(하루1회 열매1개)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					
 					<a href="/user/att.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;오늘의 운세(랜덤 확률 열매1개)
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<a href="/luck/main.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
 				<span class="conTxtSpan">
 					<i class="fa fa-check" aria-hidden="true"></i>&nbsp;SSG Money 충전(만원충전 열매1개)
+					&nbsp;&nbsp;&nbsp;
 					<a href="/recharge.fun"><img class="goImg" src="/resources/assets/img/roul/go_btn.png"></a>
 					<br><br>
 				</span>
@@ -423,8 +378,8 @@ p {
 	         <div class="modal-body">
 	            	<!-- <div id="result_id"></div>
 					<div id="result_id2"></div> -->
-					<div id="result_id3">
-					</div>
+					<span id="result_id3">
+					</span>
 	         </div>
 	         <div class="modal-footer">
 	            <button type="button" class="btn btn-default" 
