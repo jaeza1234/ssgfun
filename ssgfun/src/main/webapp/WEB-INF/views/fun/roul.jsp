@@ -356,10 +356,6 @@ p {
 				</span>
 			</span>
 		</div>
-		
-<!-- 		<div id="result_id"></div> -->
-<!-- 		<div id="result_id2"></div> -->
-<!-- 		<div id="result_id3"></div> -->
 	</div>
 	
 	<!-- Modal -->
